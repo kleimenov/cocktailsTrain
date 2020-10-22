@@ -4,14 +4,14 @@ const Pool = require('pg').Pool
 const pool = new Pool({
     user: 'deelooc21',
     host: 'localhost',
-    database: 'testdb',
+    database: 'cocktails_train',
     port: '5432'
 })
 //I will make a bunch of psql queries
 
-//1. Lets get all cats names from database
-const getCats = (request, response) => {
-   pool.query('select * from cats', (err, res) => {
+//1. Lets get all cocktails names from database
+const getCocktails = (request, response) => {
+   pool.query('select * from cocktails', (err, res) => {
        if (err) throw err;
        response.status(200).json(res.rows)
    })
@@ -78,7 +78,7 @@ const deleteCat = (request, response) => {
 
 //here we will export modules
 module.exports = {
-    getCats,
+    getCocktails,
     getCatById,
     addCats,
     updateCats,

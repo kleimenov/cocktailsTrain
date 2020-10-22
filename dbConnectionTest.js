@@ -5,7 +5,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const PORT = 3002;
-const db = require('./psqlTest')
+const db = require('./database.js')
 
 const app = express();
 
@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 });
 
 //here we will get response from database to '/cats'
-app.get('/cats', db.getCats);
+app.get('/cocktails', db.getCocktails);
 
 //here we will get a single user data (for instance particular user)
 app.get('/cats/:id', db.getCatById);
