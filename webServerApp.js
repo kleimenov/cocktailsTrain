@@ -140,6 +140,7 @@ const checkEmptyValues = (db) => {
       delete db[element];
     }
   }
+  //return db
   return db;
 }
 
