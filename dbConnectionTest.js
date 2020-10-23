@@ -21,11 +21,12 @@ app.get('/', (req, res) => {
     res.json({message: 'Node.js, Express and Postgres inside one boat EEEeeeehaaaaAAAA'});
 });
 
-//here we will get response from database to '/cats'
-app.get('/cocktails', db.getCocktails);
 
 //here we will get a single user data (for instance particular user)
-app.get('/cats/:id', db.getCatById);
+app.get('/cocktails/:id', db.getCocktailsById);
+
+//here we will get response from database to '/cats'
+app.get('/cocktails', db.getCocktails);
 
 //here we will add new data to db
 app.post('/cats/', db.addCats);

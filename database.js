@@ -18,6 +18,25 @@ const getCocktails = (request, response) => {
 }
 
 //2. Lets get specific cat data from database
+const getCocktailsById = (request, response) => {
+  const id = parseInt(request.params.id);
+  pool.query('select cocktails.cocktail_id, cocktail_name, ingredients, amount from cocktails inner join ingredients on cocktails.cocktail_id = ingredients.cocktail_id where ingredients.cocktail_id =$1', [id], (err, res) => {
+     if (err) throw err;
+      response.status(200).json(res.rows)
+  })
+}
+
+
+
+
+
+
+
+//-----+----------------------------+---------------------+----------+----
+
+
+
+//2. Lets get specific cat data from database
 const getCatById = (request, response) => {
   const id = parseInt(request.params.id);
   pool.query('select * from cats where id=$1', [id], (err, res) => {
@@ -79,7 +98,7 @@ const deleteCat = (request, response) => {
 //here we will export modules
 module.exports = {
     getCocktails,
-    getCatById,
+    getCocktailsById,
     addCats,
     updateCats,
     deleteCat
