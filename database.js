@@ -26,6 +26,17 @@ const getCocktailsById = (request, response) => {
   })
 }
 
+//3. Lets delete cat from database
+const deleteCocktail = (request, response) => {
+  const id = parseInt(request.params.id)
+  pool.query('DELETE FROM cocktails WHERE cocktail_id = $1', [id], (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.status(200).send(`Cocktail deleted with ID: ${id}`)
+  })
+}
+
 
 
 
@@ -34,16 +45,6 @@ const getCocktailsById = (request, response) => {
 
 //-----+----------------------------+---------------------+----------+----
 
-
-
-//2. Lets get specific cat data from database
-const getCatById = (request, response) => {
-  const id = parseInt(request.params.id);
-  pool.query('select * from cats where id=$1', [id], (err, res) => {
-     if (err) throw err;
-      response.status(200).json(res.rows)
-  })
-}
 
 //3. Lets add new cats into our database
 const addCats = (request, response) => {
@@ -99,9 +100,10 @@ const deleteCat = (request, response) => {
 module.exports = {
     getCocktails,
     getCocktailsById,
+    deleteCocktail,
     addCats,
     updateCats,
-    deleteCat
+   
 }
 
 

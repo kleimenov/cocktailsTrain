@@ -28,14 +28,18 @@ app.get('/cocktails/:id', db.getCocktailsById);
 //here we will get response from database to '/cats'
 app.get('/cocktails', db.getCocktails);
 
+//here we will delete cat from database
+app.delete('/cocktails/:id', db.deleteCocktail);
+
+
+
 //here we will add new data to db
 app.post('/cats/', db.addCats);
 
 //here we will update specific cat data
 app.put('/cats/:id', db.updateCats);
 
-//here we will delete cat from database
-app.delete('/cats/:id', db.deleteCat);
+
 
 
 //set port and start listen requests 
