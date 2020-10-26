@@ -37,7 +37,6 @@ const deleteCocktail = (request, response) => {
   })
 }
 
-//---------+-------------------+-----------------------------+-------------
 
 const addCocktail = (request, response) => {
   //const { user_id, cocktail_id } = request.body
@@ -60,6 +59,9 @@ const addCocktail = (request, response) => {
 }
 
 
+
+
+//---------+-------------------+-----------------------------+-------------
 /*
 const addCocktail = (request, response) => {
   console.log(request.body);
@@ -95,17 +97,6 @@ const addCocktail = (request, response) => {
 
 
 //-----+----------------------------+---------------------+----------+----
-
-
-//3. Lets add new cats into our database
-const addCats = (request, response) => {
-  const {catName, catAge} = request.body;
-  pool.query('INSERT INTO cats (catName, catAge) VALUES ($1, $2)', [catName, catAge], (err, res) => {
-      if (err) throw err;
-       response.status(200).json(res.rows)
-   });
-}
-
 
 //4. Lets update cat data that already exist 
 /*
