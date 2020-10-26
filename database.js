@@ -26,7 +26,7 @@ const getCocktailsById = (request, response) => {
   })
 }
 
-//3. Lets delete cat from database
+//3. Lets delete cocktail from database
 const deleteCocktail = (request, response) => {
   const id = parseInt(request.params.id)
   pool.query('DELETE FROM user_cocktails WHERE cocktail_id = $1', [id], (error, results) => {
