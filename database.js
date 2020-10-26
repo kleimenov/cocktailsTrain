@@ -60,9 +60,9 @@ const addCocktail = (request, response) => {
 
 
 //5. Lets get specific cocktail data by user id
-const getCocktailsById = (request, response) => {
+const getCocktailsByUserId = (request, response) => {
   const id = parseInt(request.params.id);
-  pool.query('select cocktails.cocktail_id, cocktail_name, ingredients, amount from cocktails inner join ingredients on cocktails.cocktail_id = ingredients.cocktail_id where ingredients.cocktail_id =$1', [id], (err, res) => {
+  pool.query('select cocktails.cocktail_name from cocktails inner join user_cocktails on cocktails.cocktail_id=user_cocktails.cocktail_id where user_id =$1', [id], (err, res) => {
      if (err) throw err;
       response.status(200).json(res.rows)
   })
@@ -155,6 +155,7 @@ module.exports = {
     getCocktailsById,
     deleteCocktail,
     addCocktail,
+    getCocktailsByUserId,
     updateCats,
    
 }
