@@ -31,6 +31,11 @@ app.get('/cocktails', db.getCocktails);
 //here we will delete cat from database
 app.delete('/cocktails/:id', db.deleteCocktail);
 
+//here we will get specific user list of cocktails
+app.get('/cocktails/user/:id', db.getCocktailsByUserId);
+
+
+
 //here we will add new data to db
 /*
 app.post('/cocktails/', (req, res) => {
