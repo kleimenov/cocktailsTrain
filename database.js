@@ -29,7 +29,7 @@ const getCocktailsById = (request, response) => {
 //3. Lets delete cat from database
 const deleteCocktail = (request, response) => {
   const id = parseInt(request.params.id)
-  pool.query('DELETE FROM cocktails WHERE cocktail_id = $1', [id], (error, results) => {
+  pool.query('DELETE FROM user_cocktails WHERE cocktail_id = $1', [id], (error, results) => {
     if (error) {
       throw error
     }
@@ -37,10 +37,61 @@ const deleteCocktail = (request, response) => {
   })
 }
 
+//---------+-------------------+-----------------------------+-------------
+
+const addCocktail = (request, response) => {
+  //const { user_id, cocktail_id } = request.body
+  const { user_id, cocktail_id, cocktail_name, ingredients, amount } = request.body;
+
+  pool.query('INSERT INTO user_cocktails (user_id, cocktail_id) VALUES ($1, $2)', [user_id, cocktail_id], (error, results) => {
+    if (error) {
+      throw error
+    }
+    //response.status(201).send(`New cocktail id added inside user_cocktails table!`)
+  })
+  pool.query('INSERT INTO cocktails (cocktail_id, cocktail_name) VALUES ($1, $2)', [cocktail_id, cocktail_name], (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.status(201).send(`New cocktail_id and cocktail_name added inside cocktails! table`)
+  })
+  
+
+}
 
 
+/*
+const addCocktail = (request, response) => {
+  console.log(request.body);
+  console.log('_____________')
+  const { user_id, cocktail_id, cocktail_name, ingredients, amount } = request.body;
+  pool.query(
+    'INSERT INTO user_cocktails (user_id, cocktail_id) VALUES ($1, $2)', [user_id, cocktail_id],
+    (error, results) => {
+      if (error) {
+        throw error
+      }
+      response.status(200).json(res.rows)
+    });
+  pool.query(
+    'INSERT INTO cocktails (cocktail_id, cocktail_name) VALUES ($1, $2)', [cocktail_id, cocktail_name],
+    (error, results) => {
+      if (error) {
+        throw error
+      }
+      response.status(200).json(res.rows)
+    });
+  pool.query(
+    'INSERT INTO ingredients (cocktail_id, ingredients, amount) VALUES ($1, $2, $3)', [cocktail_id, ingredients, amount],
+    (error, results) => {
+      if (error) {
+        throw error
+      }
+      response.status(200).json(res.rows)
+  });
 
-
+}
+*/
 
 
 //-----+----------------------------+---------------------+----------+----
@@ -85,6 +136,9 @@ const updateCats = (request, response) => {
     )
   }
 
+
+
+
 //5. Lets delete cat from database
 const deleteCat = (request, response) => {
     const id = parseInt(request.params.id)
@@ -101,7 +155,7 @@ module.exports = {
     getCocktails,
     getCocktailsById,
     deleteCocktail,
-    addCats,
+    addCocktail,
     updateCats,
    
 }

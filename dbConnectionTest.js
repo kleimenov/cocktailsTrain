@@ -31,10 +31,38 @@ app.get('/cocktails', db.getCocktails);
 //here we will delete cat from database
 app.delete('/cocktails/:id', db.deleteCocktail);
 
-
-
 //here we will add new data to db
-app.post('/cats/', db.addCats);
+/*
+app.post('/cocktails/', (req, res) => {
+    console.log('fired');
+    db.addCocktail(req.body).then(console.log('done'))
+    .catch((err) => {
+        console.log(err);
+    })
+})
+*/
+
+app.post('/cocktails', db.addCocktail)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //here we will update specific cat data
 app.put('/cats/:id', db.updateCats);
