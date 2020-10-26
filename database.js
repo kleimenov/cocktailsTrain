@@ -37,7 +37,7 @@ const deleteCocktail = (request, response) => {
   })
 }
 
-
+//4. lets add new cocktail into user_cocktails/cocktails and ingredients tables
 const addCocktail = (request, response) => {
   //const { user_id, cocktail_id } = request.body
   const { user_id, cocktail_id, cocktail_name, ingredients, amount } = request.body;
