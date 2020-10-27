@@ -137,7 +137,7 @@ module.exports = {
     deleteCocktail,
     addCocktail,
     getCocktailsByUserId,
-    getAllIngredientsAndCocktailsNames
+    
 }
 
 
