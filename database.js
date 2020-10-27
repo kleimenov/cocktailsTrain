@@ -46,7 +46,7 @@ const addCocktail = (request, response) => {
     if (error) {
       throw error
     }
-    //response.status(201).send(`New cocktail id added inside user_cocktails table!`)
+  //response.status(201).send(`New cocktail id added inside user_cocktails table!`)
   })
   pool.query('INSERT INTO cocktails (cocktail_id, cocktail_name) VALUES ($1, $2)', [cocktail_id, cocktail_name], (error, results) => {
     if (error) {
@@ -104,22 +104,6 @@ const addCocktail = (request, response) => {
 */
 
 
-//-----+----------------------------+---------------------+----------+----
-
-//4. Lets update cat data that already exist 
-/*
-const updateCats = (request, response) => {
-    const id = parseInt(request.params.id);
-    const {catName, catAge} = request.body;
-    pool.query('UPDATE cats SET catName =$1, email =$2 WHERE id =$3',
-      [catName, catAge, id],
-      (err, res) => {
-          if (err) throw err;
-           response.status(200).send(`cat modified with ID: ${id}`)
-       });
-  }
-*/
-
 
 
 //here we will export modules
@@ -128,9 +112,7 @@ module.exports = {
     getCocktailsById,
     deleteCocktail,
     addCocktail,
-    getCocktailsByUserId,
-    updateCats,
-   
+    getCocktailsByUserId
 }
 
 
