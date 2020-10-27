@@ -18,36 +18,10 @@ app.set('view engine', 'ejs');
 
 //for POST requests we will use urlencoded like: applicaton/x-ww-form-urlencoded
 app.use(bodyParser.urlencoded({extended: true}));
-
-//try to do plain response - request
-app.get('/', (req, res) => {
-    //res.json({message: 'Node.js, Express and Postgres inside one boat EEEeeeehaaaaAAAA'});
-    res.redirect('/cocktails');
-});
+app.use(cookieParser());
 
 
-//here we will get a single user data (for instance particular user)
-app.get('/cocktails/:id', db.getCocktailsById);
-
-//here we will get response from database to '/cats'
-//app.get('/cocktails', db.getCocktails);
-
-app.get('/cocktails', (req, res) => {
-   db.getCocktails().then(result => {
-       //console.log(cocktails);
-       const templateVars = {cocktails: result};
-       res.render('cocktails', templateVars)
-   })
-})
-
-//here we will delete cat from database
-app.delete('/cocktails/:id', db.deleteCocktail);
-
-//here we will get specific user list of cocktails
-app.get('/cocktails/user/:id', db.getCocktailsByUserId);
-
-
-
+//----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here we will add new data to db
 /*
 app.post('/cocktails/', (req, res) => {
@@ -59,6 +33,56 @@ app.post('/cocktails/', (req, res) => {
 })
 */
 app.post('/cocktails', db.addCocktail)
+
+
+//----------+----------------+----------+----------------+----------+----------------+----------+----------------
+//here we will get specific user list of cocktails
+app.get('/cocktails/user/:id', db.getCocktailsByUserId);
+
+
+
+
+//----------+----------------+----------+----------------+----------+----------------+----------+----------------
+//here we will delete cat from database
+app.delete('/cocktails/:id', db.deleteCocktail);
+
+
+
+
+//----------+----------------+----------+----------------+----------+----------------+----------+----------------
+//here we will get a single user data (for instance particular user)
+app.get('/cocktails/:id', db.getCocktailsById);
+
+
+
+
+
+//----------+----------------+----------+----------------+----------+----------------+----------+----------------
+//here we will get response from database to '/cats'
+//app.get('/cocktails', db.getCocktails);
+
+app.get('/cocktails', (req, res) => {
+   db.getCocktails().then(result => {
+       //console.log(cocktails);
+       const templateVars = {cocktails: result};
+       res.render('cocktails', templateVars)
+   })
+})
+
+
+
+
+//----------+----------------+----------+----------------+----------+----------------+----------+----------------
+//try to do plain response - request
+app.get('/', (req, res) => {
+    //res.json({message: 'Node.js, Express and Postgres inside one boat EEEeeeehaaaaAAAA'});
+    res.redirect('/cocktails');
+});
+
+
+
+
+
 
 
 
