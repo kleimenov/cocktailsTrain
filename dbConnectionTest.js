@@ -49,7 +49,6 @@ app.post('/cocktails/', (req, res) => {
     })
 })
 */
-
 app.post('/cocktails', db.addCocktail)
 
 
