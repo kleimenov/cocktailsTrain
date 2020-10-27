@@ -13,12 +13,16 @@ const app = express();
 //we will parse data as JSON
 app.use(bodyParser.json());
 
+//let set ejs as the view enjine
+app.set('view engine', 'ejs');
+
 //for POST requests we will use urlencoded like: applicaton/x-ww-form-urlencoded
 app.use(bodyParser.urlencoded({extended: true}));
 
 //try to do plain response - request
 app.get('/', (req, res) => {
-    res.json({message: 'Node.js, Express and Postgres inside one boat EEEeeeehaaaaAAAA'});
+    //res.json({message: 'Node.js, Express and Postgres inside one boat EEEeeeehaaaaAAAA'});
+    res.redirect('/cocktails');
 });
 
 
@@ -26,7 +30,18 @@ app.get('/', (req, res) => {
 app.get('/cocktails/:id', db.getCocktailsById);
 
 //here we will get response from database to '/cats'
-app.get('/cocktails', db.getCocktails);
+//app.get('/cocktails', db.getCocktails);
+
+app.get('/cocktails', (req, res) => {
+    db.getCocktails().then((data)=> {
+      const templateVars = {
+        cocktails: data,
+    }
+    //db.getCocktails
+    res.render('cocktails', templateVars);
+    })
+    
+})
 
 //here we will delete cat from database
 app.delete('/cocktails/:id', db.deleteCocktail);

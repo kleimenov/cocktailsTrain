@@ -10,15 +10,6 @@
           <a class="nav-item nav-link" href="/myCocktails">My cooktailes list</a>
           <a class="nav-item nav-link" href="/cocktails/new">+add cooktail</a>
         </div>
-        <% if(user) { %>
-          <h3 class="nav-item nav-link text-light"> Hello, <%= user.name %></h3>
-          <form class="form-inline" action="logout" method="POST">
-            <button type="submit">Enough for today</button>
-          </form>
-        <% } else { %> 
-            <a lass="navbar-toggler" href="/register"><button type="submit">Enroll</button></a>
-            <a lass="navbar-toggler" href="/login"><button type="submit">Sign in</button></a>
-        <% } %>
       </div>
     </nav>
   </header> 
