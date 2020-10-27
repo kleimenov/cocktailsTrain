@@ -119,35 +119,8 @@ const updateCats = (request, response) => {
        });
   }
 */
-  const updateCats = (request, response) => {
-    const id = parseInt(request.params.id)
-    const { catName, catAge } = request.body
-  
-    pool.query(
-      'UPDATE cats SET catName = $1, catAge = $2 WHERE id = $3',
-      [catName, catAge, id],
-      (error, results) => {
-        if (error) {
-          throw error
-        }
-        response.status(200).send(`Cat modified with ID: ${id}`)
-      }
-    )
-  }
 
 
-
-
-//5. Lets delete cat from database
-const deleteCat = (request, response) => {
-    const id = parseInt(request.params.id)
-    pool.query('DELETE FROM cats WHERE id = $1', [id], (error, results) => {
-      if (error) {
-        throw error
-      }
-      response.status(200).send(`Cat deleted with ID: ${id}`)
-    })
-  }
 
 //here we will export modules
 module.exports = {
