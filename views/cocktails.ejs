@@ -11,12 +11,16 @@
 <body>
     <%- include('partials/_header') %>
     <main>
+      <div>
         <h3>List of cocktails</h3>
-        <% for (let cocktail of cocktails) {%>
-          
-          <span><%= cocktail.cocktail_name %></span>
-          
-        <% } %> 
+        <ul>
+          <% for (let cocktail of cocktails) {%>
+          <li>
+            <span><%= cocktail.cocktail_name %></span>
+          </li>
+          <% } %> 
+        </ul>
+      </div>
     </main>
     <%- include('partials/_footer') %>
 </body>
