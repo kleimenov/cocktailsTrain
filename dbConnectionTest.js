@@ -7,8 +7,11 @@ const bodyParser = require('body-parser');
 const PORT = 3002;
 const db = require('./database.js')
 
+//define our application
 const app = express();
 
+//let set ejs as the view enjine
+app.set('view engine', 'ejs');
 
 //we will parse data as JSON
 app.use(bodyParser.json());
