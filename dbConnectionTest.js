@@ -4,6 +4,7 @@
 //setup libraries
 const express = require('express');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const PORT = 3002;
 const db = require('./database.js')
 
@@ -37,9 +38,14 @@ app.post('/cocktails', db.addCocktail)
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here we will get specific user list of cocktails
-app.get('/cocktails/user/:id', db.getCocktailsByUserId);
+//app.get('/cocktails/user/:id', db.getCocktailsByUserId);
 
-
+app.get('/cocktails/user/:id', (req, res) => {
+    db.getCocktailsByUserId(req).then(result => {
+        const templateVars = {cocktails: result};
+        res.render('myCocktails', templateVars)
+    })
+})
 
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
@@ -52,7 +58,6 @@ app.delete('/cocktails/:id', db.deleteCocktail);
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here we will get a single user data (for instance particular user)
 app.get('/cocktails/:id', db.getCocktailsById);
-
 
 
 

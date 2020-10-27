@@ -62,18 +62,13 @@ const addCocktail = (request, response) => {
     }
     response.status(201).send(`New cocktail_id and cocktail_name added inside cocktails! table`)
   })
-  
-
 }
-
 
 //5. Lets get specific cocktail data by user id
 const getCocktailsByUserId = (request, response) => {
   const id = parseInt(request.params.id);
-  pool.query('select cocktails.cocktail_name from cocktails inner join user_cocktails on cocktails.cocktail_id=user_cocktails.cocktail_id where user_id =$1', [id], (err, res) => {
-     if (err) throw err;
-      response.status(200).json(res.rows)
-  })
+  //console.log(id)
+  return pool.query('select cocktails.cocktail_name from cocktails inner join user_cocktails on cocktails.cocktail_id=user_cocktails.cocktail_id where user_id =$1', [id]).then(res => res.rows);
 }
 
 
