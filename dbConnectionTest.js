@@ -5,6 +5,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 const PORT = 3002;
 const db = require('./database.js')
 
@@ -20,6 +22,21 @@ app.set('view engine', 'ejs');
 //for POST requests we will use urlencoded like: applicaton/x-ww-form-urlencoded
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
+
+
+//----------+----------------+----------+----------------+----------+----------------+----------+----------------
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
