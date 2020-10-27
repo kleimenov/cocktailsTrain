@@ -12,9 +12,11 @@
     <%- include('partials/_header') %>
     <main>
         <h3>List of cocktails</h3>
-        <%= for(let cocktail in cocktails) { %>
+        <% for (let cocktail of cocktails) {%>
+          
           <span><%= cocktail.cocktail_name %></span>
-          <% } %> 
+          
+        <% } %> 
     </main>
     <%- include('partials/_footer') %>
 </body>

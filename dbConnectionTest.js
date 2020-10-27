@@ -33,14 +33,11 @@ app.get('/cocktails/:id', db.getCocktailsById);
 //app.get('/cocktails', db.getCocktails);
 
 app.get('/cocktails', (req, res) => {
-    db.getCocktails().then((data)=> {
-      const templateVars = {
-        cocktails: data,
-    }
-    //db.getCocktails
-    res.render('cocktails', templateVars);
-    })
-    
+   db.getCocktails().then(result => {
+       //console.log(cocktails);
+       const templateVars = {cocktails: result};
+       res.render('cocktails', templateVars)
+   })
 })
 
 //here we will delete cat from database

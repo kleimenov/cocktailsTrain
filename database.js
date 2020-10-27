@@ -10,11 +10,14 @@ const pool = new Pool({
 //I will make a bunch of psql queries
 
 //1. Lets get all cocktails names from database
-const getCocktails = (request, response) => {
+const getCocktails = () => {
+   /*
    pool.query('select * from cocktails', (err, res) => {
        if (err) throw err;
        response.status(200).json(res.rows)
    })
+   */
+  return pool.query('select * from cocktails').then(res => res.rows);
 }
 
 //2. Lets get specific cat data from database
@@ -103,6 +106,22 @@ const addCocktail = (request, response) => {
 }
 */
 
+
+//-----+----------------------------+---------------------+----------+----
+
+//4. Lets update cat data that already exist 
+/*
+const updateCats = (request, response) => {
+    const id = parseInt(request.params.id);
+    const {catName, catAge} = request.body;
+    pool.query('UPDATE cats SET catName =$1, email =$2 WHERE id =$3',
+      [catName, catAge, id],
+      (err, res) => {
+          if (err) throw err;
+           response.status(200).send(`cat modified with ID: ${id}`)
+       });
+  }
+*/
 
 
 
