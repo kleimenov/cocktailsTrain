@@ -7,8 +7,8 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-const PORT = process.env.PORT || 3002; //set new port (cli) export PORT= <new port value>
-//const PORT = 3002;
+//const PORT = process.env.PORT || 3002; //set new port (cli) export PORT= <new port value>
+const PORT = 3002;
 const db = require('./database.js')
 
 const app = express();
