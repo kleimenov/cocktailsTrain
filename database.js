@@ -1,5 +1,5 @@
 const { request, response } = require('express');
-
+const handlers = require('./handlers.js')
 const Pool = require('pg').Pool
 const pool = new Pool({
     user: 'deelooc21',
@@ -93,8 +93,9 @@ const getCocktailsByUserId = (request, response) => {
 //6. lets add new user into table users table
 
 const addNewUser = (request, response) => {
-  const {name, email, password} = req.body;
-  return 
+  const {name, email, password} = request.body;
+  const userId = handlers.randomUserIdGen()
+  return pool.query('INSERT INTO users (user_id, name, email, password) VALUES ($1, $2, $3, $4)', [userId,name, email, password]).then(res => res.rows);
 }
 
 
@@ -153,13 +154,14 @@ const updateCats = (request, response) => {
 
 //here we will export modules
 module.exports = {
-    getCocktails,
-    getCocktailsById,
-    deleteCocktail,
-    addCocktail,
-    getCocktailsByUserId,
-    getUserByEmail,
-    getUserByPassword
+  getCocktails,
+  getCocktailsById,
+  deleteCocktail,
+  addCocktail,
+  getCocktailsByUserId,
+  getUserByEmail,
+  getUserByPassword,
+  addNewUser
     
 }
 

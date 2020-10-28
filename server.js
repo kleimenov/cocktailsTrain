@@ -30,17 +30,11 @@ app.use(cookieParser());
 //here I implement login logic
 //get users login form
 app.get('/login', (req, res) => {
-    /*
-    const templateVars = {
-      user: users[req.cookies['user_id']],
-    };
-    */
   res.render('loginForm');
 });
 
+
 app.post('/login', (req, res) => {
-  //const {email, password} = req.body;
-  
   db.getUserByEmail(req).then(result => {
     console.log(result[0].case)
     if (!result[0].case) {
@@ -66,8 +60,16 @@ app.get('/register', (req, res) => {
 
 //lets add new user into db
 app.post('/register', (req, res) => {
-  //const {name, email, password} = req.body;
-
+  db.getUserByEmail(req).then(result => {
+    if (result[0].case) {
+      res.status(403).send("User already exist! <a href='/login'>Login</a>");
+      }
+    else {
+      db.addNewUser(req).then(result => {
+        res.redirect('/myCocktails')
+      })
+    }
+  })
 })
 
 
