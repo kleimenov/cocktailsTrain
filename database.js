@@ -8,6 +8,25 @@ const pool = new Pool({
     port: '5432'
 })
 //I will make a bunch of psql queries
+//0. lets get user id
+const getUserByEmail = (request, response) => {
+  const email = request.body.email;
+  return pool.query('select (case when exists (select email from users where email =$1) then 1 else 0 end)', [email]).then(res => res.rows);
+}
+
+//0.1 lets get user password
+const getUserByPassword = (request, response) => {
+  const email = request.body.email;
+  const password =request.body.password;
+  return pool.query('select password from users where email = $1', [email])
+  .then(res => {
+    if(res.rows[0].password===password) {
+      return true;
+    }
+    return false;
+})
+};
+
 
 //1. Lets get all cocktails names from database
 const getCocktails = () => {
@@ -132,6 +151,8 @@ module.exports = {
     deleteCocktail,
     addCocktail,
     getCocktailsByUserId,
+    getUserByEmail,
+    getUserByPassword
     
 }
 

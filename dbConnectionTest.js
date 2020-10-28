@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+//const PORT = process.env.PORT || 3002;
 const PORT = 3002;
 const db = require('./database.js')
 
@@ -25,9 +26,33 @@ app.use(cookieParser());
 
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
+//here I implement login logic
+//get users login form
+app.get('/login', (req, res) => {
+    /*
+    const templateVars = {
+      user: users[req.cookies['user_id']],
+    };
+    */
+  res.render('loginForm');
+});
 
-
-
+app.post('/login', (req, res) => {
+  //const {email, password} = req.body;
+  
+  db.getUserByEmail(req).then(result => {
+    console.log(result[0].case)
+    if (!result[0].case) {
+        res.status(403).send("User doesn't exist!");
+      }
+    else {
+        db.getUserByPassword(req).then(result => {
+            if(result) {res.redirect('/myCocktails')}
+            else {res.send('Wrong password!')}
+        })
+    }
+  })
+})
 
 
 
