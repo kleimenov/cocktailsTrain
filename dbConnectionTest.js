@@ -54,6 +54,13 @@ app.post('/login', (req, res) => {
   })
 })
 
+//----------+----------------+----------+----------------+----------+----------------+----------+----------------
+//here I implement register form logic
+
+//lets set registr route
+app.get('/register', (req, res) => {
+  res.render('registerForm');
+})
 
 
 
