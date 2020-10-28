@@ -63,12 +63,6 @@ app.get('/register', (req, res) => {
 //lets add new user into db
 app.post('/register', (req, res) => {
   db.getUserByEmail(req).then(result => {
-    /*
-    console.log(result[0])
-    if (req.body.password === ''|| req.body.email ==='' || req.body.name === '') {
-      res.status(403).send("Please fill out all fields! <a href='/register'>Try register again!</a>");
-    }
-    */
     if (result[0].case) {
       res.status(403).send("User already exist! <a href='/login'>Login</a>");
       }
