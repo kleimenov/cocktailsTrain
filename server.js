@@ -68,7 +68,10 @@ app.post('/register', (req, res) => {
     else {
       db.addNewUser(req).then(() => {
         db.getUseridByEmail(req.body.email).then(result2 => {
-          res.cookie('user_cookie', result2[0].user_id);
+          //console.log(result2)
+          //console.log(result2[0].user_id)
+          //console.log(res.cookie('user_cookie'))
+          res.cookie('user_id', result2[0].user_id);
           res.redirect('/myCocktails');
         })
       })
@@ -79,7 +82,14 @@ app.post('/register', (req, res) => {
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here I implement myCocktail page logic
 app.get('/myCocktails', (req, res) => {
-  res.render('myCocktails');
+  const id = req.cookies['user_id']
+  db.getCocktailsByUserId(id).then((result) =>{
+    const templateVars = {
+      user: id,
+      cocktails: result
+    }
+    res.render('myCocktails', templateVars)
+  })
 })
 
 
