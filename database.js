@@ -12,7 +12,7 @@ const pool = new Pool({
 const getUserByEmail = (request, response) => {
   const email = request.body.email;
   return pool.query('select (case when exists (select email from users where email =$1) then 1 else 0 end)', [email]).then(res => res.rows);
-}
+};
 
 //0.1 lets get user password
 const getUserByPassword = (request, response) => {
@@ -24,18 +24,12 @@ const getUserByPassword = (request, response) => {
       return true;
     }
     return false;
-})
+  });
 };
 
 
 //1. Lets get all cocktails names from database
 const getCocktails = () => {
-   /*
-   pool.query('select * from cocktails', (err, res) => {
-       if (err) throw err;
-       response.status(200).json(res.rows)
-   })
-   */
   return pool.query('select * from cocktails').then(res => res.rows);
 }
 
@@ -44,13 +38,13 @@ const getAllIngredientsAndCocktailsNames = () => {
   return pool.query('select cocktail_name, ingredients, amount from cocktails inner join ingredients on cocktails.cocktail_id = ingredients.cocktail_id').then(res => res.rows);
 }
 
-//2. Lets get specific cat data from database
+//2. Lets get specific cocktail data from database
 const getCocktailsById = (request, response) => {
   const id = parseInt(request.params.id);
   pool.query('select cocktails.cocktail_id, cocktail_name, ingredients, amount from cocktails inner join ingredients on cocktails.cocktail_id = ingredients.cocktail_id where ingredients.cocktail_id =$1', [id], (err, res) => {
      if (err) throw err;
       response.status(200).json(res.rows)
-  })
+  });
 }
 
 //3. Lets delete cocktail from database
