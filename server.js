@@ -55,7 +55,6 @@ app.post('/login', (req, res) => {
 
 //lets set register route it is get request 
 app.get('/register', (req, res) => {
-  
   res.render('registerForm');
 })
 
@@ -77,9 +76,26 @@ app.post('/register', (req, res) => {
   })
 })
 
+//----------+----------------+----------+----------------+----------+----------------+----------+----------------
+//here I implement myCocktail page logic
+app.get('/myCocktails', (req, res) => {
+  res.render('myCocktails');
+})
 
 
 
+
+/*
+app.get('/myCocktails', (req, res) => {
+  if (req.cookies['user_cookie']) {
+    const templateVars = {
+      user: users[req.cookies['user_id']],
+      cocktails: cocktailsForUser(req.cookies['user_id']),
+    };
+    res.render('myCocktails', templateVars);
+  } else { res.redirect('register'); }
+});
+*/
 
 
 
