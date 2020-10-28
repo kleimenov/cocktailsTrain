@@ -10,6 +10,7 @@ const saltRounds = 10;
 //const PORT = process.env.PORT || 3002; //set new port (cli) export PORT= <new port value>
 const PORT = 3002;
 const db = require('./database.js')
+const handlers = require('./handlers.js')
 
 const app = express();
 
@@ -43,12 +44,12 @@ app.post('/login', (req, res) => {
   db.getUserByEmail(req).then(result => {
     console.log(result[0].case)
     if (!result[0].case) {
-        res.status(403).send("User doesn't exist!");
+      res.status(403).send("User doesn't exist!");
       }
     else {
         db.getUserByPassword(req).then(result => {
             if(result) {res.redirect('/myCocktails')}
-            else {res.send('Wrong password!')}
+            else {res.status(403).send('Wrong password!');}
         })
     }
   })
@@ -63,7 +64,10 @@ app.get('/register', (req, res) => {
 })
 
 
-
+//lets add new user into db
+app.post('/register', (req, res) => {
+  const {name, email, password} = req.body;
+})
 
 
 
