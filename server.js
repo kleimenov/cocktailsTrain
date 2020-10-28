@@ -95,20 +95,6 @@ app.get('/myCocktails', (req, res) => {
 
 
 
-/*
-app.get('/myCocktails', (req, res) => {
-  if (req.cookies['user_cookie']) {
-    const templateVars = {
-      user: users[req.cookies['user_id']],
-      cocktails: cocktailsForUser(req.cookies['user_id']),
-    };
-    res.render('myCocktails', templateVars);
-  } else { res.redirect('register'); }
-});
-*/
-
-
-
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here we will add new data to db
 /*
