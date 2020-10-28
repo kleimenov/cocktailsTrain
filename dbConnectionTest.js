@@ -66,7 +66,8 @@ app.get('/register', (req, res) => {
 
 //lets add new user into db
 app.post('/register', (req, res) => {
-  const {name, email, password} = req.body;
+  //const {name, email, password} = req.body;
+
 })
 
 

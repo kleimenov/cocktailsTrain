@@ -90,6 +90,13 @@ const getCocktailsByUserId = (request, response) => {
   return pool.query('select cocktails.cocktail_name from cocktails inner join user_cocktails on cocktails.cocktail_id=user_cocktails.cocktail_id where user_id =$1', [id]).then(res => res.rows);
 }
 
+//6. lets add new user into table users table
+
+const addNewUser = (request, response) => {
+  const {name, email, password} = req.body;
+  return 
+}
+
 
 //---------+-------------------+-----------------------------+-------------
 /*
