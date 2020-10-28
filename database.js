@@ -90,6 +90,12 @@ const addNewUser = (request, response) => {
   return pool.query('INSERT INTO users (user_id, name, email, password) VALUES ($1, $2, $3, $4)', [userId,name, email, password]).then(res => res.rows);
 }
 
+//7. lets get user id by email
+
+const getUseridByEmail = (email) => {
+  return pool.query('select user_id from users where email=$1', [email]).then(res => res.rows);
+}
+
 
 //---------+-------------------+-----------------------------+-------------
 /*
@@ -152,7 +158,8 @@ module.exports = {
   getCocktailsByUserId,
   getUserByEmail,
   getUserByPassword,
-  addNewUser
+  addNewUser,
+  getUseridByEmail
     
 }
 

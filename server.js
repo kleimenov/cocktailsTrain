@@ -55,6 +55,7 @@ app.post('/login', (req, res) => {
 
 //lets set register route it is get request 
 app.get('/register', (req, res) => {
+  
   res.render('registerForm');
 })
 
@@ -62,12 +63,21 @@ app.get('/register', (req, res) => {
 //lets add new user into db
 app.post('/register', (req, res) => {
   db.getUserByEmail(req).then(result => {
+    /*
+    console.log(result[0])
+    if (req.body.password === ''|| req.body.email ==='' || req.body.name === '') {
+      res.status(403).send("Please fill out all fields! <a href='/register'>Try register again!</a>");
+    }
+    */
     if (result[0].case) {
       res.status(403).send("User already exist! <a href='/login'>Login</a>");
       }
     else {
-      db.addNewUser(req).then(result => {
-        res.redirect('/myCocktails');
+      db.addNewUser(req).then(() => {
+        db.getUseridByEmail(req.body.email).then(result2 => {
+          res.cookie('user_cookie', result2[0].user_id);
+          res.redirect('/myCocktails');
+        })
       })
     }
   })
