@@ -43,12 +43,21 @@ app.post('/login', (req, res) => {
       }
     else {
         db.getUserByPassword(req).then(result => {
-            if(result) {res.redirect('/myCocktails')}
+            if(result) {
+              db.getUseridByEmail(req.body.email).then(result2 => {
+                //console.log(result2)
+                //console.log(result2[0].user_id)
+                //console.log(res.cookie('user_cookie'))
+                res.cookie('user_id', result2[0].user_id);
+                res.redirect('/myCocktails');
+              })
+            }
             else {res.status(403).send('Wrong password!');}
         })
     }
   })
 })
+
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here I implement register form logic
