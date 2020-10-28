@@ -9,9 +9,10 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 //const PORT = process.env.PORT || 3002; //set new port (cli) export PORT= <new port value>
 const PORT = 3002;
-const db = require('./database.js')
-const handlers = require('./handlers.js')
+const db = require('./database.js');
+const handlers = require('./handlers.js');
 
+//set up application
 const app = express();
 
 
@@ -66,7 +67,7 @@ app.post('/register', (req, res) => {
       }
     else {
       db.addNewUser(req).then(result => {
-        res.redirect('/myCocktails')
+        res.redirect('/myCocktails');
       })
     }
   })
@@ -89,7 +90,7 @@ app.post('/cocktails/', (req, res) => {
     })
 })
 */
-app.post('/cocktails', db.addCocktail)
+app.post('/cocktails', db.addCocktail);
 
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
@@ -99,7 +100,7 @@ app.post('/cocktails', db.addCocktail)
 app.get('/cocktails/user/:id', (req, res) => {
     db.getCocktailsByUserId(req).then(result => {
         const templateVars = {cocktails: result};
-        res.render('myCocktails', templateVars)
+        res.render('myCocktails', templateVars);
     })
 })
 
@@ -126,7 +127,7 @@ app.get('/cocktails', (req, res) => {
    db.getCocktails().then(result => {
        //console.log(cocktails);
        const templateVars = {cocktails: result};
-       res.render('cocktails', templateVars)
+       res.render('cocktails', templateVars);
    })
 })
 
