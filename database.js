@@ -62,7 +62,6 @@ const deleteCocktail = (request, response) => {
 const addCocktail = (request, response) => {
   //const { user_id, cocktail_id } = request.body
   const { user_id, cocktail_id, cocktail_name, ingredients, amount } = request.body;
-
   pool.query('INSERT INTO user_cocktails (user_id, cocktail_id) VALUES ($1, $2)', [user_id, cocktail_id], (error, results) => {
     if (error) {
       throw error
@@ -85,10 +84,9 @@ const getCocktailsByUserId = (request, response) => {
 }
 
 //6. lets add new user into table users table
-
 const addNewUser = (request, response) => {
   const {name, email, password} = request.body;
-  const userId = handlers.randomUserIdGen()
+  const userId = handlers.randomUserIdGen();
   return pool.query('INSERT INTO users (user_id, name, email, password) VALUES ($1, $2, $3, $4)', [userId,name, email, password]).then(res => res.rows);
 }
 
