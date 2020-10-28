@@ -135,7 +135,6 @@ const addCocktail = (request, response) => {
 
 
 //-----+----------------------------+---------------------+----------+----
-
 //4. Lets update cat data that already exist 
 /*
 const updateCats = (request, response) => {
