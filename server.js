@@ -44,7 +44,7 @@ app.get('/login', (req, res) => {
 
 app.post('/login', (req, res) => {
   db.getUserByEmail(req).then(result => {
-    console.log(result[0].case)
+    //console.log(result[0].case)
     if (!result[0].case) {
       res.status(403).send("User doesn't exist!");
       }
@@ -130,13 +130,28 @@ app.get('/myCocktails', (req, res) => {
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here we will get specific cocktail page logic
-app.get('/cocktail/:id', (req, res) => {
+app.get('/cocktail/:id', (req, res)=> {
+  const cocktailId = parseInt(req.params.id)
   const id = req.cookies['user_id']; //get user id
   let userName;
+  let cocktail;
+  let userId;
   db.getUserNameByUserId(id).then(result => {
     userName = result[0].name; //get user name
   });
-  
+  db.getIngredientsByCocktailId(cocktailId).then(result => {
+    cocktail = result;
+  })
+  db.checkExistUserOrNot(cocktailId).then(result => {
+    userId = result[0].user_id;
+    const templateVars = {
+      idUser: userId,
+      user: userName,
+      ingredients: cocktail,
+    }
+    console.log(templateVars)
+    res.render('specificCocktail', templateVars)
+  })
 })
 
 
@@ -207,7 +222,7 @@ app.get('/cocktails', (req, res) => {
   db.getUserNameByUserId(id).then(result => {
     userName = result[0].name;
   });
-  console.log(userName)
+  //console.log(userName)
   db.getCocktails().then(result => {
        //console.log(cocktails);
        const templateVars = {

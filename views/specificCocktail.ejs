@@ -11,27 +11,7 @@
     <body>
       <%- include('partials/_header') %>
       <main>
-        <h3>List of my cocktails</h3>
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Cocktail name</th>
-              <th scope="col">Ingredients</th>
-              <th scope="col">Edit</th>
-              <th scope="col">Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-              <% for (let cocktail of cocktails) {%>
-              <tr>
-                <td><%= cocktail.cocktail_name %></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <% } %> 
-          </tbody>
-        </table>
+        
       </main>
       <%- include('partials/_footer') %>
     </body>

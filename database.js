@@ -86,7 +86,7 @@ const addCocktail = (request, response) => {
 const getCocktailsByUserId = (id) => {
   //const id = parseInt(request.params.id);
   //console.log(id)
-  return pool.query('select cocktails.cocktail_name from cocktails inner join user_cocktails on cocktails.cocktail_id=user_cocktails.cocktail_id where user_id =$1', [id]).then(res => res.rows);
+  return pool.query('select cocktails.cocktail_id, cocktails.cocktail_name from cocktails inner join user_cocktails on cocktails.cocktail_id=user_cocktails.cocktail_id where user_id =$1', [id]).then(res => res.rows);
 }
 
 //6. lets add new user into table users table
@@ -102,6 +102,16 @@ const getUseridByEmail = (email) => {
   return pool.query('select user_id from users where email=$1', [email]).then(res => res.rows);
 }
 
+
+//8. get cocktail ingredients by cocktial id
+const getIngredientsByCocktailId = (cocktailId) => {
+  return pool.query('select ingredients, amount from ingredients where cocktail_id =$1', [cocktailId]).then(res => res.rows);
+}
+
+//9. lets check if user exist or not
+const checkExistUserOrNot = (cocktail_id) => {
+  return pool.query('select user_id from user_cocktails where cocktail_id =$1', [cocktail_id]).then(res => res.rows);
+}
 
 //---------+-------------------+-----------------------------+-------------
 /*
@@ -166,7 +176,9 @@ module.exports = {
   getUserByPassword,
   addNewUser,
   getUseridByEmail, 
-  getUserNameByUserId 
+  getUserNameByUserId,
+  getIngredientsByCocktailId,
+  checkExistUserOrNot
 }
 
 
