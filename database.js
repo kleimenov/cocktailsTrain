@@ -35,7 +35,7 @@ const getUserByPassword = (request, response) => {
 
 //1. Lets get all cocktails names from database
 const getCocktails = () => {
-  return pool.query('select * from cocktails').then(res => res.rows);
+  return pool.query('SELECT * FROM cocktails').then(res => res.rows);
 }
 
 //1.1. Lets get all cocktails names and ingredients from database
