@@ -47,7 +47,7 @@ const getAllIngredientsAndCocktailsNames = () => {
 //2. Lets get specific cocktail data from database
 const getCocktailsById = (request, response) => {
   //const id = parseInt(request.params.id);
-  pool.query('select cocktails.cocktail_id, cocktail_name, ingredients, amount from cocktails inner join ingredients on cocktails.cocktail_id = ingredients.cocktail_id where ingredients.cocktail_id =$1', [id], (err, res) => {
+  pool.query('SELECT cocktails.cocktail_id, cocktail_name, ingredients, amount FROM cocktails INNER JOIN ingredients ON cocktails.cocktail_id = ingredients.cocktail_id WHERE ingredients.cocktail_id =$1', [id], (err, res) => {
      if (err) throw err;
       response.status(200).json(res.rows)
   });
@@ -86,7 +86,7 @@ const addCocktail = (request, response) => {
 const getCocktailsByUserId = (id) => {
   //const id = parseInt(request.params.id);
   //console.log(id)
-  return pool.query('select cocktails.cocktail_id, cocktails.cocktail_name from cocktails inner join user_cocktails on cocktails.cocktail_id=user_cocktails.cocktail_id where user_id =$1', [id]).then(res => res.rows);
+  return pool.query('SELECT cocktails.cocktail_id, cocktails.cocktail_name FROM cocktails INNER JOIN user_cocktails ON cocktails.cocktail_id=user_cocktails.cocktail_id WHERE user_id =$1', [id]).then(res => res.rows);
 }
 
 //6. lets add new user into table users table
@@ -99,23 +99,23 @@ const addNewUser = (request, response) => {
 //7. lets get user id by email
 
 const getUseridByEmail = (email) => {
-  return pool.query('select user_id from users where email=$1', [email]).then(res => res.rows);
+  return pool.query('SELECT user_id FROM users WHERE email=$1', [email]).then(res => res.rows);
 }
 
 
 //8. get cocktail ingredients by cocktial id
 const getIngredientsByCocktailId = (cocktailId) => {
-  return pool.query('select ingredients, amount from ingredients where cocktail_id =$1', [cocktailId]).then(res => res.rows);
+  return pool.query('SELECT ingredients, amount FROM ingredients WHERE cocktail_id =$1', [cocktailId]).then(res => res.rows);
 }
 
 //9. lets check if user exist or not
 const checkExistUserOrNot = (cocktail_id) => {
-  return pool.query('select user_id from user_cocktails where cocktail_id =$1', [cocktail_id]).then(res => res.rows);
+  return pool.query('SELECT user_id FROM user_cocktails WHERE cocktail_id =$1', [cocktail_id]).then(res => res.rows);
 }
 
 //10. get cocktail name by cocktail id
 const getCocktailName = (id) => {
-  return pool.query('select cocktail_name from cocktails where cocktail_id =$1', [id]).then(res => res.rows);
+  return pool.query('SELECT cocktail_name FROM cocktails WHERE cocktail_id =$1', [id]).then(res => res.rows);
 }
 
 //---------+-------------------+-----------------------------+-------------
