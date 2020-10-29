@@ -128,6 +128,16 @@ app.get('/myCocktails', (req, res) => {
   })
 })
 
+//----------+----------------+----------+----------------+----------+----------------+----------+----------------
+//here we will get specific cocktail page logic
+app.get('/cocktail/:id', (req, res) => {
+  const id = req.cookies['user_id']; //get user id
+  let userName;
+  db.getUserNameByUserId(id).then(result => {
+    userName = result[0].name; //get user name
+  });
+  
+})
 
 
 

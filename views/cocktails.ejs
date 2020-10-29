@@ -16,7 +16,7 @@
         <ul>
           <% for (let cocktail of cocktails) {%>
           <li>
-            <a href="#"><%= cocktail.cocktail_name %></a>
+            <a href="/cocktail/<%=cocktail.cocktail_id %>"><%= cocktail.cocktail_name %></a>
           </li>
           <% } %> 
         </ul>
