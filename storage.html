@@ -1,0 +1,53 @@
+
+ <main>
+        <div>
+          <h3>List of my cocktails</h3>
+          <ul>
+            <% for (let cocktail of cocktails) {%>
+            <li>
+              <span><%= cocktail.cocktail_name %></span>
+            </li>
+            <% } %> 
+          </ul>
+        </div>
+</main>
+
+
+<main>
+          <h3>List of cocktails</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Cocktail name</th>
+                <th scope="col">Ingredients</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(let cocktail in cocktails) { %>
+                <tr>
+                  <td><%= cocktail %></td>
+                  <td>
+                      <ul>
+                      <% for(let key in cocktails[cocktail].ingredients) { %>
+                          <li>
+                              <span><%= key %></span>
+                              <span><%= cocktails[cocktail].ingredients[key] %> </span>
+                          </li>
+                      <% } %> 
+                      </ul> 
+                  </td>
+                  <td>
+                    <a href="/myCocktails/<%= cocktail %>">Edit</a>
+                  </td>
+                  <td>
+                    <form method="POST" action="/cocktails/<%= cocktail %>/delete">
+                      <button type="submit">DELETE</button>
+                    </form>
+                  </td>
+                </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </main>

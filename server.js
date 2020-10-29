@@ -123,6 +123,7 @@ app.get('/myCocktails', (req, res) => {
       user: userName,
       cocktails: result
     }
+    //console.log(templateVars.cocktails)
     res.render('myCocktails', templateVars)
   })
 })
