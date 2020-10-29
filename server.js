@@ -143,9 +143,15 @@ app.get('/cocktail/:id', (req, res)=> {
     cocktail = result;
   })
   db.checkExistUserOrNot(cocktailId).then(result => {
-    userId = result[0].user_id;
+    let isUsersCocktail;
+    if (result[0].user_id == id) {
+      isUsersCocktail = true;
+    } else {
+      isUsersCocktail = false;
+    }
+    //userId = result[0].user_id;
     const templateVars = {
-      idUser: userId,
+      isUsersCocktail: isUsersCocktail,
       user: userName,
       ingredients: cocktail,
     }
