@@ -11,7 +11,7 @@ const pool = new Pool({
 //0. lets get user id
 const getUserByEmail = (request, response) => {
   const email = request.body.email;
-  return pool.query('select (case when exists (select email from users where email =$1) then 1 else 0 end)', [email]).then(res => res.rows);
+  return pool.query('SELECT (CASE WHEN EXIST (SELECT email FROM users WHERE email =$1) THEN 1 ELSE 0 END)', [email]).then(res => res.rows);
 };
 
 //0.01 get user name by user id
@@ -23,7 +23,7 @@ const getUserNameByUserId = (id) => {
 const getUserByPassword = (request, response) => {
   const email = request.body.email;
   const password =request.body.password;
-  return pool.query('select password from users where email = $1', [email])
+  return pool.query('SELECT password FROM users WHERE email = $1', [email])
   .then(res => {
     if(res.rows[0].password===password) {
       return true;
