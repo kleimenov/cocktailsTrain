@@ -71,7 +71,10 @@ app.post('/logout', (req, res) => {
   res.clearCookie('user_id');
   res.redirect('/');
 });
-
+app.post('/cocktail/logout', (req, res) => {
+  res.clearCookie('user_id');
+  res.redirect('/');
+});
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here I implement register form logic
@@ -141,11 +144,10 @@ app.get('/cocktail/:id', (req, res)=> {
   });
   db.getIngredientsByCocktailId(cocktailId).then(result => {
     cocktail = result;
+    //console.log(cocktail)
   })
   db.getCocktailName(cocktailId).then(result => {
-    console.log('fired')
-    cocktailName = result;
-    console.log(cocktailName)
+    cocktailName = result[0].cocktail_name;
   })
 
   db.checkExistUserOrNot(cocktailId).then(result => {
@@ -159,9 +161,9 @@ app.get('/cocktail/:id', (req, res)=> {
     const templateVars = {
       isUsersCocktail: isUsersCocktail,
       user: userName,
-      ingredients: cocktail,
+      cocktailName: cocktailName,
+      ingredients: cocktail
     }
-    //console.log(templateVars)
     res.render('specificCocktail', templateVars)
   })
 })
