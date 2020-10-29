@@ -149,9 +149,13 @@ app.get('/cocktails/:id', db.getCocktailsById);
 //app.get('/cocktails', db.getCocktails);
 
 app.get('/cocktails', (req, res) => {
-   db.getCocktails().then(result => {
+  const id = req.cookies['user_id'] //get user data from browser (cookie)
+   
+  db.getCocktails().then(result => {
        //console.log(cocktails);
-       const templateVars = {cocktails: result};
+       const templateVars = {
+         user: ,
+         cocktails: result};
        res.render('cocktails', templateVars);
    })
 })

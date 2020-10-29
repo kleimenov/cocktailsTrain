@@ -14,6 +14,9 @@ const getUserByEmail = (request, response) => {
   return pool.query('select (case when exists (select email from users where email =$1) then 1 else 0 end)', [email]).then(res => res.rows);
 };
 
+//0.01 get user name by user id
+const getUserNameByUserId = () => {}
+
 //0.1 lets get user password
 const getUserByPassword = (request, response) => {
   const email = request.body.email;
