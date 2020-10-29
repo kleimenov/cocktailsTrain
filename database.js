@@ -166,8 +166,7 @@ module.exports = {
   getUserByPassword,
   addNewUser,
   getUseridByEmail, 
-  getUserNameByUserId
-    
+  getUserNameByUserId 
 }
 
 

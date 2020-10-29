@@ -31,7 +31,14 @@ app.use(cookieParser());
 //here I implement login logic
 //get users login form
 app.get('/login', (req, res) => {
-  res.render('loginForm');
+  const id = req.cookies['user_id'] //get user data from browser (cookie)
+  let userName;
+  db.getUserNameByUserId(id).then(result => {
+    userName = result;
+  });
+    const templateVars = {
+      user: userName,};
+  res.render('loginForm', templateVars);
 });
 
 
@@ -64,7 +71,14 @@ app.post('/login', (req, res) => {
 
 //lets set register route it is get request 
 app.get('/register', (req, res) => {
-  res.render('registerForm');
+  const id = req.cookies['user_id'] //get user data from browser (cookie)
+  let userName;
+  db.getUserNameByUserId(id).then(result => {
+    userName = result;
+  });
+    const templateVars = {
+      user: userName,};
+  res.render('registerForm', templateVars);
 })
 
 
@@ -91,15 +105,28 @@ app.post('/register', (req, res) => {
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here I implement myCocktail page logic
 app.get('/myCocktails', (req, res) => {
-  const id = req.cookies['user_id']
+  const id = req.cookies['user_id']; //get user id
+  let userName;
+  db.getUserNameByUserId(id).then(result => {
+    userName = result[0].name; //get user name
+  });
   db.getCocktailsByUserId(id).then((result) =>{
     const templateVars = {
-      user: id,
+      userId: id,
+      user: userName,
       cocktails: result
     }
     res.render('myCocktails', templateVars)
   })
 })
+
+
+
+
+  
+
+
+
 
 
 
@@ -121,10 +148,18 @@ app.post('/cocktails', db.addCocktail);
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here we will get specific user list of cocktails
 //app.get('/cocktails/user/:id', db.getCocktailsByUserId);
-
+//+
 app.get('/cocktails/user/:id', (req, res) => {
-    db.getCocktailsByUserId(req).then(result => {
-        const templateVars = {cocktails: result};
+  const id = req.cookies['user_id'] //get user data from browser (cookie)
+  let userName;
+  db.getUserNameByUserId(id).then(result => {
+    userName = result[0].name;
+  });
+  db.getCocktailsByUserId(req).then(result => {
+        const templateVars = {
+          user: userName,
+          cocktails: result
+        };
         res.render('myCocktails', templateVars);
     })
 })
@@ -150,11 +185,15 @@ app.get('/cocktails/:id', db.getCocktailsById);
 
 app.get('/cocktails', (req, res) => {
   const id = req.cookies['user_id'] //get user data from browser (cookie)
-   
+  let userName;
+  db.getUserNameByUserId(id).then(result => {
+    userName = result[0].name;
+  });
+  console.log(userName)
   db.getCocktails().then(result => {
        //console.log(cocktails);
        const templateVars = {
-         user: ,
+         user: userName,
          cocktails: result};
        res.render('cocktails', templateVars);
    })
@@ -167,7 +206,18 @@ app.get('/cocktails', (req, res) => {
 //try to do plain response - request
 app.get('/', (req, res) => {
     //res.json({message: 'Node.js, Express and Postgres inside one boat EEEeeeehaaaaAAAA'});
-    res.redirect('/cocktails');
+  const id = req.cookies['user_id'] //get user data from browser (cookie)
+  let userName;
+  db.getUserNameByUserId(id).then(result => {
+    userName = result[0].name;
+  });
+  db.getCocktails().then(result => {
+    //console.log(cocktails);
+    const templateVars = {
+      user: userName,
+      cocktails: result};
+    res.render('cocktails', templateVars);
+})
 });
 
 
