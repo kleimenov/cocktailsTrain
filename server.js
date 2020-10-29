@@ -65,6 +65,13 @@ app.post('/login', (req, res) => {
   })
 })
 
+//----------+----------------+----------+----------------+----------+----------------+----------+----------------
+//here I implement logout form logic
+app.post('/logout', (req, res) => {
+  res.clearCookie('user_id');
+  res.redirect('/');
+});
+
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here I implement register form logic
@@ -103,7 +110,7 @@ app.post('/register', (req, res) => {
 })
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
-//here I implement myCocktail page logic
+//here I implement myCocktail page logic 
 app.get('/myCocktails', (req, res) => {
   const id = req.cookies['user_id']; //get user id
   let userName;
