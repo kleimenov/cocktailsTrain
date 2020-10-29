@@ -113,6 +113,11 @@ const checkExistUserOrNot = (cocktail_id) => {
   return pool.query('select user_id from user_cocktails where cocktail_id =$1', [cocktail_id]).then(res => res.rows);
 }
 
+//10. get cocktail name by cocktail id
+const getCocktailName = (id) => {
+  return pool.query('select cocktail_name from cocktails where cocktail_id =$1', [id]).then(res => res.rows);
+}
+
 //---------+-------------------+-----------------------------+-------------
 /*
 const addCocktail = (request, response) => {
@@ -178,7 +183,8 @@ module.exports = {
   getUseridByEmail, 
   getUserNameByUserId,
   getIngredientsByCocktailId,
-  checkExistUserOrNot
+  checkExistUserOrNot,
+  getCocktailName
 }
 
 

@@ -135,13 +135,19 @@ app.get('/cocktail/:id', (req, res)=> {
   const id = req.cookies['user_id']; //get user id
   let userName;
   let cocktail;
-  let userId;
+  let cocktailName;
   db.getUserNameByUserId(id).then(result => {
     userName = result[0].name; //get user name
   });
   db.getIngredientsByCocktailId(cocktailId).then(result => {
     cocktail = result;
   })
+  db.getCocktailName(cocktailId).then(result => {
+    console.log('fired')
+    cocktailName = result;
+    console.log(cocktailName)
+  })
+
   db.checkExistUserOrNot(cocktailId).then(result => {
     let isUsersCocktail;
     if (result[0].user_id == id) {
@@ -155,7 +161,7 @@ app.get('/cocktail/:id', (req, res)=> {
       user: userName,
       ingredients: cocktail,
     }
-    console.log(templateVars)
+    //console.log(templateVars)
     res.render('specificCocktail', templateVars)
   })
 })
