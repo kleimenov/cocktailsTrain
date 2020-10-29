@@ -15,7 +15,9 @@ const getUserByEmail = (request, response) => {
 };
 
 //0.01 get user name by user id
-const getUserNameByUserId = () => {}
+const getUserNameByUserId = (id) => {
+  return pool.query('SELECT name FROM users WHERE user_id =$1', [id]).then(res => res.rows);
+};
 
 //0.1 lets get user password
 const getUserByPassword = (request, response) => {
@@ -37,10 +39,11 @@ const getCocktails = () => {
 }
 
 //1.1. Lets get all cocktails names and ingredients from database
+/*
 const getAllIngredientsAndCocktailsNames = () => {
   return pool.query('select cocktail_name, ingredients, amount from cocktails inner join ingredients on cocktails.cocktail_id = ingredients.cocktail_id').then(res => res.rows);
 }
-
+*/
 //2. Lets get specific cocktail data from database
 const getCocktailsById = (request, response) => {
   //const id = parseInt(request.params.id);
@@ -162,7 +165,8 @@ module.exports = {
   getUserByEmail,
   getUserByPassword,
   addNewUser,
-  getUseridByEmail
+  getUseridByEmail, 
+  getUserNameByUserId
     
 }
 
