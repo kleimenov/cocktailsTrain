@@ -196,7 +196,6 @@ app.post('/cocktails', db.addCocktail);
 
 app.post('/cocktails/:cocktail/delete', (req, res) => {
   if (req.cookies['user_id']) {
-    
     const id = parseInt(req.params.id);
     
     
