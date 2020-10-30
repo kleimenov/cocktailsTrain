@@ -31,13 +31,16 @@ app.use(cookieParser());
 //here I implement login logic
 //get users login form
 app.get('/login', (req, res) => {
-  const id = req.cookies['user_id'] //get user data from browser (cookie)
   let userName;
-  db.getUserNameByUserId(id).then(result => {
-    userName = result;
-  });
-    const templateVars = {
-      user: userName,};
+  if (req.cookies['user_id']) {
+    const id = req.cookies['user_id'] //get user data from browser (cookie)
+    db.getUserNameByUserId(id).then(result => {
+      userName = result;
+    });
+  }
+  const templateVars = {
+    user: userName
+  };
   res.render('loginForm', templateVars);
 });
 
@@ -81,11 +84,13 @@ app.post('/cocktail/logout', (req, res) => {
 
 //lets set register route it is get request 
 app.get('/register', (req, res) => {
-  const id = req.cookies['user_id'] //get user data from browser (cookie)
   let userName;
-  db.getUserNameByUserId(id).then(result => {
-    userName = result;
-  });
+  if (req.cookies['user_id']) {
+    const id = req.cookies['user_id'] //get user data from browser (cookie)
+    db.getUserNameByUserId(id).then(result => {
+      userName = result;
+    });
+  }
     const templateVars = {
       user: userName,};
   res.render('registerForm', templateVars);
@@ -231,11 +236,13 @@ app.get('/cocktails/:id', db.getCocktailsById);
 //app.get('/cocktails', db.getCocktails);
 
 app.get('/cocktails', (req, res) => {
-  const id = req.cookies['user_id'] //get user data from browser (cookie)
   let userName;
-  db.getUserNameByUserId(id).then(result => {
-    userName = result[0].name;
-  });
+  if (req.cookies['user_id']) {
+    const id = req.cookies['user_id'] //get user data from browser (cookie)
+    db.getUserNameByUserId(id).then(result => {
+      userName = result[0].name;
+    });
+  }
   //console.log(userName)
   db.getCocktails().then(result => {
        //console.log(cocktails);
@@ -253,18 +260,19 @@ app.get('/cocktails', (req, res) => {
 //try to do plain response - request
 app.get('/', (req, res) => {
     //res.json({message: 'Node.js, Express and Postgres inside one boat EEEeeeehaaaaAAAA'});
-  const id = req.cookies['user_id'] //get user data from browser (cookie)
-  let userName;
-  db.getUserNameByUserId(id).then(result => {
-    userName = result[0].name;
-  });
-  db.getCocktails().then(result => {
-    //console.log(cocktails);
-    const templateVars = {
-      user: userName,
-      cocktails: result};
-    res.render('cocktails', templateVars);
-})
+//   const id = req.cookies['user_id'] //get user data from browser (cookie)
+//   let userName;
+//   db.getUserNameByUserId(id).then(result => {
+//     userName = result[0].name;
+//   });
+//   db.getCocktails().then(result => {
+//     //console.log(cocktails);
+//     const templateVars = {
+//       user: userName,
+//       cocktails: result};
+//     res.render('cocktails', templateVars);
+// })
+res.redirect('/cocktails')
 });
 
 
