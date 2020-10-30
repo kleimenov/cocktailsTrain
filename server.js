@@ -151,14 +151,22 @@ app.post('/cocktail/:id/delete', (req, res) => {
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here we will add new cocktail from user cocktail list
- 
+/*
 app.get('/cocktail/new', (req, res) => {
-  if (req.cookies['user_id']) {
-    const id = parseInt(req.params.id);
-    res.render('addNewCocktail');
+  
+  let id = req.cookies['user_id'];
+  let userName;
+  //const id = parseInt(req.params.id);
+  
+  db.getUserNameByUserId(id).then(result => {
+    userName = result[0].name; //get user name
+  });
+  const templateVars = {
+    user: userName
   }
+  res.render('addNewCocktail', templateVars);
 })
-
+*/
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here we will get specific cocktail page logic (here soemthing wrong!!!!!)
 app.get('/cocktail/:id', (req, res)=> {
