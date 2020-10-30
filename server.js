@@ -120,8 +120,8 @@ app.post('/register', (req, res) => {
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here I implement myCocktail page logic 
 app.get('/myCocktails', (req, res) => {
-  const id = req.cookies['user_id']; //get user id
   let userName;
+  const id = req.cookies['user_id']; //get user id
   db.getUserNameByUserId(id).then(result => {
     userName = result[0].name; //get user name
   });
@@ -137,16 +137,19 @@ app.get('/myCocktails', (req, res) => {
 })
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
-//here we will get specific cocktail page logic
+//here we will get specific cocktail page logic (here soemthing wrong!!!!!)
 app.get('/cocktail/:id', (req, res)=> {
-  const cocktailId = parseInt(req.params.id)
-  const id = req.cookies['user_id']; //get user id
+  
   let userName;
   let cocktail;
   let cocktailName;
-  db.getUserNameByUserId(id).then(result => {
-    userName = result[0].name; //get user name
-  });
+  const cocktailId = parseInt(req.params.id)
+  let id = req.cookies['user_id']; //get user id
+  if (req.cookies['user_id']) {
+    db.getUserNameByUserId(id).then(result => {
+      userName = result[0].name; //get user name
+    });
+  }
   db.getIngredientsByCocktailId(cocktailId).then(result => {
     cocktail = result;
     //console.log(cocktail)
@@ -154,7 +157,6 @@ app.get('/cocktail/:id', (req, res)=> {
   db.getCocktailName(cocktailId).then(result => {
     cocktailName = result[0].cocktail_name;
   })
-
   db.checkExistUserOrNot(cocktailId).then(result => {
     let isUsersCocktail;
     if (result[0].user_id == id) {
@@ -172,13 +174,6 @@ app.get('/cocktail/:id', (req, res)=> {
     res.render('specificCocktail', templateVars)
   })
 })
-
-
-
-  
-
-
-
 
 
 
@@ -202,11 +197,13 @@ app.post('/cocktails', db.addCocktail);
 //app.get('/cocktails/user/:id', db.getCocktailsByUserId);
 //+
 app.get('/cocktails/user/:id', (req, res) => {
-  const id = req.cookies['user_id'] //get user data from browser (cookie)
   let userName;
-  db.getUserNameByUserId(id).then(result => {
-    userName = result[0].name;
-  });
+  if (req.cookies['user_id']) {
+    const id = req.cookies['user_id'] //get user data from browser (cookie)
+    db.getUserNameByUserId(id).then(result => {
+      userName = result[0].name;
+    });
+  }
   db.getCocktailsByUserId(req).then(result => {
         const templateVars = {
           user: userName,
