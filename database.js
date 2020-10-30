@@ -74,6 +74,12 @@ const addCocktail = (request, response) => {
     }
     response.status(201).send(`New cocktail_id and cocktail_name added inside cocktails! table`)
   })
+  pool.query('INSERT INTO ingredients (cocktail_id, ingredients, amount) VALUES ($1, $2, $3)', [cocktail_id, ingredients, amount], (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.status(201).send(`New cocktail_id and cocktail_name added inside cocktails! table`)
+  })
 }
 
 //5. Lets get specific cocktail data by user id
