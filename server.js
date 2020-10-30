@@ -191,6 +191,19 @@ app.post('/cocktails/', (req, res) => {
 */
 app.post('/cocktails', db.addCocktail);
 
+//----------+----------------+----------+----------------+----------+----------------+----------+----------------
+//here we will delete cocktail from user cocktail list
+
+app.post('/cocktails/:cocktail/delete', (req, res) => {
+  if (req.cookies['user_id']) {
+    
+    const id = parseInt(req.params.id);
+    
+    
+}) 
+
+
+
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here we will get specific user list of cocktails

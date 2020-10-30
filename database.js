@@ -56,12 +56,7 @@ const getCocktailsById = (request, response) => {
 //3. Lets delete cocktail from database
 const deleteCocktail = (request, response) => {
   const id = parseInt(request.params.id)
-  pool.query('DELETE FROM user_cocktails WHERE cocktail_id = $1', [id], (error, results) => {
-    if (error) {
-      throw error
-    }
-    response.status(200).send(`Cocktail deleted with ID: ${id}`)
-  })
+  pool.query('DELETE FROM user_cocktails WHERE cocktail_id = $1', [id]).then(res => res.rows);
 }
 
 //4. lets add new cocktail into user_cocktails/cocktails and ingredients tables
