@@ -136,6 +136,8 @@ app.get('/myCocktails', (req, res) => {
   })
 })
 
+
+
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here we will delete cocktail from user cocktail list
 app.post('/cocktail/:id/delete', (req, res) => {
@@ -147,11 +149,19 @@ app.post('/cocktail/:id/delete', (req, res) => {
   };
 }) 
 
+//----------+----------------+----------+----------------+----------+----------------+----------+----------------
+//here we will add new cocktail from user cocktail list
+ 
+app.get('/cocktail/new', (req, res) => {
+  if (req.cookies['user_id']) {
+    const id = parseInt(req.params.id);
+    res.render('addNewCocktail');
+  }
+})
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here we will get specific cocktail page logic (here soemthing wrong!!!!!)
 app.get('/cocktail/:id', (req, res)=> {
-  
   let userName;
   let cocktail;
   let cocktailName;
