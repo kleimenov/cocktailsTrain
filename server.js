@@ -167,19 +167,22 @@ app.post('/cocktails', (req, res) => {
   const id = req.cookies['user_id']; //get user id
   const randomCocktailId = handlers.randomCocktailId();
   const data = req.body;
+  const amountOfIteration = data.ingredient.length;
 
-  console.log(id)
-  console.log(randomCocktailId)
-  console.log(data.ingredient.length)
-  console.log(data.ingredient)
+  //console.log(id)
+  //console.log(randomCocktailId)
+  //console.log(data.ingredient.length)
+  //console.log(data.ingredient)
 
 
-  db.addNewCocktailUserIDCocktailID(id, randomCocktailId)
-  db.addNewCocktailNameAndCocktailId(randomCocktailId, data.cocktailName)
-  for (let i in data.ingredient) {
-    db.addNewCocktailIngredientsI(randomCocktailId, data.ingredient[i], data.amount[i])
-  }
-  res.redirect('/myCocktails');
+  db.addNewCocktailUserIDCocktailID(id, randomCocktailId).then(()=> {
+    db.addNewCocktailNameAndCocktailId(randomCocktailId, data.cocktailName).then(()=>{
+      for (let i in data.ingredient) {
+        db.addNewCocktailIngredientsI(randomCocktailId, data.ingredient[i], data.amount[i])
+      }
+      res.redirect('/myCocktails')
+    })
+  })
 })
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------

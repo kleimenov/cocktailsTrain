@@ -86,10 +86,7 @@ const addCocktail = (request, response) => {
 
 //4.0 
 const addNewCocktailUserIDCocktailID = (userId, randomCocktailId) => {
-  pool.query('INSERT INTO user_cocktails (user_id, cocktail_id) VALUES ($1, $2)', [userId, randomCocktailId],
-    (err, res) => { if (err) throw err; 
-    response.status(200).send(`New cocktail data (user_id ${userId} and cocsktail_id ${randomCocktailId}) added inside user_cocktals table`)
-  });
+  return pool.query('INSERT INTO user_cocktails (user_id, cocktail_id) VALUES ($1, $2)', [userId, randomCocktailId]).then(res => res.rows);
 }
 
 
@@ -100,12 +97,12 @@ const addNewCocktailUserIDCocktailID = (userId, randomCocktailId) => {
 
 //4.2 here I will add new cocktail data (user_id, cocktail_id)
 const addNewCocktailNameAndCocktailId = (randomCocktailId, cocktailName) => {
-  pool.query('INSERT INTO cocktails (cocktail_id, cocktail_name) VALUES ($1, $2)', [randomCocktailId, cocktailName]).then(res => res.rows);
+  return pool.query('INSERT INTO cocktails (cocktail_id, cocktail_name) VALUES ($1, $2)', [randomCocktailId, cocktailName]).then(res => res.rows);
 }
 
 //4.3 here I will add new ingredients into db
 const addNewCocktailIngredientsI = (randomCocktailId, ingredinets, amount) => {
-  pool.query('INSERT INTO ingredients (cocktail_id, ingredients, amount) VALUES ($1, $2, $3)', [randomCocktailId, ingredinets, amount]).then(res => res.rows);
+  return pool.query('INSERT INTO ingredients (cocktail_id, ingredients, amount) VALUES ($1, $2, $3)', [randomCocktailId, ingredinets, amount]).then(res => res.rows);
 }
 
 
