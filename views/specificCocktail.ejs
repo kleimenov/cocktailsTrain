@@ -17,8 +17,10 @@
             <tr>
               <th scope="col">Cocktail name</th>
               <th scope="col">Ingredients</th>
+              <% if (isUsersCocktail) { %>
               <th scope="col">Edit</th>
               <th scope="col">Delete</th>
+              <% } %>
             </tr>
           </thead>
           <tbody>
@@ -34,6 +36,7 @@
                   </ul>    
                   
               </td>
+              <% if (isUsersCocktail) { %>
               <td>
                 <a href="#">Edit</a>
               </td>
@@ -42,6 +45,7 @@
                   <button type="submit">DELETE</button>
                 </form>
               </td>
+              <% } %>
             </tr>
           </tbody>
         </table>

@@ -154,11 +154,11 @@ app.get('/cocktail/new', (req, res) => {
   let userName;
   db.getUserNameByUserId(id).then(result => {
     userName = result[0].name; //get user name
+    const templateVars = {
+      user: userName
+      }
+      res.render('addNewCocktail', templateVars);
   });
-  const templateVars = {
-    user: userName
-    }
-  res.render('addNewCocktail', templateVars);
 })
 
 app.post('/cocktails', (req, res) => {
