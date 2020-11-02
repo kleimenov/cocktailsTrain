@@ -142,7 +142,7 @@ app.post('/cocktail/:id/delete', (req, res) => {
   if (req.cookies['user_id']) {
     const id = parseInt(req.params.id);
     db.deleteCocktail(id).then(result => {
-      result.redirect('/myCocktails');
+      res.redirect('/myCocktails');
     });
   };
 }) 
@@ -212,13 +212,8 @@ app.get('/cocktail/:id', (req, res)=> {
   })
 })
 
-
-
-
-
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here we will add new data to db
-
 
 
 
