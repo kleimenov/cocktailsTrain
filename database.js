@@ -58,7 +58,8 @@ const deleteCocktail = (cocktailId) => {
   return pool.query('DELETE FROM user_cocktails WHERE cocktail_id = $1', [cocktailId]).then(res => res.rows);
 }
 
-//4. lets add new cocktail into user_cocktails/cocktails and ingredients tables
+//4. lets add new cocktail into user_cocktails/cocktails and ingredients tables. I implement couple of queries 
+/*
 const addCocktail = (request, response) => {
   //const { user_id, cocktail_id } = request.body
   const { user_id, cocktail_id, cocktail_name, ingredients, amount } = request.body;
@@ -81,6 +82,22 @@ const addCocktail = (request, response) => {
     response.status(201).send(`New cocktail_id and cocktail_name added inside cocktails! table`)
   })
 }
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //5. Lets get specific cocktail data by user id
 const getCocktailsByUserId = (id) => {
