@@ -165,7 +165,9 @@ app.get('/cocktail/new', (req, res) => {
 
 app.post('/cocktails', (req, res) => {
   const id = req.cookies['user_id']; //get user id
-  const cocktail_id = randomCocktailId();
+  const randomCocktailId = handlers.randomCocktailId();
+
+  
 })
 
 /*

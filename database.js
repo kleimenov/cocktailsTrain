@@ -84,6 +84,15 @@ const addCocktail = (request, response) => {
 }
 */
 
+//4.0 
+const addNewCocktailUserIDCocktailID = (userId, randomCocktailId) => {
+  pool.query('INSERT INTO user_cocktails (user_id, cocktail_id) VALUES ($1, $2)', [userId, randomCocktailId],
+    (err, res) => { if (err) throw err; 
+    response.status(200).send(`New cocktail data (user_id ${userId} and cocsktail_id ${randomCocktailId}) added inside user_cocktals table`)
+  });
+}
+
+
 //4.1 here I will add new cocktail data (user_id, cocktail_id)
 const addNewCocktailUserIDCocktailID = (userId, randomCocktailId) => {
   pool.query('INSERT INTO user_cocktails (user_id, cocktail_id) VALUES ($1, $2)', [userId, randomCocktailId]).then(res => res.rows);
@@ -98,20 +107,6 @@ const addNewCocktailNameAndCocktailId = (randomCocktailId, cocktailName) => {
 const addNewCocktailIngredientsI = (randomCocktailId, ingredinets, amount) => {
   pool.query('INSERT INTO ingredients (cocktail_id, ingredients, amount) VALUES ($1, $2, $3)', [randomCocktailId, ingredinets, amount]).then(res => res.rows);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -194,11 +189,7 @@ const updateCats = (request, response) => {
     const id = parseInt(request.params.id);
     const {catName, catAge} = request.body;
     pool.query('UPDATE cats SET catName =$1, email =$2 WHERE id =$3',
-      [catName, catAge, id],
-      (err, res) => {
-          if (err) throw err;
-           response.status(200).send(`cat modified with ID: ${id}`)
-       });
+      [catName, catAge, id], (err, res) => { if (err) throw err; response.status(200).send(`cat modified with ID: ${id}`)});
   }
 */
 
