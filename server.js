@@ -81,7 +81,6 @@ app.post('/cocktail/logout', (req, res) => {
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here I implement register form logic
-
 //lets set register route it is get request 
 app.get('/register', (req, res) => {
   let userName;
@@ -137,7 +136,6 @@ app.get('/myCocktails', (req, res) => {
 })
 
 
-
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here we will delete cocktail from user cocktail list
 app.post('/cocktail/:id/delete', (req, res) => {
@@ -157,30 +155,23 @@ app.get('/cocktail/new', (req, res) => {
   db.getUserNameByUserId(id).then(result => {
     userName = result[0].name; //get user name
   });
-      const templateVars = {
-        user: userName
-      }
-      res.render('addNewCocktail', templateVars);
+  const templateVars = {
+    user: userName
+    }
+  res.render('addNewCocktail', templateVars);
 })
 
 app.post('/cocktails', (req, res) => {
   const id = req.cookies['user_id']; //get user id
   const randomCocktailId = handlers.randomCocktailId();
   const data = req.body;
-  const amountOfIteration = data.ingredient.length;
-
-  //console.log(id)
-  //console.log(randomCocktailId)
-  //console.log(data.ingredient.length)
-  //console.log(data.ingredient)
-
 
   db.addNewCocktailUserIDCocktailID(id, randomCocktailId).then(()=> {
     db.addNewCocktailNameAndCocktailId(randomCocktailId, data.cocktailName).then(()=>{
       for (let i in data.ingredient) {
         db.addNewCocktailIngredientsI(randomCocktailId, data.ingredient[i], data.amount[i])
       }
-      res.redirect('/myCocktails')
+      res.redirect('/myCocktails');
     })
   })
 })
