@@ -230,12 +230,12 @@ app.get('/cocktails/user/:id', (req, res) => {
     });
   }
   db.getCocktailsByUserId(req).then(result => {
-        const templateVars = {
-          user: userName,
-          cocktails: result
-        };
-        res.render('myCocktails', templateVars);
-    })
+    const templateVars = {
+      user: userName,
+      cocktails: result
+    };
+    res.render('myCocktails', templateVars);
+  })
 })
 
 
@@ -245,11 +245,9 @@ app.delete('/cocktails/:id', db.deleteCocktail);
 
 
 
-
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here we will get a single user data (for instance particular user)
 app.get('/cocktails/:id', db.getCocktailsById);
-
 
 
 
@@ -267,12 +265,11 @@ app.get('/cocktails', (req, res) => {
   }
   //console.log(userName)
   db.getCocktails().then(result => {
-       //console.log(cocktails);
-       const templateVars = {
-         user: userName,
-         cocktails: result};
-       res.render('cocktails', templateVars);
-   })
+    const templateVars = {
+      user: userName,
+      cocktails: result};
+    res.render('cocktails', templateVars);
+  })
 })
 
 
@@ -286,5 +283,5 @@ app.get('/', (req, res) => {
 
 //set port and start listen requests 
 app.listen(PORT, () => {
-    console.log(`Server is listeninig ${PORT}........../`)
+  console.log(`Server is listeninig ${PORT}........../`)
 });
