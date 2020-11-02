@@ -94,9 +94,9 @@ const addNewCocktailUserIDCocktailID = (userId, randomCocktailId) => {
 
 
 //4.1 here I will add new cocktail data (user_id, cocktail_id)
-const addNewCocktailUserIDCocktailID = (userId, randomCocktailId) => {
-  pool.query('INSERT INTO user_cocktails (user_id, cocktail_id) VALUES ($1, $2)', [userId, randomCocktailId]).then(res => res.rows);
-}
+//const addNewCocktailUserIDCocktailID = (userId, randomCocktailId) => {
+  //pool.query('INSERT INTO user_cocktails (user_id, cocktail_id) VALUES ($1, $2)', [userId, randomCocktailId]).then(res => res.rows);
+//}
 
 //4.2 here I will add new cocktail data (user_id, cocktail_id)
 const addNewCocktailNameAndCocktailId = (randomCocktailId, cocktailName) => {

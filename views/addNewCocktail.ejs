@@ -13,7 +13,7 @@
     <main>
       <div>
         <h3>Create new cocktail</h3>
-          <form class="form-inline" action="#>" method="#">
+          <form class="form-inline" action="/cocktails" method="POST">
             <div class="d-flex flex-column form-group mb-2">
               <div>Add new cocktail name:
                 <label for="cocktailName"></label>
@@ -22,8 +22,8 @@
               <fieldset class="d-flex flex-row">Add cocktail ingredients
                 <div id="ingredients-field">
                  <div class="d-flex flex-row">
-                    <input class="form-control" type="text" name="ingredient1" placeholder="Ingredient #1">
-                    <input class="form-control" type="text" name="amount1" placeholder="Amount #1">
+                    <input class="form-control" type="text" name="ingredient" placeholder="Ingredient #1">
+                    <input class="form-control" type="text" name="amount" placeholder="Amount #1">
                  </div>
                 </div>
                 <button type="button" class="btn btn-primary" id="addIngredient">+ingredient</button>
@@ -39,19 +39,17 @@
         const createIngredientField = () => {
             let ingredientFieldContainer = document.createElement("div");
             let ingredientNameField = document.createElement("input");
-            ingredientNameField.name = `ingredient${i}`;
-            ingredientNameField.placeholder = `Amount #${i}`;
+            ingredientNameField.name = `ingredient`;
+            ingredientNameField.placeholder = `Amount`;
             let ingredientAmountField = document.createElement("input");
-            ingredientAmountField.name = `amount${i}`;
-            ingredientAmountField.placeholder = `Amount #${i}`;
+            ingredientAmountField.name = `amount`;
+            ingredientAmountField.placeholder = `Amount`;
             ingredientFieldContainer.appendChild(ingredientNameField);
             ingredientFieldContainer.appendChild(ingredientAmountField);
             const ingredientsBox = document.getElementById('ingredients-field');
             ingredientsBox.appendChild(ingredientFieldContainer);
-            i++;
         }
         const addIngredient = document.getElementById('addIngredient');
-        let i = 2;
         addIngredient.addEventListener('click', createIngredientField);
     </script>
 </body>

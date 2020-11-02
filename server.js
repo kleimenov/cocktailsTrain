@@ -166,26 +166,14 @@ app.get('/cocktail/new', (req, res) => {
 app.post('/cocktails', (req, res) => {
   const id = req.cookies['user_id']; //get user id
   const randomCocktailId = handlers.randomCocktailId();
+  const data = req.body;
+  console.log(id)
+  console.log(randomCocktailId)
+  console.log(data)
+  res.send('Hello')
 
-  
 })
 
-/*
-app.get('/cocktail/new', (req, res) => {
-  
-  let id = req.cookies['user_id'];
-  let userName;
-  //const id = parseInt(req.params.id);
-  
-  db.getUserNameByUserId(id).then(result => {
-    userName = result[0].name; //get user name
-  });
-  const templateVars = {
-    user: userName
-  }
-  res.render('addNewCocktail', templateVars);
-})
-*/
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here we will get specific cocktail page logic (here soemthing wrong!!!!!)
 app.get('/cocktail/:id', (req, res)=> {
@@ -228,16 +216,6 @@ app.get('/cocktail/:id', (req, res)=> {
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here we will add new data to db
-/*
-app.post('/cocktails/', (req, res) => {
-    console.log('fired');
-    db.addCocktail(req.body).then(console.log('done'))
-    .catch((err) => {
-        console.log(err);
-    })
-})
-*/
-app.post('/cocktails', db.addCocktail);
 
 
 
