@@ -167,17 +167,19 @@ app.post('/cocktails', (req, res) => {
   const id = req.cookies['user_id']; //get user id
   const randomCocktailId = handlers.randomCocktailId();
   const data = req.body;
+
   console.log(id)
   console.log(randomCocktailId)
   console.log(data.ingredient.length)
   console.log(data.ingredient)
 
-  
 
-  res.send('Hello')
-
-
-
+  db.addNewCocktailUserIDCocktailID(id, randomCocktailId)
+  db.addNewCocktailNameAndCocktailId(randomCocktailId, data.cocktailName)
+  for (let i in data.ingredient) {
+    db.addNewCocktailIngredientsI(randomCocktailId, data.ingredient[i], data.amount[i])
+  }
+  res.redirect('/myCocktails');
 })
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
