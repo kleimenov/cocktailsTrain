@@ -169,8 +169,14 @@ app.post('/cocktails', (req, res) => {
   const data = req.body;
   console.log(id)
   console.log(randomCocktailId)
-  console.log(data)
+  console.log(data.ingredient.length)
+  console.log(data.ingredient)
+
+  
+
   res.send('Hello')
+
+
 
 })
 
