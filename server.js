@@ -151,6 +151,17 @@ app.post('/cocktail/:id/delete', (req, res) => {
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here we will add new cocktail from user cocktail list
+app.get('/cocktail/new', (req, res) => {
+  const id = req.cookies['user_id']; //get user id
+  db.getUserNameByUserId(id).then(result => {
+    userName = result[0].name; //get user name
+  });
+  const templateVars = {
+    user: userName
+  }
+  res.render('addNewCocktail', templateVars);
+})
+
 /*
 app.get('/cocktail/new', (req, res) => {
   
@@ -182,27 +193,24 @@ app.get('/cocktail/:id', (req, res)=> {
   }
   db.getIngredientsByCocktailId(cocktailId).then(result => {
     cocktail = result;
-    //console.log(cocktail)
-  })
-  db.getCocktailName(cocktailId).then(result => {
-    cocktailName = result[0].cocktail_name;
-  })
-  db.checkExistUserOrNot(cocktailId).then(result => {
-    let isUsersCocktail;
-    if (result[0].user_id == id) {
-      isUsersCocktail = true;
-    } else {
-      isUsersCocktail = false;
-    }
-    //userId = result[0].user_id;
-    const templateVars = {
-      isUsersCocktail: isUsersCocktail,
-      user: userName,
-      cocktailName: cocktailName,
-      ingredients: cocktail,
-      cocktailId: cocktailId
-    }
-    res.render('specificCocktail', templateVars)
+    db.getCocktailName(cocktailId).then(result => {
+      cocktailName = result[0].cocktail_name;
+      db.checkExistUserOrNot(cocktailId).then(result => {
+        let isUsersCocktail = false;
+        if (result[0].user_id == id) {
+          isUsersCocktail = true;
+        } 
+        //userId = result[0].user_id;
+        const templateVars = {
+          isUsersCocktail: isUsersCocktail,
+          user: userName,
+          cocktailName: cocktailName,
+          ingredients: cocktail,
+          cocktailId: cocktailId
+        }
+        res.render('specificCocktail', templateVars)
+      })
+    })
   })
 })
 
@@ -290,29 +298,8 @@ app.get('/cocktails', (req, res) => {
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //try to do plain response - request
 app.get('/', (req, res) => {
-    //res.json({message: 'Node.js, Express and Postgres inside one boat EEEeeeehaaaaAAAA'});
-//   const id = req.cookies['user_id'] //get user data from browser (cookie)
-//   let userName;
-//   db.getUserNameByUserId(id).then(result => {
-//     userName = result[0].name;
-//   });
-//   db.getCocktails().then(result => {
-//     //console.log(cocktails);
-//     const templateVars = {
-//       user: userName,
-//       cocktails: result};
-//     res.render('cocktails', templateVars);
-// })
-res.redirect('/cocktails')
+  res.redirect('/cocktails')
 });
-
-
-
-
-
-
-
-
 
 //set port and start listen requests 
 app.listen(PORT, () => {
