@@ -152,9 +152,9 @@ app.post('/cocktail/:id/delete', (req, res) => {
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here we will add new cocktail from user cocktail list
 app.get('/cocktail/new', (req, res) => {
-  let userName;
   const id = req.cookies['user_id']; //get user id
   db.getUserNameByUserId(id).then(result => {
+    let userName;
     userName = result[0].name; //get user name
     const templateVars = {
       user: userName
