@@ -153,14 +153,19 @@ app.post('/cocktail/:id/delete', (req, res) => {
 //here we will add new cocktail from user cocktail list
 app.get('/cocktail/new', (req, res) => {
   const id = req.cookies['user_id']; //get user id
+  let userName;
   db.getUserNameByUserId(id).then(result => {
-    let userName;
     userName = result[0].name; //get user name
-    const templateVars = {
-      user: userName
-    }
-    res.render('addNewCocktail', templateVars);
   });
+      const templateVars = {
+        user: userName
+      }
+      res.render('addNewCocktail', templateVars);
+})
+
+app.post('/cocktails', (req, res) => {
+  const id = req.cookies['user_id']; //get user id
+  const cocktail_id = randomCocktailId();
 })
 
 /*

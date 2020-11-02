@@ -17,14 +17,16 @@
             <div class="d-flex flex-column form-group mb-2">
               <div>Add new cocktail name:
                 <label for="cocktailName"></label>
-                <input class="form-control" id="cocktailName" type="text" name="cocktailName" value="Cocktail name" style="width: 300px; margin: 1em">
+                <input class="form-control" id="cocktailName" type="text" name="cocktailName" placeholder="Cocktail name" style="width: 300px; margin: 1em">
               </div>
-              <fieldset class="d-flex flex-column">Add cocktail ingredients
+              <fieldset class="d-flex flex-row">Add cocktail ingredients
                 <div id="ingredients-field">
-                 
-                  <input class="form-control" id="ingredient1" type="text" name="ingredient1" value="Ingredient #1" style="width: 300px; margin: 1em">
+                 <div class="d-flex flex-row">
+                    <input class="form-control" type="text" name="ingredient1" placeholder="Ingredient #1">
+                    <input class="form-control" type="text" name="amount1" placeholder="Amount #1">
+                 </div>
                 </div>
-                <button type="submit" class="btn btn-primary" id="addIngredient" style="width: 150px">+ingredient</button>
+                <button type="button" class="btn btn-primary" id="addIngredient">+ingredient</button>
               </fieldset>
                 <br>
                 <button type="submit" class="btn btn-primary" style="width: 150px">Submit</button>
@@ -33,6 +35,24 @@
       </div>
     </main>
     <%- include('partials/_footer') %>
-    <script src="index.js"></script>
+    <script>
+        const createIngredientField = () => {
+            let ingredientFieldContainer = document.createElement("div");
+            let ingredientNameField = document.createElement("input");
+            ingredientNameField.name = `ingredient${i}`;
+            ingredientNameField.placeholder = `Amount #${i}`;
+            let ingredientAmountField = document.createElement("input");
+            ingredientAmountField.name = `amount${i}`;
+            ingredientAmountField.placeholder = `Amount #${i}`;
+            ingredientFieldContainer.appendChild(ingredientNameField);
+            ingredientFieldContainer.appendChild(ingredientAmountField);
+            const ingredientsBox = document.getElementById('ingredients-field');
+            ingredientsBox.appendChild(ingredientFieldContainer);
+            i++;
+        }
+        const addIngredient = document.getElementById('addIngredient');
+        let i = 2;
+        addIngredient.addEventListener('click', createIngredientField);
+    </script>
 </body>
 </html>

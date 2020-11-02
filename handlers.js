@@ -8,9 +8,17 @@ const randomUserIdGen = () => {
   return Math.round(randomId);
 };
 
+const randomCocktailId = () => {
+  const minNumber = 20;
+  const maxNumber = 10000;
+  let randomId = Math.random() * (maxNumber - minNumber) + minNumber;
+  return Math.round(randomId);
+}
+
 
 
 //here we will export modules
 module.exports = {
-    randomUserIdGen
+    randomUserIdGen,
+    randomCocktailId
 }
