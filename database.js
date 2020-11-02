@@ -38,12 +38,6 @@ const getCocktails = () => {
   return pool.query('select * from cocktails').then(res => res.rows);
 }
 
-//1.1. Lets get all cocktails names and ingredients from database
-/*
-const getAllIngredientsAndCocktailsNames = () => {
-  return pool.query('select cocktail_name, ingredients, amount from cocktails inner join ingredients on cocktails.cocktail_id = ingredients.cocktail_id').then(res => res.rows);
-}
-*/
 //2. Lets get specific cocktail data from database
 const getCocktailsById = (request, response) => {
   //const id = parseInt(request.params.id);
