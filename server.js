@@ -52,18 +52,18 @@ app.post('/login', (req, res) => {
       res.status(403).send("User doesn't exist!");
       }
     else {
-        db.getUserByPassword(req).then(result => {
-            if(result) {
-              db.getUseridByEmail(req.body.email).then(result2 => {
-                //console.log(result2)
-                //console.log(result2[0].user_id)
-                //console.log(res.cookie('user_cookie'))
-                res.cookie('user_id', result2[0].user_id);
-                res.redirect('/myCocktails');
-              })
-            }
-            else {res.status(403).send('Wrong password!');}
-        })
+      db.getUserByPassword(req).then(result => {
+        if(result) {
+          db.getUseridByEmail(req.body.email).then(result2 => {
+            //console.log(result2)
+            //console.log(result2[0].user_id)
+            //console.log(res.cookie('user_cookie'))
+            res.cookie('user_id', result2[0].user_id);
+            res.redirect('/myCocktails');
+          })
+        }
+        else {res.status(403).send('Wrong password!');}
+      })
     }
   })
 })
