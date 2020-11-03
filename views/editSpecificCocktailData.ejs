@@ -12,7 +12,14 @@
         <%- include('partials/_header') %>
         <main>
             <h4 class="nav-item nav-link text-primary"><strong> <%= cocktailName %> </strong></h4>
-            
+            <% let cnt = 1 %>
+            <% for(let element of ingredients) { %>
+                <label type="text" name="ingredient + <% cnt %>">"Ingredient" <%= cnt %></label>
+                <input class="form-control" type="text" name="ingredient + <% cnt %>" placeholder="<%= element.ingredients %>" style="width: 200px;"></input>
+                <% cnt++ %>
+            <% } %> 
+            <br>
+            <button type="submit" class="btn btn-primary" style="width: 150px">Submit</button>
         </main>
         <%- include('partials/_footer') %>
     </body>

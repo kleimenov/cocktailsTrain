@@ -103,6 +103,8 @@ const getCocktailName = (id) => {
   return pool.query('select cocktail_name from cocktails where cocktail_id =$1', [id]).then(res => res.rows);
 }
 
+
+
 //---------+-------------------+-----------------------------+-------------
 /*
 const addCocktail = (request, response) => {
