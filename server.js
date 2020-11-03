@@ -148,9 +148,51 @@ app.post('/cocktail/:id/delete', (req, res) => {
 //here we will edit existed cocktail ingredients and name
 /*
 app.get('/cocktail/:id/edit', (req, res) => {
-  res.render('editSpecificCocktailData', templateVars);
+  const id = req.cookies['user_id'];
+  let userName;
+  db.getUserNameByUserId(id).then(result => {
+    userName = result[0].name; //get user name
+    const templateVars = {
+      user: userName
+      }
+      res.render('editSpecificCocktailData', templateVars);
+  });
 })
 */
+
+app.get('/cocktail/:id/edit', (req, res) => {
+  let userName;
+  let cocktail;
+  let cocktailName;
+  const cocktailId = parseInt(req.params.id)
+  let id = req.cookies['user_id']; //get user id
+  if (req.cookies['user_id']) {
+    db.getUserNameByUserId(id).then(result => {
+      userName = result[0].name; //get user name
+    });
+  }
+  db.getIngredientsByCocktailId(cocktailId).then(result => {
+    cocktail = result;
+    db.getCocktailName(cocktailId).then(result => {
+      cocktailName = result[0].cocktail_name;
+      db.checkExistUserOrNot(cocktailId).then(result => {
+        let isUsersCocktail = false;
+        if (result[0].user_id == id) {
+          isUsersCocktail = true;
+        } 
+        //userId = result[0].user_id;
+        const templateVars = {
+          isUsersCocktail: isUsersCocktail,
+          user: userName,
+          cocktailName: cocktailName,
+          ingredients: cocktail,
+          cocktailId: cocktailId
+        } 
+        res.render('editSpecificCocktailData', templateVars);
+      })
+    })
+  })
+})
 
 
 
