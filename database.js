@@ -53,32 +53,7 @@ const deleteCocktail = (cocktailId) => {
 }
 
 //4. lets add new cocktail into user_cocktails/cocktails and ingredients tables. I implement couple of queries 
-/*
-const addCocktail = (request, response) => {
-  //const { user_id, cocktail_id } = request.body
-  const { user_id, cocktail_id, cocktail_name, ingredients, amount } = request.body;
-  pool.query('INSERT INTO user_cocktails (user_id, cocktail_id) VALUES ($1, $2)', [user_id, cocktail_id], (error, results) => {
-    if (error) {
-      throw error
-    }
-  //response.status(201).send(`New cocktail id added inside user_cocktails table!`)
-  })
-  pool.query('INSERT INTO cocktails (cocktail_id, cocktail_name) VALUES ($1, $2)', [cocktail_id, cocktail_name], (error, results) => {
-    if (error) {
-      throw error
-    }
-    response.status(201).send(`New cocktail_id and cocktail_name added inside cocktails! table`)
-  })
-  pool.query('INSERT INTO ingredients (cocktail_id, ingredients, amount) VALUES ($1, $2, $3)', [cocktail_id, ingredients, amount], (error, results) => {
-    if (error) {
-      throw error
-    }
-    response.status(201).send(`New cocktail_id and cocktail_name added inside cocktails! table`)
-  })
-}
-*/
 
-//4.0 
 const addNewCocktailUserIDCocktailID = (userId, randomCocktailId) => {
   return pool.query('INSERT INTO user_cocktails (user_id, cocktail_id) VALUES ($1, $2)', [userId, randomCocktailId]).then(res => res.rows);
 }
