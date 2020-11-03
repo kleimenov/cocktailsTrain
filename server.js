@@ -74,10 +74,6 @@ app.post('/logout', (req, res) => {
   res.clearCookie('user_id');
   res.redirect('/');
 });
-app.post('/cocktail/logout', (req, res) => {
-  res.clearCookie('user_id');
-  res.redirect('/');
-});
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here I implement register form logic

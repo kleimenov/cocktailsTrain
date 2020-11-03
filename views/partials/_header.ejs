@@ -14,7 +14,7 @@
       </div>
       <% if (user) { %>
         <h3 class="nav-item nav-link text-light"> Hello, <%= user %></h3>
-        <form class="form-inline" action="logout" method="POST">
+        <form class="form-inline" action="/logout" method="POST">
           <button type="submit">Enough for today</button>
         </form>
       <% } else { %> 
