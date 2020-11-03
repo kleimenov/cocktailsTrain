@@ -145,6 +145,16 @@ app.post('/cocktail/:id/delete', (req, res) => {
 }) 
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
+//here we will edit existed cocktail ingredients and name
+/*
+app.get('/cocktail/:id/edit', (req, res) => {
+  res.render('editSpecificCocktailData', templateVars);
+})
+*/
+
+
+
+//----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here we will add new cocktail from user cocktail list
 app.get('/cocktail/new', (req, res) => {
   const id = req.cookies['user_id']; //get user id
