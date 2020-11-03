@@ -105,9 +105,6 @@ app.post('/register', (req, res) => {
     else {
       db.addNewUser(req).then(() => {
         db.getUseridByEmail(req.body.email).then(result2 => {
-          //console.log(result2)
-          //console.log(result2[0].user_id)
-          //console.log(res.cookie('user_cookie'))
           res.cookie('user_id', result2[0].user_id);
           res.redirect('/myCocktails');
         })
@@ -205,7 +202,7 @@ app.get('/cocktail/:id', (req, res)=> {
           cocktailName: cocktailName,
           ingredients: cocktail,
           cocktailId: cocktailId
-        }
+        } 
         res.render('specificCocktail', templateVars)
       })
     })
