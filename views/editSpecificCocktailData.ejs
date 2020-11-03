@@ -14,13 +14,44 @@
             <h4 class="nav-item nav-link text-primary"><strong> <%= cocktailName %> </strong></h4>
             <% let cnt = 1 %>
             <% for(let element of ingredients) { %>
-                <label type="text" name="ingredient + <% cnt %>">"Ingredient" <%= cnt %></label>
-                <input class="form-control" type="text" name="ingredient + <% cnt %>" placeholder="<%= element.ingredients %>" style="width: 200px;"></input>
+                <div id="ingredient" class = "d-flex flex-row">
+                    <div>
+                        <label type="text" name="ingredient + <% cnt %>">Ingredient <%= cnt %></label>
+                        <input class="form-control" type="text" name="ingredient + <% cnt %>" placeholder="<%= element.ingredients %>" style="width: 200px;"></input>
+                    </div>
+                    <div>
+                        <label type="text" name="Amount + <% cnt %>">Amount of ingredient <%= cnt %></label>
+                        <input class="form-control" type="text" name="Amount + <% cnt %>" placeholder="<%= element.amount %>" style="width: 200px;"></input>
+                    </div>
+                </div>
                 <% cnt++ %>
-            <% } %> 
+            <% } %>
+            <div id="ingredients-field" class="d-flex flex-column">
+            </div>
+            <button type="button" class="btn btn-primary" id="addIngredient">+ingredient</button>
             <br>
             <button type="submit" class="btn btn-primary" style="width: 150px">Submit</button>
         </main>
         <%- include('partials/_footer') %>
+        <script>
+            const addIngredientField = () => {
+                let newIngredientsTitle = document.createElement("h3");
+                
+                let ingredientFieldContainer = document.createElement("div");
+                let ingredientNameField = document.createElement("input");
+                ingredientNameField.name = `Ingredient`;
+                ingredientNameField.placeholder = `Ingredient`;
+                let ingredientAmountField = document.createElement("input");
+                ingredientAmountField.name = `Amount`;
+                ingredientAmountField.placeholder = `Amount`;
+                ingredientFieldContainer.appendChild(ingredientNameField);
+                ingredientFieldContainer.appendChild(ingredientAmountField);
+                const ingredientsBox = document.getElementById('ingredients-field');
+                ingredientsBox.appendChild(ingredientFieldContainer);
+            }
+            const addIngredient = document.getElementById('addIngredient');
+            addIngredient.addEventListener('click', addIngredientField);
+        </script>
+        
     </body>
 </html>
