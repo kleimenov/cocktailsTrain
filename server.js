@@ -142,19 +142,6 @@ app.post('/cocktail/:id/delete', (req, res) => {
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here we will edit existed cocktail ingredients and name
-/*
-app.get('/cocktail/:id/edit', (req, res) => {
-  const id = req.cookies['user_id'];
-  let userName;
-  db.getUserNameByUserId(id).then(result => {
-    userName = result[0].name; //get user name
-    const templateVars = {
-      user: userName
-      }
-      res.render('editSpecificCocktailData', templateVars);
-  });
-})
-*/
 
 app.get('/cocktail/:id/edit', (req, res) => {
   let userName;
