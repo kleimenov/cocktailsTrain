@@ -11,26 +11,30 @@
     <body>
         <%- include('partials/_header') %>
         <main>
-            <h4 class="nav-item nav-link text-primary"><strong> <%= cocktailName %> </strong></h4>
-            <% let cnt = 1 %>
-            <% for(let element of ingredients) { %>
-                <div id="ingredient" class = "d-flex flex-row">
-                    <div>
-                        <label type="text" name="ingredient + <% cnt %>">Ingredient <%= cnt %></label>
-                        <input class="form-control" type="text" name="ingredient + <% cnt %>" placeholder="<%= element.ingredients %>" style="width: 200px;"></input>
+            <form action="/myCocktails" method="POST">
+                <h4 class="nav-item nav-link text-primary"><strong> <%= cocktailName %> </strong></h4>
+                <input type="text" name="cocktailName" value="<%= cocktailName %>"> 
+                <input type="text" name="cocktailId" value="<%= cocktailId %>"> 
+                <% let cnt = 1 %>
+                <% for(let element of ingredients) { %>
+                    <div id="ingredient" class = "d-flex flex-row">
+                        <div>
+                            <label type="text" name="ingredient <% cnt %>">Ingredient <%= cnt %></label>
+                            <input class="form-control" type="text" name="ingredient" value="<%= element.ingredients %>" style="width: 200px;"></input>
+                        </div>
+                        <div>
+                            <label type="text" name="amount"+<% cnt %>>Amount of ingredient <%= cnt %></label>
+                            <input class="form-control" type="text" name="amount" value="<%= element.amount %>" style="width: 200px;"></input>
+                        </div>
                     </div>
-                    <div>
-                        <label type="text" name="Amount + <% cnt %>">Amount of ingredient <%= cnt %></label>
-                        <input class="form-control" type="text" name="Amount + <% cnt %>" placeholder="<%= element.amount %>" style="width: 200px;"></input>
-                    </div>
+                    <% cnt++ %>
+                <% } %>
+                <div id="ingredients-field" class="d-flex flex-column">
                 </div>
-                <% cnt++ %>
-            <% } %>
-            <div id="ingredients-field" class="d-flex flex-column">
-            </div>
-            <button type="button" class="btn btn-primary" id="addIngredient">+ingredient</button>
-            <br>
-            <button type="submit" class="btn btn-primary" style="width: 150px">Submit</button>
+                <button type="button" class="btn btn-primary" id="addIngredient">+ingredient</button>
+                <br>
+                <button type="submit" class="btn btn-primary" style="width: 150px">Submit</button>
+            </form>
         </main>
         <%- include('partials/_footer') %>
         <script>

@@ -190,22 +190,20 @@ app.get('/cocktail/:id/edit', (req, res) => {
   })
 })
 
-app.post('/cocktails', (req, res) => {
-  const cocktailId = parseInt(req.params.id);
+app.post('/myCocktails', (req, res) => {
+  //const cocktailId = parseInt(req.params.id);
   const data = req.body;
   let id = req.cookies['user_id']; //get user id
-  
-  if (req.cookies['user_id']) {
-    db.getUserNameByUserId(id).then(result => {
-      userName = result[0].name; //get user name
-    });
-  }
-  db.deleteCocktail(id).then(result => {
-    
+  db.deleteCocktail(data.cocktailId).then(() => {
+    db.addNewCocktailUserIDCocktailID(id, data.cocktailId).then(()=> {
+      db.addNewCocktailNameAndCocktailId(data.cocktailId, data.cocktailName).then(()=>{
+        for (let i in data.ingredient) {
+          db.addNewCocktailIngredientsI(data.cocktailId, data.ingredient[i], data.amount[i])
+        }
+        res.redirect('/myCocktails');
+      })
+    })
   })
-
-///
-
 });
 
 
