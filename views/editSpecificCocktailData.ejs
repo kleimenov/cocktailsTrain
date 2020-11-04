@@ -39,14 +39,13 @@
         <%- include('partials/_footer') %>
         <script>
             const addIngredientField = () => {
-                let newIngredientsTitle = document.createElement("h3");
                 let ingredientFieldContainer = document.createElement("div");
                 let ingredientNameField = document.createElement("input");
-                ingredientNameField.name = `Ingredient`;
-                ingredientNameField.placeholder = `Ingredient`;
+                ingredientNameField.name = `ingredient`;
+                ingredientNameField.placeholder = `ingredient`;
                 let ingredientAmountField = document.createElement("input");
-                ingredientAmountField.name = `Amount`;
-                ingredientAmountField.placeholder = `Amount`;
+                ingredientAmountField.name = `amount`;
+                ingredientAmountField.placeholder = `amount`;
                 ingredientFieldContainer.appendChild(ingredientNameField);
                 ingredientFieldContainer.appendChild(ingredientAmountField);
                 const ingredientsBox = document.getElementById('ingredients-field');
