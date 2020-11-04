@@ -274,14 +274,9 @@ app.get('/cocktail/:id', (req, res)=> {
 })
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
-//here we will add new data to db
-
-
-
-//----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here we will get specific user list of cocktails
 //app.get('/cocktails/user/:id', db.getCocktailsByUserId);
-//+
+
 app.get('/cocktails/user/:id', (req, res) => {
   let userName;
   if (req.cookies['user_id']) {
@@ -313,8 +308,7 @@ app.get('/cocktails/:id', db.getCocktailsById);
 
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
-//here we will get response from database to '/cats'
-//app.get('/cocktails', db.getCocktails);
+//here we will get response from database
 
 app.get('/cocktails', (req, res) => {
   let userName;
@@ -332,8 +326,6 @@ app.get('/cocktails', (req, res) => {
     res.render('cocktails', templateVars);
   })
 })
-
-
 
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
