@@ -105,52 +105,6 @@ const getCocktailName = (id) => {
 
 
 
-//---------+-------------------+-----------------------------+-------------
-/*
-const addCocktail = (request, response) => {
-  console.log(request.body);
-  console.log('_____________')
-  const { user_id, cocktail_id, cocktail_name, ingredients, amount } = request.body;
-  pool.query(
-    'INSERT INTO user_cocktails (user_id, cocktail_id) VALUES ($1, $2)', [user_id, cocktail_id],
-    (error, results) => {
-      if (error) {
-        throw error
-      }
-      response.status(200).json(res.rows)
-    });
-  pool.query(
-    'INSERT INTO cocktails (cocktail_id, cocktail_name) VALUES ($1, $2)', [cocktail_id, cocktail_name],
-    (error, results) => {
-      if (error) {
-        throw error
-      }
-      response.status(200).json(res.rows)
-    });
-  pool.query(
-    'INSERT INTO ingredients (cocktail_id, ingredients, amount) VALUES ($1, $2, $3)', [cocktail_id, ingredients, amount],
-    (error, results) => {
-      if (error) {
-        throw error
-      }
-      response.status(200).json(res.rows)
-  });
-
-}
-*/
-
-
-//-----+----------------------------+---------------------+----------+----
-//4. Lets update cat data that already exist 
-/*
-const updateCats = (request, response) => {
-    const id = parseInt(request.params.id);
-    const {catName, catAge} = request.body;
-    pool.query('UPDATE cats SET catName =$1, email =$2 WHERE id =$3',
-      [catName, catAge, id], (err, res) => { if (err) throw err; response.status(200).send(`cat modified with ID: ${id}`)});
-  }
-*/
-
 
 
 //here we will export modules
