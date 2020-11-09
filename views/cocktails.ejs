@@ -6,21 +6,26 @@
     
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-        <link rel="stylesheet" href="../assets/style.css">
+        <link rel="stylesheet" href="/styles/style.css">
         <title>Cocktails tarin</title>
     </head>
 <body>
     <%- include('partials/_header') %>
     <main>
-      <div>
-        <h3>List of cocktails</h3>
-        <ul>
-          <% for (let cocktail of cocktails) {%>
-          <li>
-            <a href="/cocktail/<%=cocktail.cocktail_id %>"><%= cocktail.cocktail_name %></a>
-          </li>
-          <% } %> 
-        </ul>
+      <div class="container">
+        <h3 class="text-aqua text-center">List of cocktails</h3>
+        <div class="row-lg-3 row-md-3 row-sm-6 row-xs-12">
+          <ul class="row justify-content-center m-0 p-0">
+            <% for (let cocktail of cocktails) {%>
+            <li class="cocktail-list">
+              <div class="card text-center border-colour-aqua m-1" style="width: 14rem;">
+                <img class="img-features m-auto " src="/assets/placeholder.png">
+                <a class="cocktail-link m-0 text-orange card-title" href="/cocktail/<%=cocktail.cocktail_id %>"><%= cocktail.cocktail_name %></a>
+              </div>
+            </li>
+            <% } %> 
+          </ul>
+        </div>
       </div>
     </main>
     <%- include('partials/_footer') %>

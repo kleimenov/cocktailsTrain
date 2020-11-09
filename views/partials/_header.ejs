@@ -1,26 +1,25 @@
 <header>
-  <nav class="navbar navbar-expand-md navbar-dark bg-info">
-    <a class="navbar-brand text-warning" href="/">Cocktails train</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <nav class="navbar navbar-expand-md navbar-dark bg-aqua">
+    <a class="navbar-brand text-white" href="/">Cocktails train</a>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link text-primary" href="/cocktails">All cocktails</a>
+        <a class="nav-item nav-link text-white" href="/cocktails">All cocktails</a>
         <% if (user) { %>
-        <a class="nav-item nav-link text-warning" href="/myCocktails">My cooktailes list</a>
-        <a class="nav-item nav-link text-warning" href="/cocktail/new">+add cooktail</a>
+        <a class="nav-item nav-link text-white" href="/myCocktails">My cooktailes list</a>
+        <a class="nav-item nav-link text-white" href="/cocktail/new">+add cooktail</a>
         <% } %>
       </div>
-      <% if (user) { %>
-        <h3 class="nav-item nav-link text-warning"> Hello, <%= user %></h3>
-        <form class="form-inline" action="/logout" method="POST">
-          <button class="btn btn-danger" type="submit">Enough for today</button>
-        </form>
-      <% } else { %> 
-          <a href="/register"><button class="btn btn-success" type="submit">Enroll</button></a>
-          <a href="/login"><button class="btn btn-warning" type="submit">Sign in</button></a>
-      <% } %>
     </div>
+    <% if (user) { %>
+      <h3 class="nav-item nav-link text-white font-italic"> Hello, <%= user %></h3>
+      <form class="float-right" action="/logout" method="POST">
+        <button class="btn border-colour-mod-orange btn-md bg-info rounded-pill text-white" type="submit">Enough for today</button>
+      </form>
+    <% } else { %> 
+      <div class="float-right">
+        <a href="/register"><button class="btn border-colour-mod-orange btn-md bg-info rounded-pill text-white" type="submit">Enroll</button></a>
+        <a href="/login"><button class="btn border-colour-mod-orange btn-md bg-info rounded-pill text-white" type="submit">Sign in</button></a>
+      </div>
+      <% } %>
   </nav>
   </header> 

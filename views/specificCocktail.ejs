@@ -6,62 +6,65 @@
     
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="/styles/style.css">
         <title>webApp</title>
     </head>
     <body>
       <%- include('partials/_header') %>
       <main>
-        <h4 class="nav-item nav-link text-primary"><strong> <%= cocktailName %> </strong></h4>
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Cocktail name</th>
-              <th scope="col">Ingredients</th>
-              <th scope="col">Amount</th>
-              <% if (isUsersCocktail) { %>
-              <th scope="col">Edit</th>
-              <th scope="col">Delete</th>
-              <% } %>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><%= cocktailName %></td>
-              <td>
+        <div class="container">
+          <h4 class="nav-item nav-link text-primary"><strong> <%= cocktailName %> </strong></h4>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Cocktail name</th>
+                <th scope="col">Ingredients</th>
+                <th scope="col">Amount</th>
+                <% if (isUsersCocktail) { %>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+                <% } %>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= cocktailName %></td>
+                <td>
+                    <ul>
+                    <% for(let element of ingredients) { %>
+                        <li>
+                            <div>
+                              <span><%= element.ingredients %></span>
+                            </div>
+                        </li>
+                    <% } %> 
+                    </ul>    
+                </td>
+                <td>
                   <ul>
                   <% for(let element of ingredients) { %>
                       <li>
                           <div>
-                            <span><%= element.ingredients %></span>
+                            <span><%= element.amount %></span>
                           </div>
                       </li>
                   <% } %> 
                   </ul>    
               </td>
-              <td>
-                <ul>
-                <% for(let element of ingredients) { %>
-                    <li>
-                        <div>
-                          <span><%= element.amount %></span>
-                        </div>
-                    </li>
-                <% } %> 
-                </ul>    
-            </td>
-              <% if (isUsersCocktail) { %>
-              <td>
-                <a href="/cocktail/<%= cocktailId %>/edit">Edit</a>
-              </td>
-              <td>
-                <form method="POST" action="/cocktail/<%= cocktailId %>/delete">
-                  <button class="btn btn-danger btn-sm" type="submit">DELETE</button>
-                </form>
-              </td>
-              <% } %>
-            </tr>
-          </tbody>
-        </table>
+                <% if (isUsersCocktail) { %>
+                <td>
+                  <a href="/cocktail/<%= cocktailId %>/edit">Edit</a>
+                </td>
+                <td>
+                  <form method="POST" action="/cocktail/<%= cocktailId %>/delete">
+                    <button class="btn btn-danger btn-sm" type="submit">DELETE</button>
+                  </form>
+                </td>
+                <% } %>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </main>
       <%- include('partials/_footer') %>
     </body>

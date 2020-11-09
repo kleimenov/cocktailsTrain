@@ -6,35 +6,38 @@
     
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="/styles/style.css">
         <title>webApp</title>
     </head>
     <body>
         <%- include('partials/_header') %>
         <main>
-            <form action="/myCocktails" method="POST">
-                <h4 class="nav-item nav-link text-primary"><strong> <%= cocktailName %> </strong></h4>
-                <input type="text" name="cocktailName" value="<%= cocktailName %>"> 
-                <input type="text" name="cocktailId" value="<%= cocktailId %>"> 
-                <% let cnt = 1 %>
-                <% for(let element of ingredients) { %>
-                    <div id="ingredient" class = "d-flex flex-row">
-                        <div>
-                            <label type="text" name="ingredient <% cnt %>">Ingredient <%= cnt %></label>
-                            <input class="form-control" type="text" name="ingredient" value="<%= element.ingredients %>" style="width: 200px;"></input>
+            <div class="container">
+                <form action="/myCocktails" method="POST">
+                    <h4 class="nav-item nav-link text-primary"><strong> <%= cocktailName %> </strong></h4>
+                    <input type="text" name="cocktailName" value="<%= cocktailName %>"> 
+                    <input type="text" name="cocktailId" value="<%= cocktailId %>"> 
+                    <% let cnt = 1 %>
+                    <% for(let element of ingredients) { %>
+                        <div id="ingredient" class = "d-flex flex-row">
+                            <div>
+                                <label type="text" name="ingredient <% cnt %>">Ingredient <%= cnt %></label>
+                                <input class="form-control" type="text" name="ingredient" value="<%= element.ingredients %>" style="width: 200px;"></input>
+                            </div>
+                            <div>
+                                <label type="text" name="amount"+<% cnt %>>Amount of ingredient <%= cnt %></label>
+                                <input class="form-control" type="text" name="amount" value="<%= element.amount %>" style="width: 200px;"></input>
+                            </div>
                         </div>
-                        <div>
-                            <label type="text" name="amount"+<% cnt %>>Amount of ingredient <%= cnt %></label>
-                            <input class="form-control" type="text" name="amount" value="<%= element.amount %>" style="width: 200px;"></input>
-                        </div>
+                        <% cnt++ %>
+                    <% } %>
+                    <div id="ingredients-field" class="d-flex flex-column">
                     </div>
-                    <% cnt++ %>
-                <% } %>
-                <div id="ingredients-field" class="d-flex flex-column">
-                </div>
-                <button type="button" class="btn btn-primary" id="addIngredient">+ingredient</button>
-                <br>
-                <button type="submit" class="btn btn-primary" style="width: 150px">Submit</button>
-            </form>
+                    <button type="button" class="btn btn-primary" id="addIngredient">+ingredient</button>
+                    <br>
+                    <button type="submit" class="btn btn-primary" style="width: 150px">Submit</button>
+                </form>
+            </div>
         </main>
         <%- include('partials/_footer') %>
         <script>
