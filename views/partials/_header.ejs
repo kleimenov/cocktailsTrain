@@ -1,25 +1,25 @@
 <header>
-  <nav class="navbar navbar-expand-md navbar-dark bg-primary">
-    <a class="navbar-brand" href="/">Cocktails train</a>
+  <nav class="navbar navbar-expand-md navbar-dark bg-info">
+    <a class="navbar-brand text-warning" href="/">Cocktails train</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link" href="/cocktails">All cocktails</a>
+        <a class="nav-item nav-link text-primary" href="/cocktails">All cocktails</a>
         <% if (user) { %>
-        <a class="nav-item nav-link" href="/myCocktails">My cooktailes list</a>
-        <a class="nav-item nav-link" href="/cocktail/new">+add cooktail</a>
+        <a class="nav-item nav-link text-warning" href="/myCocktails">My cooktailes list</a>
+        <a class="nav-item nav-link text-warning" href="/cocktail/new">+add cooktail</a>
         <% } %>
       </div>
       <% if (user) { %>
-        <h3 class="nav-item nav-link text-light"> Hello, <%= user %></h3>
+        <h3 class="nav-item nav-link text-warning"> Hello, <%= user %></h3>
         <form class="form-inline" action="/logout" method="POST">
-          <button type="submit">Enough for today</button>
+          <button class="btn btn-danger" type="submit">Enough for today</button>
         </form>
       <% } else { %> 
-          <a lass="navbar-toggler" href="/register"><button type="submit">Enroll</button></a>
-          <a lass="navbar-toggler" href="/login"><button type="submit">Sign in</button></a>
+          <a href="/register"><button class="btn btn-success" type="submit">Enroll</button></a>
+          <a href="/login"><button class="btn btn-warning" type="submit">Sign in</button></a>
       <% } %>
     </div>
   </nav>
