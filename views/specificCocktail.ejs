@@ -13,7 +13,7 @@
       <%- include('partials/_header') %>
       <main>
         <div class="container">
-          <h4 class="nav-item nav-link text-primary"><strong> <%= cocktailName %> </strong></h4>
+          <h4 class="nav-item nav-link m-0 font-italic text-aqua"><strong> <%= cocktailName %> </strong></h4>
           <table class="table">
             <thead>
               <tr>
@@ -57,7 +57,7 @@
                 </td>
                 <td>
                   <form method="POST" action="/cocktail/<%= cocktailId %>/delete">
-                    <button class="btn btn-danger btn-sm" type="submit">DELETE</button>
+                    <button class="btn border-colour-mod-orange btn-md bg-info rounded-pill text-white" type="submit">DELETE</button>
                   </form>
                 </td>
                 <% } %>

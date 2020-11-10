@@ -1,6 +1,11 @@
+
+
 @media (max-width: 576px) {
     body {
         background: #FF8500;
+    }
+    .cocktail-link:hover {
+        color: white;
     }
 }
 
@@ -8,12 +13,19 @@
     body {
         background: hsl(31, 92%, 60%);
     }
+    .cocktail-link:hover {
+        color: white;
+    }
 }
 
 /*medium devices (tablets)*/
 @media (min-width: 768px) {
     body {
         background: rgb(238, 238, 100);
+    }
+
+    .cocktail-link:hover {
+        color: red;
     }
 }
 
@@ -31,6 +43,9 @@
     }
 }
 
+main {
+    min-height: calc(100vh - 56px - 73px);
+}
 
 .text-orange {
     color: #FF8500;
@@ -63,9 +78,8 @@
     text-decoration: none;
 }
 
-.cocktail-link:hover {
-    color: blue;
-}
+
+
 
 
 .img-features {

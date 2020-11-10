@@ -2,16 +2,28 @@
   body {
     background: #FF8500;
   }
+
+  .cocktail-link:hover {
+    color: white;
+  }
 }
 @media (min-width: 576px) {
   body {
     background: #f79c3b;
+  }
+
+  .cocktail-link:hover {
+    color: white;
   }
 }
 /*medium devices (tablets)*/
 @media (min-width: 768px) {
   body {
     background: #eeee64;
+  }
+
+  .cocktail-link:hover {
+    color: red;
   }
 }
 /*large devices (desktops)*/
@@ -26,6 +38,10 @@
     background: #f7f700;
   }
 }
+main {
+  min-height: calc(100vh - 56px - 73px);
+}
+
 .text-orange {
   color: #FF8500;
 }
@@ -54,10 +70,6 @@
   font-size: 22px;
   font-weight: 700;
   text-decoration: none;
-}
-
-.cocktail-link:hover {
-  color: blue;
 }
 
 .img-features {
