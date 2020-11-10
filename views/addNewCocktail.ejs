@@ -14,24 +14,23 @@
     <main>
       <div class="container">
         <div>
-          <h3>Create new cocktail</h3>
-            <form class="form-inline" action="/cocktails" method="POST">
-              <div class="d-flex flex-column form-group mb-2">
-                <div>Add new cocktail name:
+          <h3 class="text-aqua mt-2 font-italic h3">Create new cocktail</h3>
+            <form  action="/cocktails" method="POST">
+              <div class="d-flex flex-column form-group ml-0 mb-2">
+                <div class="text-aqua mt-2 font-italic h3">Add new cocktail name:
                   <label for="cocktailName"></label>
-                  <input class="form-control" id="cocktailName" type="text" name="cocktailName" placeholder="Cocktail name" style="width: 300px; margin: 1em">
+                  <input class="form-control ml-0" id="cocktailName" type="text" name="cocktailName" placeholder="Cocktail name" style="width: 300px; margin: 1em">
                 </div>
-                <fieldset class="d-flex flex-row">Add cocktail ingredients
+                <fieldset class="text-aqua mt-2 font-italic h3">Add cocktail ingredients
                   <div id="ingredients-field">
-                   <div class="d-flex flex-row">
-                      <input class="form-control" type="text" name="ingredient" placeholder="Ingredient #1">
+                   <div class="d-flex flex-row form-inline">
+                      <input class="form-control mr-1" type="text" name="ingredient" placeholder="Ingredient #1">
                       <input class="form-control" type="text" name="amount" placeholder="Amount #1">
                    </div>
                   </div>
-                  <button type="button" class="btn btn-primary" id="addIngredient">+ingredient</button>
+                  <button type="button" class="btn border-colour-mod-orange btn-md bg-info mt-2 text-white" id="addIngredient">+ingredient</button>
                 </fieldset>
-                  <br>
-                  <button type="submit" class="btn btn-primary" style="width: 150px">Submit</button>
+                  <button type="submit" class="btn border-colour-mod-orange btn-md bg-info text-white" style="width: 150px">Submit</button>
               </div>
             </form> 
         </div>
@@ -43,7 +42,7 @@
             let ingredientFieldContainer = document.createElement("div");
             let ingredientNameField = document.createElement("input");
             ingredientNameField.name = `ingredient`;
-            ingredientNameField.placeholder = `Amount`;
+            ingredientNameField.placeholder = `Ingredient`;
             let ingredientAmountField = document.createElement("input");
             ingredientAmountField.name = `amount`;
             ingredientAmountField.placeholder = `Amount`;
