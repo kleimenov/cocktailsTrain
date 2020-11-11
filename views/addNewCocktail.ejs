@@ -40,12 +40,23 @@
     <script>
         const createIngredientField = () => {
             let ingredientFieldContainer = document.createElement("div");
-            //ingredientFieldContainer.classList.add("ml-5")
+            let addAttributesDiv = [ "d-flex", "flex-row", "form-inline"];
+            let addAttributesInput = ["form-control", "mt-1", "mr-1"];
+            
+            for (let index in addAttributesDiv) {
+              ingredientFieldContainer.classList.add(addAttributesDiv[index])
+            }
             let ingredientNameField = document.createElement("input");
+            for (let index in addAttributesInput) {
+              ingredientNameField.classList.add(addAttributesInput[index])
+            }
             //ingredientNameField.classList.add("form-control mr-1")
             ingredientNameField.name = `ingredient`;
             ingredientNameField.placeholder = `Ingredient`;
             let ingredientAmountField = document.createElement("input");
+            for (let index in addAttributesInput) {
+              ingredientAmountField.classList.add(addAttributesInput[index])
+            }
             //ingredientAmountField.classList.add()
             ingredientAmountField.name = `amount`;
             ingredientAmountField.placeholder = `Amount`;
