@@ -40,16 +40,20 @@
     <script>
         const createIngredientField = () => {
             let ingredientFieldContainer = document.createElement("div");
+            //ingredientFieldContainer.classList.add("ml-5")
             let ingredientNameField = document.createElement("input");
+            //ingredientNameField.classList.add("form-control mr-1")
             ingredientNameField.name = `ingredient`;
             ingredientNameField.placeholder = `Ingredient`;
             let ingredientAmountField = document.createElement("input");
+            //ingredientAmountField.classList.add()
             ingredientAmountField.name = `amount`;
             ingredientAmountField.placeholder = `Amount`;
             ingredientFieldContainer.appendChild(ingredientNameField);
             ingredientFieldContainer.appendChild(ingredientAmountField);
             const ingredientsBox = document.getElementById('ingredients-field');
             ingredientsBox.appendChild(ingredientFieldContainer);
+
         }
         const addIngredient = document.getElementById('addIngredient');
         addIngredient.addEventListener('click', createIngredientField);
