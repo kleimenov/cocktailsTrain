@@ -14,33 +14,34 @@
         <main>
             <div class="container">
                 <form action="/myCocktails" method="POST">
-                    <h4 class="nav-item nav-link text-primary"><strong> <%= cocktailName %> </strong></h4>
-                    <input type="text" name="cocktailName" value="<%= cocktailName %>"> 
-                    <input type="text" name="cocktailId" value="<%= cocktailId %>"> 
+                    <h4 class="nav-item nav-link mt-2 mb-1 p-0 h2"><strong class="text-aqua font-italic"> <%= cocktailName %> </strong></h4>
+                    <input class="sr-only" type="text" name="cocktailName" value="<%= cocktailName %>"> 
+                    <input class="sr-only" type="text" name="cocktailId" value="<%= cocktailId %>"> 
                     <% let cnt = 1 %>
                     <% for(let element of ingredients) { %>
                         <div id="ingredient" class = "d-flex flex-row">
-                            <div>
+                            <div class="text-aqua mt-2 font-italic mr-1 h5">
                                 <label type="text" name="ingredient <% cnt %>">Ingredient <%= cnt %></label>
                                 <input class="form-control" type="text" name="ingredient" value="<%= element.ingredients %>" style="width: 200px;"></input>
                             </div>
-                            <div>
+                            <div class="text-aqua mt-2 font-italic h5">
                                 <label type="text" name="amount"+<% cnt %>>Amount of ingredient <%= cnt %></label>
                                 <input class="form-control" type="text" name="amount" value="<%= element.amount %>" style="width: 200px;"></input>
                             </div>
                         </div>
                         <% cnt++ %>
                     <% } %>
+                    <p>Additional ingredients</p>
                     <div id="ingredients-field" class="d-flex flex-column">
                     </div>
-                    <button type="button" class="btn btn-primary" id="addIngredient">+ingredient</button>
+                    <button type="button" class="btn border-colour-mod-orange btn-md bg-info mt-2 mb-1 text-white" id="addIngredient">+ingredient</button>
                     <br>
-                    <button type="submit" class="btn btn-primary" style="width: 150px">Submit</button>
+                    <button type="submit" class="btn border-colour-mod-orange btn-md bg-info mb-2 text-white" style="width: 150px">Submit</button>
                 </form>
             </div>
         </main>
         <%- include('partials/_footer') %>
-        <script>
+        <!-- <script>
             const addIngredientField = () => {
                 let ingredientFieldContainer = document.createElement("div");
                 let ingredientNameField = document.createElement("input");
@@ -56,6 +57,41 @@
             }
             const addIngredient = document.getElementById('addIngredient');
             addIngredient.addEventListener('click', addIngredientField);
+        </script>-->
+        <script>
+            const createIngredientField = () => {
+                let ingredientFieldContainer = document.createElement("div");
+
+                let addAttributesDiv = [ "d-flex", "flex-row", "form-inline"];
+                let addAttributesInput = ["form-control", "mt-1", "mr-1"];
+                
+                for (let index in addAttributesDiv) {
+                  ingredientFieldContainer.classList.add(addAttributesDiv[index])
+                }
+    
+                let ingredientNameField = document.createElement("input");
+                for (let index in addAttributesInput) {
+                  ingredientNameField.classList.add(addAttributesInput[index])
+                }
+                ingredientNameField.setAttribute("style", "width: 200px")
+                ingredientNameField.name = `ingredient`;
+                ingredientNameField.placeholder = `Ingredient`;
+    
+                let ingredientAmountField = document.createElement("input");
+                for (let index in addAttributesInput) {
+                  ingredientAmountField.classList.add(addAttributesInput[index])
+                }
+                ingredientAmountField.setAttribute("style", "width: 200px")
+                ingredientAmountField.name = `amount`;
+                ingredientAmountField.placeholder = `Amount`;
+                ingredientFieldContainer.appendChild(ingredientNameField);
+                ingredientFieldContainer.appendChild(ingredientAmountField);
+                const ingredientsBox = document.getElementById('ingredients-field');
+                ingredientsBox.appendChild(ingredientFieldContainer);
+    
+            }
+            const addIngredient = document.getElementById('addIngredient');
+            addIngredient.addEventListener('click', createIngredientField);
         </script>
     </body>
 </html>
