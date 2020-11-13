@@ -1,22 +1,22 @@
 <header>
   <nav class="navbar navbar-expand-md navbar-dark bg-aqua">
-    <a class="navbar-brand text-white font-italic" href="/">Cocktails train</a>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav font-italic">
-        <a class="nav-item nav-link text-white" href="/cocktails">All cocktails</a>
+    <a class="navbar-brand text-white font-italic header-logo custom-nav" href="/">Cocktails train</a>
+    <div class="" id="navbarNavAltMarkup">
+      <div class="row-md-2 navbar-nav font-italic header-text">
+        <a class="nav-item nav-link text-white custom-nav" href="/cocktails">All cocktails</a>
         <% if (user) { %>
-        <a class="nav-item nav-link text-white" href="/myCocktails">My cooktailes list</a>
-        <a class="nav-item nav-link text-white" href="/cocktail/new">+add cooktail</a>
+        <a class="nav-item nav-link text-white custom-nav" href="/myCocktails">My cooktailes list</a>
+        <a class="nav-item nav-link text-white custom-nav" href="/cocktail/new">+add cooktail</a>
         <% } %>
       </div>
     </div>
     <% if (user) { %>
-      <h3 class="nav-item nav-link text-white font-italic"> Hello, <%= user %></h3>
-      <form class="float-right" action="/logout" method="POST">
-        <button class="btn border-colour-mod-orange btn-md bg-info rounded-pill text-white" type="submit">Enough for today</button>
+      <h3 class="nav-item nav-link text-white font-italic pt-3 custom-nav-user"> Hello, <%= user %></h3>
+      <form class="ml-auto" action="/logout" method="POST">
+        <button class="btn border-colour-mod-orange btn-md bg-info rounded-pill text-white custom-nav-btn" type="submit">Enough for today</button>
       </form>
     <% } else { %> 
-      <div class="float-right">
+      <div class="ml-auto">
         <a href="/register"><button class="btn border-colour-mod-orange btn-md bg-info rounded-pill text-white" type="submit">Enroll</button></a>
         <a href="/login"><button class="btn border-colour-mod-orange btn-md bg-info rounded-pill text-white" type="submit">Sign in</button></a>
       </div>

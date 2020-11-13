@@ -1,6 +1,3 @@
-//make base setup for server
-
-
 //setup libraries
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -29,8 +26,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')))
-
-
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here I implement login logic

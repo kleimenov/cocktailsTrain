@@ -36,6 +36,38 @@
     }
 }
 
+@media (max-width: 1080px) {
+    .custom-nav {
+      font-size: 16px;
+    }
+    .custom-nav-user {
+      font-size: 18px;
+    }
+    .custom-nav-btn {
+      font-size: 14px;
+    }
+}
+
+@media (max-width: 908px) {
+    .custom-nav {
+        font-size: 14px;
+      }
+}
+
+@media (min-width: 675px) {
+    .custom-nav-user {
+        margin-left: auto;
+      }
+}
+
+@media (max-width: 675px) {
+    .custom-nav-user {
+        margin-left: 0;
+      }
+}
+
+
+
 /*extra large devices (large desktops)*/
 @media (min-width: 1200px) {
     body {
@@ -79,10 +111,17 @@ main {
 }
 
 
-
-
-
 .img-features {
     width: 150px;
     height: auto;
 }
+
+.header-text {
+    font-size: 20px;
+}
+
+.header-logo {
+    font-size: 26px;
+    padding-bottom: 9px;
+}
+
