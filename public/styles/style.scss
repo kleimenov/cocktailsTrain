@@ -1,5 +1,3 @@
-
-
 @media (max-width: 576px) {
     body {
         background: #FF8500;
@@ -18,7 +16,6 @@
     }
 }
 
-/*medium devices (tablets)*/
 @media (min-width: 768px) {
     body {
         background: rgb(238, 238, 100);
@@ -29,7 +26,6 @@
     }
 }
 
-/*large devices (desktops)*/
 @media (min-width: 992px) {
     body {
         background: rgb(247, 247, 85);
@@ -67,8 +63,6 @@
 }
 
 
-
-/*extra large devices (large desktops)*/
 @media (min-width: 1200px) {
     body {
         background:  rgb(247, 247, 0);
