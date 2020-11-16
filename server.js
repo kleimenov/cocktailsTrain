@@ -23,6 +23,7 @@ app.set('view engine', 'ejs');
 
 //for POST requests we will use urlencoded like: applicaton/x-ww-form-urlencoded
 app.use(bodyParser.urlencoded({extended: true}));
+
 app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')))
@@ -91,7 +92,7 @@ app.get('/register', (req, res) => {
   res.render('registerForm', templateVars);
 })
 
-
+//----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //lets add new user into db
 app.post('/register', (req, res) => {
   db.getUserByEmail(req).then(result => {
