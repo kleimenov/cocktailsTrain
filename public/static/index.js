@@ -36,6 +36,7 @@ addIngredient.addEventListener('click', createIngredientField());
     </script>
 */
 
+
 const createIngredientField = () => {
     let ingredientFieldContainer = document.createElement("div");
     let ingredientNameField = document.createElement("input");
