@@ -14,7 +14,6 @@ const handlers = require('./handlers.js');
 //set up application
 const app = express();
 
-
 //we will parse data as JSON
 app.use(bodyParser.json());
 
@@ -44,7 +43,6 @@ app.get('/login', (req, res) => {
   };
   res.render('loginForm', templateVars);
 });
-
 
 app.post('/login', (req, res) => {
   db.getUserByEmail(req).then(result => {
@@ -129,7 +127,6 @@ app.get('/myCocktails', (req, res) => {
   })
 })
 
-
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here we will delete cocktail from user cocktail list
 app.post('/cocktail/:id/delete', (req, res) => {
@@ -193,8 +190,6 @@ app.post('/myCocktails', (req, res) => {
     })
   })
 });
-
-
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here we will add new cocktail from user cocktail list
@@ -260,6 +255,7 @@ app.get('/cocktail/:id', (req, res)=> {
     })
   })
 })
+
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here we will get specific user list of cocktails
 //app.get('/cocktails/user/:id', db.getCocktailsByUserId);
@@ -281,18 +277,13 @@ app.get('/cocktails/user/:id', (req, res) => {
   })
 })
 
-
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here we will delete cat from database
 app.delete('/cocktails/:id', db.deleteCocktail);
 
-
-
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here we will get a single user data (for instance particular user)
 app.get('/cocktails/:id', db.getCocktailsById);
-
-
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here we will get response from database
@@ -313,7 +304,6 @@ app.get('/cocktails', (req, res) => {
     res.render('cocktails', templateVars);
   })
 })
-
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //try to do plain response - request
