@@ -15,8 +15,6 @@ const randomCocktailId = () => {
   return Math.round(randomId);
 }
 
-
-
 //here we will export modules
 module.exports = {
     randomUserIdGen,
