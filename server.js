@@ -260,7 +260,6 @@ app.get('/cocktail/:id', (req, res)=> {
     })
   })
 })
-
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //here we will get specific user list of cocktails
 //app.get('/cocktails/user/:id', db.getCocktailsByUserId);
