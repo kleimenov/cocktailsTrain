@@ -18,6 +18,11 @@
   font-weight: normal;
   src: url("../fonts/fenwick.ttf") format("truetype");
 }
+@font-face {
+  font-family: Begorra;
+  font-weight: normal;
+  src: url("../fonts/Begorra.ttf") format("truetype");
+}
 .body {
   background: white;
 }
