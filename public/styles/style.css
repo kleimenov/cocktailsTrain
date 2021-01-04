@@ -203,4 +203,13 @@ main {
   background-size: cover;
 }
 
+.cocktails-wrappper {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.cocktail-name {
+  font-weight: normal;
+  text-shadow: 0 0 2px gray;
+}
+
 /*# sourceMappingURL=style.css.map */

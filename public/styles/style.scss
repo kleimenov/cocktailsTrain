@@ -228,4 +228,14 @@ main {
     background-image: url('../assets/neonBarFoggyM.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+   
+}
+.cocktails-wrappper {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.cocktail-name {
+    //font-family: Begorra;
+    font-weight: normal;
+    text-shadow: 0 0 2px gray;
 }
