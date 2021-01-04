@@ -308,7 +308,20 @@ app.get('/cocktails', (req, res) => {
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 //try to do plain response - request
 app.get('/', (req, res) => {
-  res.redirect('/cocktails')
+  let userName;
+  if (req.cookies['user_id']) {
+    const id = req.cookies['user_id'] //get user data from browser (cookie)
+    db.getUserNameByUserId(id).then(result => {
+      userName = result[0].name;
+    });
+  }
+  //console.log(userName)
+  db.getCocktails().then(result => {
+    const templateVars = {
+      user: userName,
+      cocktails: result};
+      res.render('startPage', templateVars);
+  })
 });
 /*
 app.get('/', (req, res) => {
