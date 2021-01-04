@@ -18,7 +18,7 @@
 }
 @media (min-width: 768px) {
   body {
-    background: #eeee64;
+    background: gray;
   }
 
   .cocktail-link:hover {
