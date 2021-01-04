@@ -310,6 +310,12 @@ app.get('/cocktails', (req, res) => {
 app.get('/', (req, res) => {
   res.redirect('/cocktails')
 });
+/*
+app.get('/', (req, res) => {
+  res.redirect('/cocktails')
+});
+*/
+
 
 //set port and start listen requests 
 app.listen(PORT, () => {
