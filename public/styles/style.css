@@ -16,7 +16,6 @@
     color: white;
   }
 }
-/*medium devices (tablets)*/
 @media (min-width: 768px) {
   body {
     background: #eeee64;
@@ -26,7 +25,6 @@
     color: red;
   }
 }
-/*large devices (desktops)*/
 @media (min-width: 992px) {
   body {
     background: #f7f755;
@@ -60,7 +58,6 @@
     margin-left: 0;
   }
 }
-/*extra large devices (large desktops)*/
 @media (min-width: 1200px) {
   body {
     background: #f7f700;
@@ -112,6 +109,15 @@ main {
 .header-logo {
   font-size: 26px;
   padding-bottom: 9px;
+}
+
+/*----------------- startPage ---------------*/
+.start-page-main {
+  margin: 0;
+  padding: 0;
+  background-image: url("../assets/shelvesWithBottles.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */

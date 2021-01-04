@@ -1,3 +1,4 @@
+
 @media (max-width: 576px) {
     body {
         background: #FF8500;
@@ -117,3 +118,12 @@ main {
     padding-bottom: 9px;
 }
 
+/*----------------- startPage ---------------*/
+
+.start-page-main {
+    margin: 0;
+    padding: 0;
+    background-image: url('../assets/shelvesWithBottles.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
