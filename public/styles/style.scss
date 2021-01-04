@@ -150,6 +150,10 @@ main {
     text-decoration: none;
 }
 
+.img-holder {
+    background-color: rgba(163, 158, 158, 0.4);
+}
+
 .img-features {
     width: 150px;
     height: auto;
@@ -218,3 +222,10 @@ main {
 
 /*----------------- /cocktails ---------------*/
 
+.cocktails-page-main {
+    margin: 0;
+    padding: 0;
+    background-image: url('../assets/neonBarFoggyM.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
