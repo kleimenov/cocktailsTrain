@@ -12,10 +12,17 @@
 }
 
 @font-face {
-    font-family: ABR;
+    font-family: Yesteryear;
     font-weight: normal;
-    src: url('../fonts/AmericanBreweryRough.ttf') fformat('truetype');
+    src: url('../fonts/Yesteryear.ttf') format('truetype');
 }
+
+@font-face {
+    font-family: fenwick;
+    font-weight: normal;
+    src: url('../fonts/fenwick.ttf') format('truetype');
+}
+
 
 .body {
     background: white;
@@ -187,9 +194,11 @@ main {
 }
 
 .watchword {
-    font-size: 65px;
-    font-family: ABR;
+    padding-top: 20%;
+    font-size: 60px;
+    font-family: fenwick;
     color: white;
+    text-shadow: 0 0 2px gray;
 }
 
 //set element position in the middle of screen
