@@ -78,7 +78,8 @@ main {
 }
 
 .border-colour-mod-orange {
-    border: 2px solid #FF8500;
+    //border: 2px solid #FF8500;
+    border: none;
 }
 
 .bg-aqua {
@@ -90,7 +91,8 @@ main {
 }
 
 .border-colour-aqua {
-    border: 2px solid #0091A0;
+    //border: 2px solid #0091A0;
+    border: none;
 }
 
 
@@ -125,5 +127,5 @@ main {
     padding: 0;
     background-image: url('../assets/shelvesWithBottles.jpg');
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
 }
