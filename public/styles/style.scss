@@ -5,39 +5,61 @@
     src: url('../fonts/NeonTubes2.otf') format("opentype");
 }
 
+@font-face {
+    font-family: hustlersRough;
+    font-weight: normal;
+    src: url('../fonts/Hustlersrough.otf') format("opentype");
+}
+
+@font-face {
+    font-family: ABR;
+    font-weight: normal;
+    src: url('../fonts/AmericanBreweryRough.ttf') fformat('truetype');
+}
+
+.body {
+    background: white;
+}
 
 @media (max-width: 576px) {
+    /*
     body {
         background: #FF8500;
     }
+    */
     .cocktail-link:hover {
         color: white;
     }
 }
 
 @media (min-width: 576px) {
+    /*
     body {
         background: hsl(31, 92%, 60%);
     }
+    */
     .cocktail-link:hover {
         color: white;
     }
 }
 
 @media (min-width: 768px) {
+    /*
     body {
         background: rgb(238, 238, 100);
     }
-
+    */
     .cocktail-link:hover {
         color: red;
     }
 }
 
 @media (min-width: 992px) {
+    /*
     body {
         background: rgb(247, 247, 85);
     }
+    */
 }
 
 @media (max-width: 1080px) {
@@ -71,9 +93,11 @@
 }
 
 @media (min-width: 1200px) {
+    /*
     body {
         background:  rgb(247, 247, 0);
     }
+    */
 }
 
 main {
@@ -161,3 +185,21 @@ main {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.watchword {
+    font-size: 65px;
+    font-family: ABR;
+    color: white;
+}
+
+//set element position in the middle of screen
+.centerY {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+  }
+
+/*----------------- /cocktails ---------------*/
+

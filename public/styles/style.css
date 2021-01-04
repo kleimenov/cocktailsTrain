@@ -3,37 +3,56 @@
   font-weight: normal;
   src: url("../fonts/NeonTubes2.otf") format("opentype");
 }
-@media (max-width: 576px) {
-  body {
-    background: #FF8500;
-  }
+@font-face {
+  font-family: hustlersRough;
+  font-weight: normal;
+  src: url("../fonts/Hustlersrough.otf") format("opentype");
+}
+@font-face {
+  font-family: ABR;
+  font-weight: normal;
+  src: url("../fonts/AmericanBreweryRough.ttf") fformat("truetype");
+}
+.body {
+  background: white;
+}
 
+@media (max-width: 576px) {
+  /*
+  body {
+      background: #FF8500;
+  }
+  */
   .cocktail-link:hover {
     color: white;
   }
 }
 @media (min-width: 576px) {
+  /*
   body {
-    background: #f79c3b;
+      background: hsl(31, 92%, 60%);
   }
-
+  */
   .cocktail-link:hover {
     color: white;
   }
 }
 @media (min-width: 768px) {
+  /*
   body {
-    background: #eeee64;
+      background: rgb(238, 238, 100);
   }
-
+  */
   .cocktail-link:hover {
     color: red;
   }
 }
 @media (min-width: 992px) {
+  /*
   body {
-    background: #f7f755;
+      background: rgb(247, 247, 85);
   }
+  */
 }
 @media (max-width: 1080px) {
   .custom-nav {
@@ -64,9 +83,11 @@
   }
 }
 @media (min-width: 1200px) {
+  /*
   body {
-    background: #f7f700;
+      background:  rgb(247, 247, 0);
   }
+  */
 }
 main {
   min-height: calc(100vh - 56px - 73px);
@@ -142,5 +163,21 @@ main {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.watchword {
+  font-size: 55px;
+  font-family: ABR;
+  color: white;
+}
+
+.centerY {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+/*----------------- /cocktails ---------------*/
 
 /*# sourceMappingURL=style.css.map */
