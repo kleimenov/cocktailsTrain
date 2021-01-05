@@ -225,7 +225,6 @@ main {
     background-image: url('../assets/neonBarFoggyM.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-   
 }
 .cocktails-wrappper {
     background-color: rgba(0, 0, 0, 0.2);
@@ -235,4 +234,14 @@ main {
     //font-family: Begorra;
     font-weight: normal;
     text-shadow: 0 0 2px gray;
+}
+
+
+/*----------------- /myCocktails ---------------*/
+.mycoctails-main-page {
+    height: 100%; 
+    background-image: url('../assets/glasses.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }

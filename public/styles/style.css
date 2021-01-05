@@ -212,4 +212,13 @@ main {
   text-shadow: 0 0 2px gray;
 }
 
+/*----------------- /myCocktails ---------------*/
+.mycoctails-main-page {
+  height: 100%;
+  background-image: url("../assets/glasses.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 /*# sourceMappingURL=style.css.map */
