@@ -247,6 +247,7 @@ main {
   background-image: url("../assets/bloodyMary.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 
 .add-cocktail-button {
@@ -261,7 +262,11 @@ main {
 
 /*----------------- /editCocktails ---------------*/
 .edit-cocktails-main {
-  background-color: lightgray;
+  height: auto;
+  background-image: url("../assets/barNeon.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /*# sourceMappingURL=style.css.map */

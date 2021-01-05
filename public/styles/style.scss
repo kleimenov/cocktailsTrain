@@ -279,6 +279,7 @@ main {
     background-image: url('../assets/bloodyMary.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     //background-size: 50% 100%;
     //background-position: 100% 0;
     //background-size:40%;
@@ -299,5 +300,10 @@ main {
 
 /*----------------- /editCocktails ---------------*/
 .edit-cocktails-main {
-    background-color: lightgray;
+    
+    height: auto; 
+    background-image: url('../assets/barNeon.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
