@@ -242,4 +242,11 @@ main {
   text-shadow: 0px 0px 10px rgba(250, 2, 2, 0.4), 0px 0px 15px rgba(250, 2, 2, 0.7), 0px 0px 20px rgba(250, 2, 2, 0.5), 0px 0px 25px rgba(250, 2, 2, 0.7), -3px 0px 30px rgba(250, 2, 2, 0.5), 3px 0px 35px rgba(250, 2, 2, 0.7);
 }
 
+/*----------------- /addNewCocktail ---------------*/
+.addNew-main {
+  background-image: url("../assets/bloodyMary.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 /*# sourceMappingURL=style.css.map */
