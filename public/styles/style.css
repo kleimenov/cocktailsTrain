@@ -294,7 +294,8 @@ main {
 }
 
 /*----------------- /editCocktails ---------------*/
-.register-main {
+.register-main,
+.login-main {
   height: auto;
   background-image: url("../assets/mimoza.jpg");
   background-position: center;
