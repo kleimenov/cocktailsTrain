@@ -9,20 +9,22 @@
     </head>
 <body>
     <%- include('partials/_header') %>
-    <main>
-      <div class="container">
-        <h3 class="text-aqua text-center font-italic font-weight-bold m-1">List of cocktails</h3>
-        <div class="row-lg-3 row-md-3 row-sm-6 row-xs-12">
-          <ul class="row justify-content-center m-0 p-0">
-            <% for (let cocktail of cocktails) {%>
-            <li class="cocktail-list">
-              <div class="card text-center border-colour-aqua m-1" style="width: 14rem;">
-                <img class="img-features m-auto " src="/assets/placeholder.png">
-                <a class="cocktail-link m-0 text-orange card-title" href="/cocktail/<%=cocktail.cocktail_id %>"><%= cocktail.cocktail_name %></a>
-              </div>
-            </li>
-            <% } %> 
-          </ul>
+    <main class="cocktails-page-main">
+      <div class="cocktails-wrappper">
+        <div class="container">
+          <h3 class="text-white text-center font-weight-bold pt-2">List of cocktails</h3>
+          <div>
+            <ul class="row justify-content-center m-0 p-0">
+              <% for (let cocktail of cocktails) {%>
+              <li class="cocktail-list">
+                <div class="card text-center img-holder border-colour-aqua m-1" style="width: 14rem;">
+                  <img class="img-features m-auto" src="/assets/placeholder.png">
+                  <a class="cocktail-link m-0 text-white card-title cocktail-name" href="/cocktail/<%=cocktail.cocktail_id %>"><%= cocktail.cocktail_name %></a>
+                </div>
+              </li>
+              <% } %> 
+            </ul>
+          </div>
         </div>
       </div>
     </main>
