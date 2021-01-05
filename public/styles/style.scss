@@ -298,7 +298,8 @@ main {
 }
 
 .add-cocktail-button:hover,
-.edit-ingredients-button:hover {
+.edit-ingredients-button:hover,
+.registration-submit-button:hover {
     text-shadow: 0px 0px 10px rgba(0, 255, 21, 0.4), 0px 0px 15px rgba(0, 255, 21, 0.7),
                  0px 0px 20px rgba(0, 255, 21, 0.5), 0px 0px 25px rgba(0, 255, 21, 0.7),
                  -3px 0px 30px rgba(0, 255, 21, 0.5), 3px 0px 35px rgba(0, 255, 21, 0.7);
@@ -312,4 +313,41 @@ main {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.bullets-color {
+    color: white;
+}
+
+
+.table-header,
+.list-name,
+.list-item {
+    font-size: 18px;
+    text-shadow: 0 0 2px gray;
+}
+
+.cocktiail-name-header {
+    font-size: 25px;
+    text-shadow: 0 0 2px gray;
+}
+
+/*----------------- /editCocktails ---------------*/
+.register-main  {
+    height: auto; 
+    background-image: url('../assets/mimoza.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.registration-form {
+    font-size: 18px;
+    text-shadow: 0 0 2px gray;
+}
+
+.registration-submit-button {
+    font-size: 25px;
+    border: none;
+    background: none;
 }
