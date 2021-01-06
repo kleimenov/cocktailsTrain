@@ -5,15 +5,15 @@
       <div class="row-md-2 navbar-nav header-text">
         <a class="nav-item nav-link text-white custom-nav" href="/cocktails">All cocktails</a>
         <% if (user) { %>
-        <a class="nav-item nav-link text-white custom-nav" href="/myCocktails">My cooktailes list</a>
+        <a class="nav-item nav-link text-white custom-nav" href="/myCocktails">My cooktailes</a>
         <a class="nav-item nav-link text-white custom-nav" href="/cocktail/new">+add cooktail</a>
         <% } %>
       </div>
     </div>
     <% if (user) { %>
-      <h3 class="nav-item nav-link text-white font-italic pt-3 custom-nav-user"> Hello, <%= user %></h3>
+      <h3 class="nav-item nav-link text-white pt-3 custom-nav-user"> Hello, <%= user %></h3>
       <form class="ml-auto" action="/logout" method="POST">
-        <button class="btn border-colour-mod-orange btn-md bg-info rounded-pill text-white custom-nav-btn" type="submit">Enough for today</button>
+        <button class="btn btn-md rounded-pill custom-nav-btn exit-button" type="submit">Sign out</button>
       </form>
     <% } else { %> 
       <div class="ml-auto">

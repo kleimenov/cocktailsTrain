@@ -10,26 +10,27 @@
     </head>
 <body>
     <%- include('partials/_header') %>
-    <main>
+    <main class="addNew-main">
       <div class="container">
         <div>
-          <h3 class="text-aqua mt-2 font-italic">Create new cocktail</h3>
+          <h3 class="text-white text-center pt-2">Create new cocktail</h3>
             <form  action="/cocktails" method="POST">
               <div class="d-flex flex-column form-group ml-0 mb-2">
-                <div class="text-aqua mt-2 font-italic h3">Add new cocktail name:
+                <div class="text-white mt-2 h3">Add new cocktail name:
                   <label for="cocktailName"></label>
                   <input class="form-control ml-0" id="cocktailName" type="text" name="cocktailName" placeholder="Cocktail name" style="width: 300px; margin: 1em">
                 </div>
-                <fieldset class="text-aqua mt-2 font-italic h3">Add cocktail ingredients
+                <fieldset class="text-aqua mt-2 h3">
+                  <h3 class="text-white mb-3">Add cocktail ingredients:</h3>
                   <div id="ingredients-field">
                    <div class="d-flex flex-row form-inline">
                       <input class="form-control mr-1" type="text" name="ingredient" placeholder="Ingredient">
                       <input class="form-control" type="text" name="amount" placeholder="Amount">
                    </div>
                   </div>
-                  <button type="button" class="btn border-colour-mod-orange btn-md bg-info mt-2 text-white" id="addIngredient">+ingredient</button>
+                  <button type="button" class="mt-2 text-white add-cocktail-button" id="addIngredient">+ingredient</button>
                 </fieldset>
-                  <button type="submit" class="btn border-colour-mod-orange btn-md bg-info text-white" style="width: 150px">Submit</button>
+                  <button type="submit" class="add-cocktail-button text-white" style="width: 150px">Submit</button>
               </div>
             </form> 
         </div>

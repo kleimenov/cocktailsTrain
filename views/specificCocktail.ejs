@@ -10,12 +10,12 @@
     </head>
     <body>
       <%- include('partials/_header') %>
-      <main>
+      <main class="addNew-main">
         <div class="container">
-          <h4 class="nav-item nav-link m-0 font-italic text-aqua"><strong> <%= cocktailName %> </strong></h4>
+          <h4 class="nav-item nav-link m-0 text-center text-white cocktiail-name-header"><strong> <%= cocktailName %> </strong></h4>
           <table class="table">
             <thead>
-              <tr>
+              <tr class="text-white table-header">
                 <th scope="col">Cocktail name</th>
                 <th scope="col">Ingredients</th>
                 <th scope="col">Amount</th>
@@ -27,13 +27,13 @@
             </thead>
             <tbody>
               <tr>
-                <td><%= cocktailName %></td>
+                <td class="text-white list-name"><%= cocktailName %></td>
                 <td>
                     <ul>
                     <% for(let element of ingredients) { %>
-                        <li>
+                        <li class="bullets-color">
                             <div>
-                              <span><%= element.ingredients %></span>
+                              <span class="text-white list-item"><%= element.ingredients %></span>
                             </div>
                         </li>
                     <% } %> 
@@ -42,9 +42,9 @@
                 <td>
                   <ul>
                   <% for(let element of ingredients) { %>
-                      <li>
+                      <li class="bullets-color">
                           <div>
-                            <span><%= element.amount %></span>
+                            <span class="text-white list-item"><%= element.amount %></span>
                           </div>
                       </li>
                   <% } %> 
@@ -52,11 +52,11 @@
               </td>
                 <% if (isUsersCocktail) { %>
                 <td>
-                  <a class="btn border-colour-mod-orange btn-sm bg-info text-white" href="/cocktail/<%= cocktailId %>/edit">Edit</a>
+                  <a class="edit-ingredients-button text-decoration-none text-white" href="/cocktail/<%= cocktailId %>/edit">Edit</a>
                 </td>
                 <td>
                   <form method="POST" action="/cocktail/<%= cocktailId %>/delete">
-                    <button class="btn border-colour-mod-orange btn-sm bg-info text-white" type="submit">DELETE</button>
+                    <button class="edit-ingredients-button text-decoration-none text-white" type="submit">DELETE</button>
                   </form>
                 </td>
                 <% } %>
