@@ -330,7 +330,7 @@ main {
     font-size: 15px;
   }
 }
-@media (max-width: 430px) {
+@media (max-width: 450px) {
   .form-control {
     width: 145px;
   }
