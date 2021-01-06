@@ -34,6 +34,10 @@
     background: white;
 }
 
+main {
+    min-height: calc(100vh - 84px - 73px);
+}
+
 @media (max-width: 576px) {
     .cocktail-link:hover {
         color: white;
@@ -89,9 +93,6 @@
 @media (min-width: 1200px) {
 }
 
-main {
-    min-height: calc(100vh - 56px - 73px);
-}
 
 .text-orange {
     color: #FF8500;
