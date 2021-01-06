@@ -56,26 +56,11 @@ main {
     }
 }
 
-@media (min-width: 992px) {
 
-}
-
-@media (max-width: 1080px) {
-    .custom-nav {
-      font-size: 16px;
-    }
-    .custom-nav-user {
-      font-size: 18px;
-    }
+@media (max-width: 1010px) {
     .custom-nav-btn {
       font-size: 14px;
     }
-}
-
-@media (max-width: 908px) {
-    .custom-nav {
-        font-size: 14px;
-      }
 }
 
 @media (min-width: 675px) {
@@ -193,7 +178,19 @@ main {
                  -3px 0px 30px rgba(0, 255, 21, 0.5), 3px 0px 35px rgba(0, 255, 21, 0.7);
 }
 
+.navbar-brand {
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 0.7rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
 
+.custom-nav-user {
+    font-size: 15px;
+  }
 /*----------------- startPage ---------------*/
 
 .start-page-main {
