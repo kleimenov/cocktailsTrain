@@ -144,6 +144,7 @@ main {
 }
 
 
+
 /*----------------- header custom settings ---------------*/
 .navbar-dark .navbar-brand {
     font-family: neonTubes;
@@ -173,8 +174,22 @@ main {
     box-shadow: none;
 }
 
-.custom-settings-list {
-    padding-top: 2px;
+.nav-link {
+    display: block;
+    padding: .7rem 1rem;
+}
+
+.enroll-submit-button,
+.signIn-submit-button {
+    font-size: 21px;
+    color: white;
+}
+
+.enroll-submit-button:hover,
+.signIn-submit-button:hover {
+    text-shadow: 0px 0px 10px rgba(0, 255, 21, 0.4), 0px 0px 15px rgba(0, 255, 21, 0.7),
+                 0px 0px 20px rgba(0, 255, 21, 0.5), 0px 0px 25px rgba(0, 255, 21, 0.7),
+                 -3px 0px 30px rgba(0, 255, 21, 0.5), 3px 0px 35px rgba(0, 255, 21, 0.7);
 }
 
 
