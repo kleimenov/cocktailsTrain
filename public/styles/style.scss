@@ -367,5 +367,13 @@ main {
 }
 
 @media (max-width: 530px) {
+    .watchword {
+        font-size: 40px;
+    }
+}
 
+@media (max-width: 360px) {
+    .navbar-dark .navbar-brand {
+        font-size: 35px;
+    }
 }
