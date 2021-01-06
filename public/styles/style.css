@@ -31,6 +31,10 @@ main {
   min-height: calc(100vh - 84px - 73px);
 }
 
+* {
+  max-width: 100%;
+}
+
 @media (max-width: 576px) {
   .cocktail-link:hover {
     color: white;
@@ -314,6 +318,7 @@ main {
   width: 200px;
 }
 
+/*----------------- /login + register forms ---------------*/
 .login-text-holder,
 .reg-text-holder {
   font-size: 25px;

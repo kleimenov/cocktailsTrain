@@ -38,6 +38,10 @@ main {
     min-height: calc(100vh - 84px - 73px);
 }
 
+* {
+    max-width: 100%;
+}
+
 @media (max-width: 576px) {
     .cocktail-link:hover {
         color: white;
