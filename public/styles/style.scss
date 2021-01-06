@@ -356,6 +356,10 @@ main {
     width: 200px; 
 }
 
+.login-text-holder,
+.reg-text-holder {
+    font-size: 25px;
+}
 /*----------------- /responsive ---------------*/
 
 @media (max-width: 1120px) {
@@ -443,7 +447,8 @@ main {
     .amount-holder {
         font-size: 12px;
     }
-    .name-cocktail-holder {
+    .name-cocktail-holder,
+    h4.name-cocktail-holder {
         font-size: 25px;
     }
 }
