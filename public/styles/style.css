@@ -377,9 +377,22 @@ main {
     padding: 0;
   }
 }
-@media (max-width: 300px) {
+@media (max-width: 305px) {
   .navbar-dark .navbar-brand {
     font-size: 28px;
+  }
+
+  .form-control {
+    width: 130px;
+    margin-right: 0;
+  }
+
+  .amount-holder {
+    font-size: 12px;
+  }
+
+  .name-cocktail-holder {
+    font-size: 25px;
   }
 }
 
