@@ -315,10 +315,20 @@ main {
   .watchword {
     font-size: 40px;
   }
+
+  .list-item {
+    font-size: 14px;
+  }
 }
 @media (max-width: 360px) {
   .navbar-dark .navbar-brand {
-    font-size: 35px;
+    font-size: 32px;
+    align-items: center;
+  }
+}
+@media (max-width: 300px) {
+  .navbar-dark .navbar-brand {
+    font-size: 28px;
   }
 }
 
