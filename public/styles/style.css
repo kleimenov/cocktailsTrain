@@ -345,17 +345,22 @@ main {
 }
 @media (max-width: 400px) {
   .nav-link {
-    padding: 0;
+    padding: 5px;
   }
 
   .table td, .table th {
-    padding: 0;
+    padding: 5px;
   }
 }
 @media (max-width: 360px) {
   .navbar-dark .navbar-brand {
     font-size: 32px;
     align-items: center;
+  }
+}
+@media (max-width: 330px) {
+  .table td, .table th {
+    padding: 0;
   }
 }
 @media (max-width: 300px) {
