@@ -316,8 +316,14 @@ main {
     font-size: 40px;
   }
 
-  .list-item {
+  .table-header,
+.list-name,
+.list-item {
     font-size: 14px;
+  }
+
+  .edit-ingredients-button {
+    font-size: 15px;
   }
 }
 @media (max-width: 360px) {
