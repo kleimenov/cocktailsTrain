@@ -333,6 +333,11 @@ main {
 @media (max-width: 450px) {
   .form-control {
     width: 145px;
+    margin-right: 0;
+  }
+
+  .amount-holder {
+    font-size: 14px;
   }
 }
 @media (max-width: 430px) {
