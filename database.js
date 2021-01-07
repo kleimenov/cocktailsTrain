@@ -100,6 +100,17 @@ const getCocktailName = (id) => {
   return pool.query('select cocktail_name from cocktails where cocktail_id =$1', [id]).then(res => res.rows);
 }
 
+//11.1 get cocktail review by cocktial id
+const getReviewByCocktailId = (cocktailId) => {
+  return pool.query('select reviews from reviews where cocktail_id =$1', [cocktailId]).then(res => res.rows);
+}
+
+//11 here I will add new review into db
+/*
+const addNewCocktailIngredientsI = (randomCocktailId, ingredinets, amount) => {
+  return pool.query('INSERT INTO ingredients (cocktail_id, ingredients, amount) VALUES ($1, $2, $3)', [randomCocktailId, ingredinets, amount]).then(res => res.rows);
+}
+*/
 
 //here we will export modules
 module.exports = {
@@ -117,7 +128,8 @@ module.exports = {
   getCocktailName,
   addNewCocktailUserIDCocktailID,
   addNewCocktailNameAndCocktailId,
-  addNewCocktailIngredientsI
+  addNewCocktailIngredientsI,
+  getReviewByCocktailId
 }
 
 
