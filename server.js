@@ -346,15 +346,15 @@ app.get('/cocktail/:id/reviews', (req, res) => {
 
   db.getCocktailName(cocktailId).then(result => {
     cocktailName = result[0].cocktail_name;
+    db.getReviewByCocktailId(cocktailId).then(result => {
+      const templateVars = {
+        user: userName,
+        reviews: result,
+        cocktailName: cocktailName
+      }
+        res.render('cocktailReviews', templateVars);
+    })
   });
-  db.getReviewByCocktailId(cocktailId).then(result => {
-    const templateVars = {
-      user: userName,
-      reviews: result,
-      cocktailName: cocktailName
-    }
-      res.render('cocktailReviews', templateVars);
-  })
 });
 
 
