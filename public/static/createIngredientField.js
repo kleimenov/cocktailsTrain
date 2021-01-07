@@ -1,3 +1,5 @@
+//implement function "createIngredientField", fucntion create DOM element, add specific classes
+
 const createIngredientField = () => {
     let ingredientFieldContainer = document.createElement("div");
 
@@ -30,5 +32,6 @@ const createIngredientField = () => {
 
 }
 
+//listen event and lunch createIngredientField function if it is necessary
 const addIngredient = document.getElementById('addIngredient');
 addIngredient.addEventListener('click', createIngredientField);
