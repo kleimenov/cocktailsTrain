@@ -330,6 +330,64 @@ app.get('/', (req, res) => {
 });
 */
 
+//----------+----------------+----------+----------------+----------+----------------+----------+----------------
+//reviews route
+app.get('/cocktail/:id/reviews', (req, res) => {
+  let userName;
+  if (req.cookies['user_id']) {
+    const id = req.cookies['user_id'] //get user data from browser (cookie)
+    db.getUserNameByUserId(id).then(result => {
+      userName = result[0].name;
+    });
+  }
+  //console.log(userName)
+  db.getCocktails().then(result => {
+    const templateVars = {
+      user: userName
+    }
+      res.render('cocktailReviews', templateVars);
+  })
+});
+
+
+//------------
+/*
+app.get('/cocktail/:id/edit', (req, res) => {
+  let userName;
+  let cocktail;
+  let cocktailName;
+  const cocktailId = parseInt(req.params.id)
+  let id = req.cookies['user_id']; //get user id
+  if (req.cookies['user_id']) {
+    db.getUserNameByUserId(id).then(result => {
+      userName = result[0].name; //get user name
+    });
+  }
+  db.getIngredientsByCocktailId(cocktailId).then(result => {
+    cocktail = result;
+    db.getCocktailName(cocktailId).then(result => {
+      cocktailName = result[0].cocktail_name;
+      db.checkExistUserOrNot(cocktailId).then(result => {
+        let isUsersCocktail = false;
+        if (result[0].user_id == id) {
+          isUsersCocktail = true;
+        } 
+        //userId = result[0].user_id;
+        const templateVars = {
+          isUsersCocktail: isUsersCocktail,
+          user: userName,
+          cocktailName: cocktailName,
+          ingredients: cocktail,
+          cocktailId: cocktailId
+        } 
+        res.render('editSpecificCocktailData', templateVars);
+      })
+    })
+  })
+})
+*/
+//------------
+
 //set port and start listen requests 
 app.listen(PORT, () => {
   console.log(`Server is listeninig ${PORT}........../`)
