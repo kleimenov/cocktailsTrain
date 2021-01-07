@@ -40,59 +40,7 @@
             </div>
         </main>
         <%- include('partials/_footer') %>
-        <!-- <script>
-            const addIngredientField = () => {
-                let ingredientFieldContainer = document.createElement("div");
-                let ingredientNameField = document.createElement("input");
-                ingredientNameField.name = `ingredient`;
-                ingredientNameField.placeholder = `ingredient`;
-                let ingredientAmountField = document.createElement("input");
-                ingredientAmountField.name = `amount`;
-                ingredientAmountField.placeholder = `amount`;
-                ingredientFieldContainer.appendChild(ingredientNameField);
-                ingredientFieldContainer.appendChild(ingredientAmountField);
-                const ingredientsBox = document.getElementById('ingredients-field');
-                ingredientsBox.appendChild(ingredientFieldContainer);
-            }
-            const addIngredient = document.getElementById('addIngredient');
-            addIngredient.addEventListener('click', addIngredientField);
-        </script>-->
-        <script>
-            const createIngredientField = () => {
-                let ingredientFieldContainer = document.createElement("div");
-
-                let addAttributesDiv = [ "d-flex", "flex-row", "form-inline"];
-                let addAttributesInput = ["form-control", "mt-1", "mr-1"];
-                
-                for (let index in addAttributesDiv) {
-                  ingredientFieldContainer.classList.add(addAttributesDiv[index])
-                }
-    
-                let ingredientNameField = document.createElement("input");
-                for (let index in addAttributesInput) {
-                  ingredientNameField.classList.add(addAttributesInput[index])
-                }
-                //ingredientNameField.setAttribute("style", "width: 200px")
-                ingredientNameField.name = `ingredient`;
-                ingredientNameField.placeholder = `Ingredient`;
-    
-                let ingredientAmountField = document.createElement("input");
-                for (let index in addAttributesInput) {
-                  ingredientAmountField.classList.add(addAttributesInput[index])
-                }
-                //ingredientAmountField.setAttribute("style", "width: 200px")
-                ingredientAmountField.name = `amount`;
-                ingredientAmountField.placeholder = `Amount`;
-                ingredientFieldContainer.appendChild(ingredientNameField);
-                ingredientFieldContainer.appendChild(ingredientAmountField);
-                const ingredientsBox = document.getElementById('ingredients-field');
-                ingredientsBox.appendChild(ingredientFieldContainer);
-    
-            }
-            
-            const addIngredient = document.getElementById('addIngredient');
-            addIngredient.addEventListener('click', createIngredientField);
-        </script>
+        <script src="/static/createIngredientField.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
