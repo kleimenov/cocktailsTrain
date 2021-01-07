@@ -299,6 +299,7 @@ main {
     background: none;
 }
 
+.add-review-button,
 .add-cocktail-button:hover,
 .edit-ingredients-button:hover,
 .registration-submit-button:hover {
@@ -361,6 +362,25 @@ main {
 .login-text-holder,
 .reg-text-holder {
     font-size: 25px;
+}
+
+/*----------------- /reviews page ---------------*/
+.cocktiail-name-review {
+    font-size: 25px;
+}
+
+.reviews-page-main {
+    margin: 0;
+    padding: 0;
+    background-image: url('../assets/reviewOne.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.add-review-button {
+    font-size: 23px;
+    border: none;
+    background: none;
 }
 
 /*----------------- /responsive ---------------*/
