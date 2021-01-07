@@ -10,14 +10,16 @@
 <body>
     <%- include('partials/_header') %>
     <main class="">
-        <h4 class="text-center text-secondary cocktiail-name-header"><strong> <%= cocktailName %> </strong></h4>
-        <% for(let review of reviews) { %>
-            <ul>
-                <li>
-                    <%= review.reviews %>
-                </li>
-            </ul>
-        <% } %>
+        <div class="container">
+            <h4 class="text-center text-secondary cocktiail-name-header"><strong> <%= cocktailName %> </strong></h4>
+            <% for(let review of reviews) { %>
+                <ul>
+                    <li>
+                        <%= review.reviews %>
+                    </li>
+                </ul>
+            <% } %>
+        </div>
     </main>
     <%- include('partials/_footer') %>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
