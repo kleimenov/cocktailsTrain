@@ -25,6 +25,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(cookieParser());
 
+//absolute path of the directory
 app.use(express.static(path.join(__dirname, 'public')))
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
