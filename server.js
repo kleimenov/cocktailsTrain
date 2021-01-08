@@ -344,7 +344,8 @@ app.post('/cocktail/:id/reviews', (req, res) => {
   
   db.addNewReview(cocktailId, data, userId)
   .then(()=>{
-    res.redirect('/cocktail/:cocktailId/reviews');
+    //res.redirect('/cocktail/:cocktailId/reviews');
+    res.redirect('/cocktails');
   })
 });
 
