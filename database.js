@@ -147,7 +147,8 @@ module.exports = {
   addNewCocktailNameAndCocktailId,
   addNewCocktailIngredientsI,
   getReviewByCocktailId,
-  getReviewByCocktailIdUserId
+  getReviewByCocktailIdUserId, 
+  addNewReview
 }
 
 
