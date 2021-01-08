@@ -362,10 +362,10 @@ app.get('/cocktail/:id/reviews', (req, res) => {
 
 app.post('/cocktail/:id/reviews', (req, res) => {
   const id = req.cookies['user_id']; //get user id
-  const data = req.body;
-  const cocktailId = parseInt(req.params.id)
-  console.log(data.review);
-  console.log(cocktailId);
+  const data = req.body; //get data from textarea
+  const cocktailId = parseInt(req.params.id) //get cocktail id
+  //console.log(data.review);
+  //console.log(cocktailId);
  
 
 });
