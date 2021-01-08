@@ -331,6 +331,23 @@ app.get('/', (req, res) => {
 */
 
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
+app.post('/cocktail/:id/reviews', (req, res) => {
+  const userId = req.cookies['user_id']; //get user id
+  const data = req.body.review; //get data from textarea
+  const cocktailId = parseInt(req.params.id) //get cocktail id
+  if (req.cookies['user_id']) {
+    const userId = req.cookies['user_id'] //get user data from browser (cookie)
+    db.getUserNameByUserId(userId).then(result => {
+      userName = result[0].name;
+    });
+  }
+  
+  db.addNewReview(cocktailId, data, userId)
+  .then(()=>{
+    res.redirect('/cocktail/:cocktailId/reviews');
+  })
+});
+
 //reviews page route
 app.get('/cocktail/:id/reviews', (req, res) => {
   let userName;
@@ -338,17 +355,14 @@ app.get('/cocktail/:id/reviews', (req, res) => {
   const cocktailId = parseInt(req.params.id)
 
   if (req.cookies['user_id']) {
-    const id = req.cookies['user_id'] //get user data from browser (cookie)
-    db.getUserNameByUserId(id).then(result => {
+    const userId = req.cookies['user_id'] //get user data from browser (cookie)
+    db.getUserNameByUserId(userId).then(result => {
       userName = result[0].name;
     });
   }
-
   db.getCocktailName(cocktailId).then(result => {
     cocktailName = result[0].cocktail_name;
-
     db.getReviewByCocktailIdUserId(cocktailId).then(result => {
-      
       const templateVars = {
         cocktail_id: cocktailId,
         user: userName,
@@ -360,33 +374,7 @@ app.get('/cocktail/:id/reviews', (req, res) => {
   });
 });
 
-app.post('/cocktail/:id/reviews', (req, res) => {
-  const id = req.cookies['user_id']; //get user id
-  const data = req.body; //get data from textarea
-  const cocktailId = parseInt(req.params.id) //get cocktail id
-  //console.log(data.review);
-  //console.log(cocktailId);
- 
 
-});
-
-//------------
-/*
-app.post('/cocktails', (req, res) => {
-  const id = req.cookies['user_id']; //get user id
-  const randomCocktailId = handlers.randomCocktailId();
-  const data = req.body;
-
-  db.addNewCocktailUserIDCocktailID(id, randomCocktailId).then(()=> {
-    db.addNewCocktailNameAndCocktailId(randomCocktailId, data.cocktailName).then(()=>{
-      for (let i in data.ingredient) {
-        db.addNewCocktailIngredientsI(randomCocktailId, data.ingredient[i], data.amount[i])
-      }
-      res.redirect('/myCocktails');
-    })
-  })
-})
-*/
 //------------
 
 //set port and start listen requests 
