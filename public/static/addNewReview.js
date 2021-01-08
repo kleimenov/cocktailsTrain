@@ -5,12 +5,12 @@ const submitReview = document.getElementById('submitReview');
 
 
 
-addReviewButton.addEventListener('click', (evt) => {
+addReviewButton.addEventListener('click', () => {
 
     reviewHolder.classList.remove('visually-hidden');
 
 })
-submitReview.addEventListener('click', (evt) => {
+submitReview.addEventListener('click', () => {
     reviewHolder.classList.add('visually-hidden');
 })
 
