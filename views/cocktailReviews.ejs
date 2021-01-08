@@ -20,10 +20,20 @@
                 </ul>
             <% } %>
             <% if (user) { %>
-                <div class="d-flex flex-column align-items-end">
-                    <button type="submit" class="add-review-button">+add your review</button>
-                    <button type="submit" class="add-review-button visually-hidden">Submit review</button>
+                <div class="d-flex flex-row-reverse justify-content-between">
+                    <div>
+                        <button id="addReview" type="submit" class="add-review-button">+add your review</button>
+                    </div>
+                    <div class="visually-hidden">
+                        <form action="">
+                            <textarea name="" id="" cols="60" rows="5" style="resize: none;"></textarea>
+                            <div class="text-right">
+                                <button id="" type="submit" class="add-review-button">Submit review</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
+                
             <% } %>
         </div>
     </main>
