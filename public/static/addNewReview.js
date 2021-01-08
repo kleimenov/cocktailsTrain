@@ -9,4 +9,9 @@ addReviewButton.addEventListener('click', (evt) => {
     evt.preventDefault();
     reviewHolder.classList.remove('visually-hidden');
 })
+submitReview.addEventListener('click', (evt) => {
+    evt.preventDefault();
+    console.log('Hello')
+    reviewHolder.classList.add('visually-hidden');
+})
 
