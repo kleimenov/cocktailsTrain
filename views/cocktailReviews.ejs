@@ -22,10 +22,10 @@
             <% if (user) { %>
                 <div class="d-flex flex-row-reverse justify-content-between">
                     <div>
-                        <button id="addReview" type="submit" class="add-review-button">+add your review</button>
+                        <button id="addReview" type="button" class="add-review-button">+add your review</button>
                     </div>
                     <div id="reviewHolder" class="visually-hidden">
-                        <form action="/cocktailReviews" method="POST">
+                        <form action="/cocktail/<%= cocktail_id %>/reviews" method="POST">
                             <textarea id="textAria" cols="60" rows="5"  type="text" name="review" placeholder="Write your review" style="resize: none;"></textarea>
                             <div class="text-right">
                                 <button id="submitReview" type="submit" class="add-review-button">Submit review</button>

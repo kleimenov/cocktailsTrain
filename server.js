@@ -348,8 +348,9 @@ app.get('/cocktail/:id/reviews', (req, res) => {
     cocktailName = result[0].cocktail_name;
 
     db.getReviewByCocktailIdUserId(cocktailId).then(result => {
-      console.log(result)
+      
       const templateVars = {
+        cocktail_id: cocktailId,
         user: userName,
         reviews: result,
         cocktailName: cocktailName
@@ -359,39 +360,29 @@ app.get('/cocktail/:id/reviews', (req, res) => {
   });
 });
 
+app.post('/cocktail/:id/reviews', (req, res) => {
+  const id = req.cookies['user_id']; //get user id
+  const data = req.body;
+  const cocktailId = parseInt(req.params.id)
+  console.log(data.review);
+  console.log(cocktailId);
+ 
+
+});
 
 //------------
 /*
-app.get('/cocktail/:id/edit', (req, res) => {
-  let userName;
-  let cocktail;
-  let cocktailName;
-  const cocktailId = parseInt(req.params.id)
-  let id = req.cookies['user_id']; //get user id
-  if (req.cookies['user_id']) {
-    db.getUserNameByUserId(id).then(result => {
-      userName = result[0].name; //get user name
-    });
-  }
-  db.getIngredientsByCocktailId(cocktailId).then(result => {
-    cocktail = result;
-    db.getCocktailName(cocktailId).then(result => {
-      cocktailName = result[0].cocktail_name;
-      db.checkExistUserOrNot(cocktailId).then(result => {
-        let isUsersCocktail = false;
-        if (result[0].user_id == id) {
-          isUsersCocktail = true;
-        } 
-        //userId = result[0].user_id;
-        const templateVars = {
-          isUsersCocktail: isUsersCocktail,
-          user: userName,
-          cocktailName: cocktailName,
-          ingredients: cocktail,
-          cocktailId: cocktailId
-        } 
-        res.render('editSpecificCocktailData', templateVars);
-      })
+app.post('/cocktails', (req, res) => {
+  const id = req.cookies['user_id']; //get user id
+  const randomCocktailId = handlers.randomCocktailId();
+  const data = req.body;
+
+  db.addNewCocktailUserIDCocktailID(id, randomCocktailId).then(()=> {
+    db.addNewCocktailNameAndCocktailId(randomCocktailId, data.cocktailName).then(()=>{
+      for (let i in data.ingredient) {
+        db.addNewCocktailIngredientsI(randomCocktailId, data.ingredient[i], data.amount[i])
+      }
+      res.redirect('/myCocktails');
     })
   })
 })

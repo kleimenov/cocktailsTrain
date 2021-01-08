@@ -117,6 +117,14 @@ const addNewCocktailIngredientsI = (randomCocktailId, ingredinets, amount) => {
 }
 */
 
+//12 lets add new review inside reviews table
+/*
+const addNewReview = (request, response) => {
+  const {name, email, password} = request.body;
+  const userId = handlers.randomUserIdGen();
+  return pool.query('INSERT INTO users (user_id, name, email, password) VALUES ($1, $2, $3, $4)', [userId,name, email, password]).then(res => res.rows);
+}
+*/
 //here we will export modules
 module.exports = {
   getCocktails,
