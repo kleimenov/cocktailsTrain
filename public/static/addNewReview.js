@@ -6,7 +6,6 @@ const submitReview = document.getElementById('submitReview');
 
 
 addReviewButton.addEventListener('click', () => {
-
     reviewHolder.classList.remove('visually-hidden');
 
 })

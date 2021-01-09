@@ -344,8 +344,7 @@ app.post('/cocktail/:id/reviews', (req, res) => {
   
   db.addNewReview(cocktailId, data, userId)
   .then(()=>{
-    //res.redirect('/cocktail/:cocktailId/reviews');
-    res.redirect('/cocktails');
+    res.redirect(`/cocktail/${cocktailId}/reviews`);
   })
 });
 
@@ -377,7 +376,6 @@ app.get('/cocktail/:id/reviews', (req, res) => {
 
 
 //------------
-
 //set port and start listen requests 
 app.listen(PORT, () => {
   console.log(`Server is listeninig ${PORT}........../`)
