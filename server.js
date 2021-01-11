@@ -26,6 +26,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(cookieParser());
 
+//add json parcer
 const jsonParser = express.json();
 
 //absolute path of the directory
