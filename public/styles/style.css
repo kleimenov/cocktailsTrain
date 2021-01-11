@@ -440,5 +440,20 @@ h4.name-cocktail-holder {
     font-size: 25px;
   }
 }
+.element-after {
+  position: relative;
+  padding-right: 5px;
+}
+
+.element-after::after {
+  content: "";
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background: url("../assets/like.svg");
+  background-repeat: no-repeat;
+}
 
 /*# sourceMappingURL=style.css.map */
