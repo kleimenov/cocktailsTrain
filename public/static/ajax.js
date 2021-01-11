@@ -6,3 +6,10 @@ Algorithm:
 - add likes counter (with JS in scrath)
 - add AJAX on counter (it is afford add likes/dislikes and doesn't reload full page)
 */
+
+//Let's go!!!!
+
+//1) Let's create object XMLHttpRequest. Let's imagine it will be my container,
+//which I will use for GET and POST requests.
+
+const request = new XMLHttpRequest();
