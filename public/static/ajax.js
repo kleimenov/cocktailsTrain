@@ -13,3 +13,10 @@ Algorithm:
 //which I will use for GET and POST requests.
 
 const request = new XMLHttpRequest();
+
+//2) set up path to file on server side, this file will execute requests
+const url = "#"; //I will set path later
+
+
+//3) set up type of connection (requests) in this case it will  be POST request (we want to use hidden way to send information)
+request.open("POST", url, true);
