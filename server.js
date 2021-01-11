@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
 const path = require('path')
 
+
 const saltRounds = 10;
 //const PORT = process.env.PORT || 3002; //set new port (cli) export PORT= <new port value>
 const PORT = 3002;
@@ -24,6 +25,8 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(cookieParser());
+
+const jsonParser = express.json();
 
 //absolute path of the directory
 app.use(express.static(path.join(__dirname, 'public')))
