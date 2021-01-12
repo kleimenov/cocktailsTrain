@@ -108,7 +108,7 @@ const getReviewByCocktailId = (cocktailId) => {
 //11.1 (full query) get user name and cocktail reviews by cocktail id and user id
 const getReviewByCocktailIdUserId = (cocktailId) => {
   //return pool.query('select users.name, user_cocktails.cocktail_id, reviews.reviews from users inner join user_cocktails on users.user_id=user_cocktails.user_id inner join reviews on user_cocktails.cocktail_id=reviews.cocktail_id where reviews.cocktail_id = $1', [cocktailId]).then(res => res.rows);
-  return pool.query('select users.name, reviews.cocktail_id, reviews.reviews, reviews.likes, reviews.dislikes from reviews inner join users on users.user_id=reviews.user_id where reviews.cocktail_id = $1', [cocktailId]).then(res => res.rows);
+  return pool.query('select users.name, reviews.cocktail_id, reviews.reviews, reviews.likes, reviews.dislikes, reviews.review_id from reviews inner join users on users.user_id=reviews.user_id where reviews.cocktail_id = $1', [cocktailId]).then(res => res.rows);
 };
 
 //11 here I will add new review into db

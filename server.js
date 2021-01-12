@@ -373,7 +373,6 @@ app.get('/cocktail/:id/reviews', (req, res) => {
         reviews: result,
         cocktailName: cocktailName
       }
-        console.log(templateVars.reviews)
         res.render('cocktailReviews', templateVars);
     })
   });
