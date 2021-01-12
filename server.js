@@ -380,11 +380,11 @@ app.get('/cocktail/:id/reviews', (req, res) => {
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 
 /*
-app.post('/cocktail/:id/reviews', (req, res) => { 
-
+app.post('/reviews/:reviewId/add', (req, res) => { 
+  
 }
 
-app.get('/cocktail/:id/reviews/:reviewId', (req, res)=> {
+app.get('/reviews/:reviewId', (req, res)=> {
 
 })*/ 
 
