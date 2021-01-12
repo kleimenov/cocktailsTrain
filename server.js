@@ -377,7 +377,12 @@ app.get('/cocktail/:id/reviews', (req, res) => {
     })
   });
 });
+//----------+----------------+----------+----------------+----------+----------------+----------+----------------
 
+
+app.get('/cocktail/:id/reviews/:reviewId', (req, res)=> {
+
+}) 
 
 //------------
 //set port and start listen requests 
