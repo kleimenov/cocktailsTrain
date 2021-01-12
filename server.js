@@ -379,15 +379,23 @@ app.get('/cocktail/:id/reviews', (req, res) => {
 });
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 
-/*
-app.post('/reviews/:reviewId/add', (req, res) => { 
-  
-}
 
+app.post('/reviews/:reviewId/add', jsonParser, (req, res) => { 
+  //console.log(req.body);
+  let reviewId = req.body.reviewId;
+  let amount = req.body.amount;
+  let attitude = req.body.attitude;
+
+  db.addAttitude(reviewId, attitude, amount)
+  //res.json(req.body);
+});
+
+
+/*
 app.get('/reviews/:reviewId', (req, res)=> {
 
-})*/ 
-
+})
+*/
 
 
 
