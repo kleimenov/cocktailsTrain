@@ -5,17 +5,10 @@ const dislikeButtons = document.querySelectorAll('.dislike-container');
 for (let likeButton of likeButtons) {
     likeButton.addEventListener('click', (evt) => {
         evt.preventDefault();
-        //let reviewId = likeButton.dataset.id;
-        //let attitude = true;
-        //let likesValue = likeButton.value;
+
         let likes = likeButton.value++;
         likeButton.textContent++;
-        /*
-        let data =  {
-            reviewId: likeButton.dataset.id,
-            attitude: true,
-            amount: likes + 1
-        }*/
+       
         let json = JSON.stringify({
             reviewId: likeButton.dataset.id,
             attitude: true,
@@ -45,9 +38,6 @@ for (let likeButton of likeButtons) {
 for (let dislikeButton of dislikeButtons) {
     dislikeButton.addEventListener('click', (evt) => {
         evt.preventDefault();
-        //let reviewId = likeButton.dataset.id;
-        //let attitude = true;
-        //let likesValue = likeButton.value;
         let dislikes = dislikeButton.value++;
         dislikeButton.textContent++;
         
@@ -56,7 +46,6 @@ for (let dislikeButton of dislikeButtons) {
             attitude: false,
             amount: dislikes + 1
         })
-        console.log('first step dislike' +json)
        
         const request = new XMLHttpRequest();
         request.open("POST", "/reviews/:reviewId/add", true);
@@ -69,9 +58,7 @@ for (let dislikeButton of dislikeButtons) {
                 console.log(data);
             } else {
                 console.error('Something went wrong')
-            }
-            
-             
+            } 
          });
     })
 }
