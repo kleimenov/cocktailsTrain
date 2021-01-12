@@ -10,7 +10,8 @@ for (let likeButton of likeButtons) {
 
         let likes = likeButton.value++;
         likeButton.textContent++;
-       
+        
+        
         let json = JSON.stringify({
             reviewId: likeButton.dataset.id,
             attitude: true,
