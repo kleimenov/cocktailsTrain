@@ -28,8 +28,6 @@ for (let likeButton of likeButtons) {
 }
 
 
-
-
 for (let dislikeButton of dislikeButtons) {
     dislikeButton.addEventListener('click', (evt) => {
         evt.preventDefault();
@@ -41,7 +39,6 @@ for (let dislikeButton of dislikeButtons) {
             attitude: false,
             amount: dislikes + 1
         })
-       
         const request = new XMLHttpRequest();
         request.open("POST", "/reviews/:reviewId/add", true);
         request.setRequestHeader("Content-Type", "application/json; charset=utf-8");
@@ -51,5 +48,25 @@ for (let dislikeButton of dislikeButtons) {
                 console.error('Something went wrong')
             } 
          });
+
+         /* add fetch method (just for fun)
+         postResource("/reviews/:reviewId/add", json)
+         */
     })
 }
+
+/* function postResource was written just for exploring how method fetch works, but in this project I use XMLHttpRequest request
+
+async function postResource(url, data) {
+    const res = await fetch(`${url}`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: data
+    });
+    if (!res.ok) {
+        throw new Error(`Something went wrong with fetch ${url}, status: ${res.status}`)
+    }
+    return await res.json()
+
+}
+*/
