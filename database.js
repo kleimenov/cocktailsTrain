@@ -120,7 +120,13 @@ const addNewCocktailIngredientsI = (randomCocktailId, ingredinets, amount) => {
 
 //12 lets add new review inside reviews table
 const addNewReview = (cocktailId, review, userId) => {
-  return pool.query('INSERT INTO reviews (cocktail_id, reviews, user_id) VALUES ($1, $2, $3)',[cocktailId, review, userId]).then(res => res.rows);
+  const reviewId = handlers.randomReviewId();
+  return pool.query('INSERT INTO reviews (cocktail_id, reviews, user_id, review_id) VALUES ($1, $2, $3, $4)',[cocktailId, review, userId, reviewId]).then(res => res.rows);
+}
+
+//13 add new like 
+const addLike = (cocktailId, like) => {
+
 }
 
 /*
