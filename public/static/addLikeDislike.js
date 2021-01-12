@@ -14,20 +14,15 @@ for (let likeButton of likeButtons) {
             attitude: true,
             amount: likes + 1
         })
-        console.log('first step ' +json)
        
         const request = new XMLHttpRequest();
         request.open("POST", "/reviews/:reviewId/add", true);
         request.setRequestHeader("Content-Type", "application/json; charset=utf-8");
         request.send(json);
         request.addEventListener("load", function () {
-            if (request.status == 200) {
-                let data = JSON.parse(request.response);
-                console.log('second step ' + data);
-                console.log(data);
-            } else {
+            if (request.status !== 200) {
                 console.error('Something went wrong')
-            }
+            } 
          });
     })
 }
@@ -52,11 +47,7 @@ for (let dislikeButton of dislikeButtons) {
         request.setRequestHeader("Content-Type", "application/json; charset=utf-8");
         request.send(json);
         request.addEventListener("load", function () {
-            if (request.status == 200) {
-                let data = JSON.parse(request.response);
-                console.log('second step dislike' + data);
-                console.log(data);
-            } else {
+            if (request.status !== 200) {
                 console.error('Something went wrong')
             } 
          });

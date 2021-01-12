@@ -388,6 +388,7 @@ app.post('/reviews/:reviewId/add', jsonParser, (req, res) => {
 
   db.addAttitude(reviewId, attitude, amount)
   //res.json(req.body);
+  res.send('Done')
 });
 
 
