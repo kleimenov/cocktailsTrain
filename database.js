@@ -126,8 +126,12 @@ const addNewReview = (cocktailId, review, userId) => {
 };
 
 //13 add new like 
-const addLike = (cocktailId, like) => {
-  return pool.query().then(res => res.rows);
+const addAttitude = (cocktailId, attitude, value) => {
+  if (attitude = 'like') {
+    return pool.query('UPDATE reviews SET likes = $1 WHERE cocktail_id = $2', [value, cocktailId]).then(res => res.rows);
+  } else {
+    return pool.query('UPDATE reviews SET dilikes = $1 WHERE cocktail_id = $2', [value, cocktailId]).then(res => res.rows);
+  }
 };
 
 /*
@@ -156,7 +160,8 @@ module.exports = {
   addNewCocktailIngredientsI,
   getReviewByCocktailId,
   getReviewByCocktailIdUserId, 
-  addNewReview
+  addNewReview,
+  addAttitude
 }
 
 
