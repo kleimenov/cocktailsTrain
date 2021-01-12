@@ -2,8 +2,10 @@ const likeButtons = document.querySelectorAll('.like-container');
 const dislikeButtons = document.querySelectorAll('.dislike-container');
 
 
+
 for (let likeButton of likeButtons) {
     likeButton.addEventListener('click', (evt) => {
+
         evt.preventDefault();
 
         let likes = likeButton.value++;
