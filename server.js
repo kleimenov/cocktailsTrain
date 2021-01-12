@@ -373,16 +373,26 @@ app.get('/cocktail/:id/reviews', (req, res) => {
         reviews: result,
         cocktailName: cocktailName
       }
+        console.log(templateVars.reviews)
         res.render('cocktailReviews', templateVars);
     })
   });
 });
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
 
+/*
+app.post('/cocktail/:id/reviews', (req, res) => { 
+
+}
 
 app.get('/cocktail/:id/reviews/:reviewId', (req, res)=> {
 
-}) 
+})*/ 
+
+
+
+
+
 
 //------------
 //set port and start listen requests 

@@ -12,13 +12,15 @@
     <main class="reviews-page-main">
         <div class="container">
             <h4 class="text-center text-secondary cocktiail-name-review mb-0 py-3"><strong class=""> <%= cocktailName %> </strong></h4>
-            <% for(let review of reviews) { %>
-                <ul>
-                    <li class="text-secondary h5">
-                        <%= review.reviews %> <span class="pl-2 text-secondary h6 font-italic"> / <%= review.name %></span>
-                    </li>
+            <ul>
+                <% for(let review of reviews) { %>
+                <li class="text-secondary h5">
+                    <%= review.reviews %> <span class="pl-2 text-secondary h6 font-italic"> / <%= review.name %></span>
+                    <button class="like-container likes-amount text-secondary font-italic"><%= review.likes %></button>
+                    <button class="dislike-container dislikes-amount text-secondary font-italic"><%= review.dislikes %></button>
+                </li>
+                <% } %>
                 </ul>
-            <% } %>
             <% if (user) { %>
                 <div class="d-flex flex-row-reverse justify-content-between">
                     <div>
