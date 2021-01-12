@@ -126,8 +126,8 @@ const addNewReview = (cocktailId, review, userId) => {
 
 //13 add new like 
 const addLike = (cocktailId, like) => {
-
-}
+  return pool.query().then(res => res.rows);
+};
 
 /*
 const addNewReview = (request, response) => {
