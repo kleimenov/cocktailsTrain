@@ -144,7 +144,7 @@ const checkExistData = ()  => {
 }
 //1.1 chack if review_id exist
 
-const checkExistReview = (reviewId) => {
+const checkExistReview = (userId, reviewId) => {
   return pool.query('select (case when (select count(*) from likes_list where user_id = $1 and review_id = $2) = 1 then 1 else 0 end)',[userId, reviewId]).then(res => res.rows);
 }
 
