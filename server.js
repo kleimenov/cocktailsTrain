@@ -389,7 +389,6 @@ app.post('/reviews/:reviewId/add', jsonParser, (req, res) => {
   const userId = req.cookies['user_id']
   
   if (req.cookies['user_id']) {
-    
     db.addAttitude(reviewId, attitude, amount).then(result => {
       //res.json(req.body);
     });
@@ -404,7 +403,7 @@ app.post('/reviews/:reviewId/add', jsonParser, (req, res) => {
           if (!isReviewExist) {
            db.ifLikesTableEmpty(userId, reviewId, attitude);
           } else {
-            db.ifLikesTablNotEmpty(userId, reviewId, attitude);
+           db.ifLikesTablNotEmpty(userId, reviewId, attitude);
           }
         })
       }
