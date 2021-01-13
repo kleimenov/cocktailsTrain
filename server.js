@@ -389,6 +389,10 @@ app.post('/reviews/:reviewId/add', jsonParser, (req, res) => {
   const userId = req.cookies['user_id']
   
   if (req.cookies['user_id']) {
+    
+    db.addAttitude(reviewId, attitude, amount).then(result => {
+      //res.json(req.body);
+    });
     db.checkExistData().then(result => {
       let isTableEmpty = result[0].case;
       if (isTableEmpty) {
