@@ -134,7 +134,6 @@ const addAttitude = (cocktailId, attitude, value) => {
 };
 
 //14 add data inside likes_list table after user clikcked like or dislike button
-
 //14.1 if there isn't any data inside likes_list table
 const checkExistData = ()  => {
   return pool.query('select (case when (select count(*) from likes_list) = 0 then 1 else 0 end)').then(res => res.rows);
