@@ -134,30 +134,23 @@ const addAttitude = (cocktailId, attitude, value) => {
 };
 
 //14 add data inside likes_list table after user clikcked like or dislike button
-//update likes_list set disliked = 0 where user_id = 965 and review_id = 907255;
-//SELECT COUNT(*) FROM likes_list;
-//select (case when (select count(*) from likes_list) = 1 then 1 else 0 end);
 
-//1) if there isn't any data inside likes_list table
+//14.1 if there isn't any data inside likes_list table
 const checkExistData = ()  => {
   return pool.query('select (case when (select count(*) from likes_list) = 0 then 1 else 0 end)').then(res => res.rows);
 }
-//1.1 check if review_id exist
+//14.2 check if review_id exist
 
 const checkExistReview = (userId, reviewId) => {
   return pool.query('select (case when (select count(*) from likes_list where user_id = $1 and review_id = $2) = 1 then 1 else 0 end)',[userId, reviewId]).then(res => res.rows);
 }
-//1.2 check is likes in existed review
+//14.3 check is likes in existed review
 const checkExistLike = (userId, reviewId) => {
   return pool.query('select (case when (select sum(liked) from likes_list where user_id = $1 and review_id = $2) = 1 then 1 else 0 end)',[userId, reviewId]).then(res => res.rows);
 }
 
 
-
-
-
-
-//2 if table empty
+//14.4 if table empty
 const ifLikesTableEmpty = (userId, reviewId, attitude)  => {
   if (attitude) {
     return pool.query('INSERT INTO likes_list (user_id, review_id, liked, disliked) VALUES ($1, $2, 1, 0)',[userId, reviewId]).then(res => res.rows);
@@ -166,7 +159,7 @@ const ifLikesTableEmpty = (userId, reviewId, attitude)  => {
   }
 }
 
-//3  if table isn't empty
+//14.5  if table isn't empty
 const ifLikesTablNotEmpty = (userId, reviewId, attitude)  => {
   if (attitude) {
     return pool.query('UPDATE likes_list SET liked = 1 WHERE user_id = $1 AND review_id = $2',[userId, reviewId]).then(res => res.rows);
