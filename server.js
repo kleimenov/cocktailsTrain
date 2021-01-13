@@ -399,16 +399,15 @@ app.post('/reviews/:reviewId/add', jsonParser, (req, res) => {
 
   db.addAttitude(reviewId, attitude, amount).then(result => {
     //res.json(req.body);
-    
-    db.checkExistData().then(result => {
-      let isTableEmpty = result[0].case;
-      if (isTableEmpty) {
-        db.ifLikesTableEmpty(userId, reviewId, attitude)
-      }
-      else {
-        db.ifLikesTablNotEmpty(userId, reviewId, attitude)
-      }
-    });
+  });
+  db.checkExistData().then(result => {
+    let isTableEmpty = result[0].case;
+    if (isTableEmpty) {
+      db.ifLikesTableEmpty(userId, reviewId, attitude)
+    }
+    else {
+      db.ifLikesTablNotEmpty(userId, reviewId, attitude)
+    }
   });
   res.send('Done')
 });
