@@ -111,6 +111,13 @@ const getReviewByCocktailIdUserId = (cocktailId) => {
   return pool.query('select users.name, reviews.cocktail_id, reviews.reviews, reviews.likes, reviews.dislikes, reviews.review_id from reviews inner join users on users.user_id=reviews.user_id where reviews.cocktail_id = $1', [cocktailId]).then(res => res.rows);
 };
 
+//11 here I will add new review into db
+/*
+const addNewCocktailIngredientsI = (randomCocktailId, ingredinets, amount) => {
+  return pool.query('INSERT INTO ingredients (cocktail_id, ingredients, amount) VALUES ($1, $2, $3)', [randomCocktailId, ingredinets, amount]).then(res => res.rows);
+}
+*/
+
 //12 lets add new review inside reviews table
 const addNewReview = (cocktailId, review, userId) => {
   const reviewId = handlers.randomReviewId();
