@@ -408,15 +408,12 @@ app.post('/reviews/:reviewId/add', jsonParser, (req, res) => {
     else {
       db.checkExistReview(userId, reviewId).then(result => {
         let isReviewExist = result[0].case;
-        console.log(isReviewExist)
-        if (isReviewExist) {
-          
+        if (!isReviewExist) {
+         db.ifLikesTableEmpty(userId, reviewId, attitude);
+        } else {
+          db.ifLikesTablNotEmpty(userId, reviewId, attitude);
         }
       })
-
-
-
-      //db.ifLikesTablNotEmpty(userId, reviewId, attitude)
     }
   });
   res.send('Done')

@@ -142,11 +142,20 @@ const addAttitude = (cocktailId, attitude, value) => {
 const checkExistData = ()  => {
   return pool.query('select (case when (select count(*) from likes_list) = 0 then 1 else 0 end)').then(res => res.rows);
 }
-//1.1 chack if review_id exist
+//1.1 check if review_id exist
 
 const checkExistReview = (userId, reviewId) => {
   return pool.query('select (case when (select count(*) from likes_list where user_id = $1 and review_id = $2) = 1 then 1 else 0 end)',[userId, reviewId]).then(res => res.rows);
 }
+//1.2 check is likes in existed review
+const checkExistLike = (userId, reviewId) => {
+  return pool.query('select (case when (select sum(liked) from likes_list where user_id = $1 and review_id = $2) = 1 then 1 else 0 end)',[userId, reviewId]).then(res => res.rows);
+}
+
+
+
+
+
 
 //2 if table empty
 const ifLikesTableEmpty = (userId, reviewId, attitude)  => {
@@ -194,7 +203,8 @@ module.exports = {
   checkExistData,
   ifLikesTableEmpty,
   ifLikesTablNotEmpty,
-  checkExistReview
+  checkExistReview,
+  checkExistLike
 }
 
 
