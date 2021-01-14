@@ -358,9 +358,14 @@ app.get('/cocktail/:id/reviews', (req, res) => {
   let cocktailName;
   const cocktailId = parseInt(req.params.id);
   const userId = req.cookies['user_id'];
- 
+  /*
+  let reviewIdList
 
-
+  db.getReviewsId(cocktailId).then(result => {
+    reviewIdList = result;
+  });
+  console.log(reviewIdList)
+  */
   if (req.cookies['user_id']) {
     //const userId = req.cookies['user_id'] //get user data from browser (cookie)
     db.getUserNameByUserId(userId).then(result => {
@@ -368,28 +373,22 @@ app.get('/cocktail/:id/reviews', (req, res) => {
     });
   }
   
-
-
   db.getCocktailName(cocktailId).then(result => {
     cocktailName = result[0].cocktail_name;
     //console.log(result);
 
     db.getReviewsByCocktailIdUserId(cocktailId).then(result => {
       //console.log(result)
-      const userId = req.cookies['user_id'];
-      let liked;
-      let disliked;
       //
       
       //
-
       const templateVars = {
         cocktail_id: cocktailId,
         user: userName,
         reviews: result,
         cocktailName: cocktailName,
       }
-        //console.log(templateVars)
+        //console.log(templateVars.cocktailName)
         res.render('cocktailReviews', templateVars);
     })
   });
