@@ -168,7 +168,14 @@ const ifLikesTablNotEmpty = (userId, reviewId, attitude)  => {
 }
 
 
-
+//14.6 select likes or dislikes
+const checkAttitude = (userId, reviewId, attitude)  => {
+  if (attitude) {
+    return pool.query('select (case when exists (select liked from likes_list where user_id =$1 and review_id = $2 and liked = 1) then 1 else 0 end)', [userId, reviewId]).then(res => res.rows);
+  } else { 
+    return pool.query('select (case when exists (select disliked from likes_list where user_id =$1 and review_id = $2 and liked = 1) then 1 else 0 end)', [userId, reviewId]).then(res => res.rows);
+  }
+};
 
 
 //here we will export modules
@@ -196,7 +203,8 @@ module.exports = {
   ifLikesTableEmpty,
   ifLikesTablNotEmpty,
   checkExistReview,
-  checkExistLike
+  checkExistLike,
+  checkAttitude
 }
 
 
