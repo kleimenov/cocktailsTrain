@@ -172,9 +172,10 @@ const ifLikesTablNotEmpty = (userId, reviewId, attitude)  => {
 }
 
 //15.1 (full query) get user name and cocktail reviews by cocktail id and user id
-const getReviewsAndUserId = (cocktailId) => {
+const getReviewsAndUserId = (reviewId) => {
   //return pool.query('select users.name, user_cocktails.cocktail_id, reviews.reviews from users inner join user_cocktails on users.user_id=user_cocktails.user_id inner join reviews on user_cocktails.cocktail_id=reviews.cocktail_id where reviews.cocktail_id = $1', [cocktailId]).then(res => res.rows);
-  return pool.query('select users.name, reviews.cocktail_id, reviews.reviews, reviews.likes, reviews.dislikes, reviews.review_id, reviews.user_id from reviews inner join users on users.user_id=reviews.user_id where reviews.cocktail_id = $1', [cocktailId]).then(res => res.rows);
+  return pool.query('select user_id from likes_list where review_id = $1', [reviewId]).then(res => 
+    res.rows);
 };
 
 /*
