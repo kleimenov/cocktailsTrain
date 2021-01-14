@@ -366,7 +366,7 @@ app.get('/cocktail/:id/reviews', (req, res) => {
   }
   db.getCocktailName(cocktailId).then(result => {
     cocktailName = result[0].cocktail_name;
-    db.getReviewByCocktailIdUserId(cocktailId).then(result => {
+    db.getReviewsByCocktailIdUserId(cocktailId).then(result => {
       const templateVars = {
         cocktail_id: cocktailId,
         user: userName,
@@ -381,7 +381,6 @@ app.get('/cocktail/:id/reviews', (req, res) => {
 
 
 app.post('/reviews/:reviewId/add', jsonParser, (req, res) => { 
-
   let userName;
   let reviewId = req.body.reviewId;
   let amount = req.body.amount;
