@@ -148,6 +148,10 @@ const checkExistLike = (userId, reviewId) => {
   return pool.query('select (case when (select sum(liked) from likes_list where user_id = $1 and review_id = $2) = 1 then 1 else 0 end)',[userId, reviewId]).then(res => res.rows);
 }
 
+const checkExistDislike = (userId, reviewId) => {
+  return pool.query('select (case when (select sum(disliked) from likes_list where user_id = $1 and review_id = $2) = 1 then 1 else 0 end)',[userId, reviewId]).then(res => res.rows);
+}
+
 
 //14.4 if table empty
 const ifLikesTableEmpty = (userId, reviewId, attitude)  => {
@@ -167,7 +171,7 @@ const ifLikesTablNotEmpty = (userId, reviewId, attitude)  => {
   }
 }
 
-
+/*
 //14.6 select likes or dislikes
 const checkAttitude = (userId, reviewId, attitude)  => {
   if (attitude) {
@@ -176,7 +180,7 @@ const checkAttitude = (userId, reviewId, attitude)  => {
     return pool.query('select (case when exists (select disliked from likes_list where user_id =$1 and review_id = $2 and liked = 1) then 1 else 0 end)', [userId, reviewId]).then(res => res.rows);
   }
 };
-
+*/
 
 //here we will export modules
 module.exports = {
@@ -204,7 +208,7 @@ module.exports = {
   ifLikesTablNotEmpty,
   checkExistReview,
   checkExistLike,
-  checkAttitude
+  checkExistDislike
 }
 
 

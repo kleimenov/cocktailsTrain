@@ -367,6 +367,7 @@ app.get('/cocktail/:id/reviews', (req, res) => {
   db.getCocktailName(cocktailId).then(result => {
     cocktailName = result[0].cocktail_name;
     db.getReviewsByCocktailIdUserId(cocktailId).then(result => {
+      console.log(result)
       const templateVars = {
         cocktail_id: cocktailId,
         user: userName,
