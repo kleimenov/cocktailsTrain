@@ -200,7 +200,6 @@ const checkAttitude = (userId, reviewId, attitude)  => {
 /*
 select users.name, reviews.cocktail_id, reviews.reviews, reviews.likes, reviews.dislikes, reviews.review_id, users.user_id, likes_list.user_id as who_show_attitude, likes_list.liked, likes_list.disliked from reviews inner join users on users.user_id=reviews.user_id left join likes_list on reviews.review_id=likes_list.review_id where reviews.cocktail_id =
 
-
 const magicQuery = (cocktailId) => {
   return pool.query('select users.name, reviews.cocktail_id, reviews.reviews, reviews.likes, reviews.dislikes, reviews.review_id, users.user_id, likes_list.user_id as who_show_attitude, likes_list.liked, likes_list.disliked from reviews inner join users on users.user_id=reviews.user_id left join likes_list on reviews.review_id=likes_list.review_id where reviews.cocktail_id = $1', [cocktailId]).then(res => res.rows);
 };
