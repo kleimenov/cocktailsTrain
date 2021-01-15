@@ -345,7 +345,6 @@ app.post('/cocktail/:id/reviews', (req, res) => {
       userName = result[0].name;
     });
   }
-  
   db.addNewReview(cocktailId, data, userId)
   .then(()=>{
     res.redirect(`/cocktail/${cocktailId}/reviews`);

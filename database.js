@@ -152,7 +152,6 @@ const checkExistDislike = (userId, reviewId) => {
   return pool.query('select (case when (select sum(disliked) from likes_list where user_id = $1 and review_id = $2) = 1 then 1 else 0 end)',[userId, reviewId]).then(res => res.rows);
 }
 
-
 //14.4 if table empty
 const ifLikesTableEmpty = (userId, reviewId, attitude)  => {
   if (attitude) {
@@ -187,9 +186,6 @@ const getReviewsId = (cocktailId) => {
 
 //16.2 
 //'select users.name, reviews.cocktail_id, reviews.reviews, reviews.likes, reviews.dislikes, reviews.review_id from reviews inner join users on users.user_id=reviews.user_id where reviews.cocktail_id = $1', [cocktailId])
-
-
-
 
 /*
 //14.6 select likes or dislikes
