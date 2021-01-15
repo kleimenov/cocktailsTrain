@@ -376,12 +376,30 @@ app.get('/cocktail/:id/reviews', (req, res) => {
   db.getCocktailName(cocktailId).then(result => {
     cocktailName = result[0].cocktail_name;
     //console.log(result);
-
+    
+   
     db.getReviewsByCocktailIdUserId(cocktailId).then(result => {
-      //console.log(result)
-      //
+      console.log(result)
       
-      //
+      
+      const templateVars = {
+        cocktail_id: cocktailId,
+        user: userName,
+        reviews: result,
+        cocktailName: cocktailName,
+
+      }
+        //console.log(templateVars.cocktailName)
+        res.render('cocktailReviews', templateVars);
+    })
+    
+     //
+    /*
+    db.magicQuery(cocktailId).then(result => {
+      console.log(result)
+      
+      
+      
       const templateVars = {
         cocktail_id: cocktailId,
         user: userName,
@@ -391,6 +409,8 @@ app.get('/cocktail/:id/reviews', (req, res) => {
         //console.log(templateVars.cocktailName)
         res.render('cocktailReviews', templateVars);
     })
+    */
+    //
   });
 });
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
