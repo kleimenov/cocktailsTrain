@@ -185,6 +185,12 @@ const getReviewsId = (cocktailId) => {
     res.rows);
 };
 
+//16.2 
+//'select users.name, reviews.cocktail_id, reviews.reviews, reviews.likes, reviews.dislikes, reviews.review_id from reviews inner join users on users.user_id=reviews.user_id where reviews.cocktail_id = $1', [cocktailId])
+
+
+
+
 /*
 //14.6 select likes or dislikes
 const checkAttitude = (userId, reviewId, attitude)  => {
