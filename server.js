@@ -353,7 +353,7 @@ app.post('/cocktail/:id/reviews', (req, res) => {
 
 //reviews page route
 app.get('/cocktail/:id/reviews', (req, res) => {
-  
+
   let userName;
   let cocktailName;
   const cocktailId = parseInt(req.params.id);
@@ -370,9 +370,24 @@ app.get('/cocktail/:id/reviews', (req, res) => {
     cocktailName = result[0].cocktail_name;
     //console.log(result);
     
+    const likeExistRadar = (userId, reviewId) => {
+      return db.checkExistLike(userId, reviewId).then(result => {
+        result[0].case
+      })
+    }
+    const dislikeExistRadar = (userId, reviewId) => {
+      return db.checkExistDislike(userId, reviewId)
+    }
    
     db.getReviewsByCocktailIdUserId(cocktailId).then(result => {
-      //console.log(result)
+      //console.log(result[0].review_id)
+      for (let index in result) {
+        //console.log(result[index].review_id)
+        db.checkExistLike(userId, result[index].review_id).then(res=> {
+          result[index].liked = res[0].case;
+          console.log(result[index])
+        });
+      }
       
       const templateVars = {
         cocktail_id: cocktailId,
@@ -380,12 +395,33 @@ app.get('/cocktail/:id/reviews', (req, res) => {
         reviews: result,
         cocktailName: cocktailName,
       }
+
+      //templateVars.liked = likeExistRadar(userId,result[0].review_id )
+      
+      //console.log(templateVars)
       res.render('cocktailReviews', templateVars);
     })
     
      //
     /*
-    
+        db.getReviewsByCocktailIdUserId(cocktailId).then(result => {
+      //console.log(result[0].review_id)
+      //console.log(userId)
+      const data = result;
+      db.checkExistLike(userId, data[0].review_id).then(result => {
+        const existLiked = result[0].case
+        const templateVars = {
+          cocktail_id: cocktailId,
+          user: userName,
+          reviews: data,
+          cocktailName: cocktailName,
+          liked: existLiked
+        }
+        //templateVars.liked = likeExistRadar(userId,result[0].review_id )
+        console.log(templateVars)
+        res.render('cocktailReviews', templateVars);
+      })
+    })
     */
     //
   });
