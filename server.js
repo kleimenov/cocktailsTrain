@@ -390,20 +390,7 @@ app.get('/cocktail/:id/reviews', (req, res) => {
     
      //
     /*
-    db.magicQuery(cocktailId).then(result => {
-      console.log(result)
-      
-      
-      
-      const templateVars = {
-        cocktail_id: cocktailId,
-        user: userName,
-        reviews: result,
-        cocktailName: cocktailName,
-      }
-        //console.log(templateVars.cocktailName)
-        res.render('cocktailReviews', templateVars);
-    })
+    
     */
     //
   });
