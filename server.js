@@ -353,6 +353,7 @@ app.post('/cocktail/:id/reviews', (req, res) => {
 
 //reviews page route
 app.get('/cocktail/:id/reviews', (req, res) => {
+  
   let userName;
   let cocktailName;
   const cocktailId = parseInt(req.params.id);
@@ -372,7 +373,6 @@ app.get('/cocktail/:id/reviews', (req, res) => {
    
     db.getReviewsByCocktailIdUserId(cocktailId).then(result => {
       //console.log(result)
-      
       
       const templateVars = {
         cocktail_id: cocktailId,
