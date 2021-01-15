@@ -370,37 +370,27 @@ app.get('/cocktail/:id/reviews', (req, res) => {
     cocktailName = result[0].cocktail_name;
     //console.log(result);
     
-    const likeExistRadar = (userId, reviewId) => {
-      return db.checkExistLike(userId, reviewId).then(result => {
-        result[0].case
-      })
-    }
-    const dislikeExistRadar = (userId, reviewId) => {
-      return db.checkExistDislike(userId, reviewId)
-    }
-   
-    db.getReviewsByCocktailIdUserId(cocktailId).then(result => {
-      //console.log(result[0].review_id)
-      for (let index in result) {
-        //console.log(result[index].review_id)
-        db.checkExistLike(userId, result[index].review_id).then(res=> {
-          result[index].liked = res[0].case;
-          console.log(result[index])
-        });
-      }
-      
-      const templateVars = {
-        cocktail_id: cocktailId,
-        user: userName,
-        reviews: result,
-        cocktailName: cocktailName,
-      }
 
-      //templateVars.liked = likeExistRadar(userId,result[0].review_id )
-      
-      //console.log(templateVars)
-      res.render('cocktailReviews', templateVars);
-    })
+    db.getReviewsIdByCocktailId(cocktailId).then(result => {})
+   
+      db.getReviewsByCocktailIdUserId(cocktailId).then(result => {
+        //console.log(result[0].review_id)
+        for (let index in result) {
+          //console.log(result[index].review_id)
+          db.checkExistLike(userId, result[index].review_id).then(res=> {
+            result[index].liked = res[0].case;
+            //console.log(result[index])
+          });
+        }
+        
+        const templateVars = {
+          cocktail_id: cocktailId,
+          user: userName,
+          reviews: result,
+          cocktailName: cocktailName,
+        }
+        res.render('cocktailReviews', templateVars);
+      })
     
      //
     /*
@@ -424,6 +414,12 @@ app.get('/cocktail/:id/reviews', (req, res) => {
     })
     */
     //
+
+
+
+
+
+
   });
 });
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
