@@ -368,58 +368,28 @@ app.get('/cocktail/:id/reviews', (req, res) => {
   
   db.getCocktailName(cocktailId).then(result => {
     cocktailName = result[0].cocktail_name;
-    //console.log(result);
-    
+    db.getReviewsByCocktailIdUserId(cocktailId).then(reviews => {
+      let likedPromises = [];
 
-    db.getReviewsIdByCocktailId(cocktailId).then(result => {})
-   
-      db.getReviewsByCocktailIdUserId(cocktailId).then(result => {
-        //console.log(result[0].review_id)
-        for (let index in result) {
-          //console.log(result[index].review_id)
-          db.checkExistLike(userId, result[index].review_id).then(res=> {
-            result[index].liked = res[0].case;
-            //console.log(result[index])
-          });
+      for (let review of reviews) {
+        let likedPromise = db.checkExistLike(userId, review.review_id).then(result => {
+          liked = result[0].case;
+          return {...review, liked: liked}
+        });
+        likedPromises = [...likedPromises, likedPromise];
+      } 
+
+      Promise.all(likedPromises).then(reviews => {
+        const templateVars = {
+          cocktail_id: cocktailId,
+          user: userName,
+          reviews: reviews,
+          cocktailName: cocktailName,
         }
+        res.render('cocktailReviews', templateVars);
+      })
         
-        const templateVars = {
-          cocktail_id: cocktailId,
-          user: userName,
-          reviews: result,
-          cocktailName: cocktailName,
-        }
-        res.render('cocktailReviews', templateVars);
-      })
-    
-     //
-    /*
-        db.getReviewsByCocktailIdUserId(cocktailId).then(result => {
-      //console.log(result[0].review_id)
-      //console.log(userId)
-      const data = result;
-      db.checkExistLike(userId, data[0].review_id).then(result => {
-        const existLiked = result[0].case
-        const templateVars = {
-          cocktail_id: cocktailId,
-          user: userName,
-          reviews: data,
-          cocktailName: cocktailName,
-          liked: existLiked
-        }
-        //templateVars.liked = likeExistRadar(userId,result[0].review_id )
-        console.log(templateVars)
-        res.render('cocktailReviews', templateVars);
-      })
     })
-    */
-    //
-
-
-
-
-
-
   });
 });
 //----------+----------------+----------+----------------+----------+----------------+----------+----------------
