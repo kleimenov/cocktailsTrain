@@ -7,16 +7,24 @@ for (let likeButton of likeButtons) {
 
         evt.preventDefault();
 
-        let likes = likeButton.value++;
-        likeButton.textContent++;
-        
+        let liked = likeButton.dataset.liked;
+        let likes;
+        if (liked) {
+            likes = likeButton.value--;
+            likeButton.textContent--;
+        } else {
+            likes = likeButton.value++;
+            likeButton.textContent++;
+        }
         
         let json = JSON.stringify({
             reviewId: likeButton.dataset.id,
             attitude: true,
-            amount: likes + 1
+            amount: likes,
+            liked: liked
         })
-       
+        console.log(likes)
+        
         const request = new XMLHttpRequest();
         request.open("POST", "/reviews/:reviewId/add", true);
         request.setRequestHeader("Content-Type", "application/json; charset=utf-8");
@@ -25,7 +33,10 @@ for (let likeButton of likeButtons) {
             if (request.status !== 200) {
                 console.error('Something went wrong')
             } 
-         });
+        });
+        let newAttr = !likeButton.dataset.liked;
+        likeButton.setAttribute('data-liked', newAttr)
+        
     })
 }
 

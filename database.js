@@ -138,6 +138,15 @@ const addAttitude = (cocktailId, attitude, value) => {
   }
 };
 
+//13.1 remove like
+const removeAttitude = (cocktailId, attitude, value) => {
+  if (attitude) {
+    return pool.query('UPDATE reviews SET likes = $1 WHERE review_id = $2', [value, cocktailId]).then(res => res.rows);
+  } else {
+    return pool.query('UPDATE reviews SET dislikes = $1 WHERE review_id = $2', [value, cocktailId]).then(res => res.rows);
+  }
+};
+
 //14 add data inside likes_list table after user clikcked like or dislike button
 //14.1 if there isn't any data inside likes_list table
 const checkExistData = ()  => {
@@ -245,7 +254,8 @@ module.exports = {
   checkExistDislike,
   getReviewsAndUserId,
   getReviewsId,
-  getReviewsIdByCocktailId
+  getReviewsIdByCocktailId,
+  removeAttitude
 
 }
 
