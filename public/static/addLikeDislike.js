@@ -43,13 +43,8 @@ for (let likeButton of likeButtons) {
             })
         }
         likeButton.classList.toggle('added')
-
-        //let likes = likeButton.value++;
-        //likeButton.textContent++;
         
-        //console.log(likeButton.dataset.liked);
         let newAttr = !JSON.parse(likeButton.dataset.liked);
-        //console.log(newAttr);
         likeButton.setAttribute('data-liked', newAttr);
 
 

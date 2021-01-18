@@ -403,30 +403,7 @@ app.post('/reviews/:reviewId/add', jsonParser, (req, res) => {
   let liked = req.body.liked;
   const userId = req.cookies['user_id']
   
-    /*
-    if (req.cookies['user_id']) {
-      db.addAttitude(reviewId, attitude, amount).then(result => {
-        //res.json(req.body);
-      });
-      db.checkExistData().then(result => {
-        let isTableEmpty = result[0].case;
-        if (isTableEmpty) {
-          db.ifLikesTableEmpty(userId, reviewId, attitude)
-        }
-        else {
-          db.checkExistReview(userId, reviewId).then(result => {
-            let isReviewExist = result[0].case;
-            if (!isReviewExist) {
-             db.ifLikesTableEmpty(userId, reviewId, attitude);
-            } else {
-             db.ifLikesTablNotEmpty(userId, reviewId, attitude);
-            }
-          })
-        }
-      });
-      res.send('Done')
-    }
-    */
+   
 
    if (req.cookies['user_id']) {
     db.checkExistReview(userId, reviewId).then(result=>{
