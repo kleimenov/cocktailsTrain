@@ -388,8 +388,7 @@ app.get('/cocktail/:id/reviews', (req, res) => {
           cocktailName: cocktailName,
         }
         res.render('cocktailReviews', templateVars);
-      })
-        
+      }) 
     })
   });
 });
@@ -409,27 +408,19 @@ app.post('/reviews/:reviewId/add', jsonParser, (req, res) => {
     db.checkExistReview(userId, reviewId).then(result=>{
       let liked1 = result[0].case
 
-      //console.log('first query ' + liked)
       if(liked1) {
-        console.log(liked);
         db.ifLikesTablNotEmpty(userId, reviewId, liked).then(result=>{})
-        //console.log('second query ' + liked)
+       
       } else {
         db.ifLikesTableEmpty(userId, reviewId).then(result=>{})
-        //console.log('if empty table' + liked)
       }
-
 
     })
     db.addAttitude(reviewId, amount).then(result => {
       //res.json(req.body);
     });
   }
-
-
-
 });
-
 
 
 //------------
