@@ -209,10 +209,6 @@ const magicQuery = (cocktailId) => {
 };
 */
 
-
-
-
-
 //here we will export modules
 module.exports = {
   getCocktails,
