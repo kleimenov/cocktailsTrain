@@ -23,7 +23,7 @@ for (let likeButton of likeButtons) {
             amount: likes,
             liked: liked
         })
-        console.log(likes)
+        console.log(likes);
         
         const request = new XMLHttpRequest();
         request.open("POST", "/reviews/:reviewId/add", true);
