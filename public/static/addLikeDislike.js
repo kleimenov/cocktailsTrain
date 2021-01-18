@@ -2,11 +2,65 @@ const likeButtons = document.querySelectorAll('.like-container');
 const dislikeButtons = document.querySelectorAll('.dislike-container');
 
 
+let liked;
+let cnt=0;
+let likes;
+let json;
+
 for (let likeButton of likeButtons) {
+    liked = likeButton.dataset.liked;
+    console.log(`${cnt} first step ` + liked)
+    cnt++
+
     likeButton.addEventListener('click', (evt) => {
 
         evt.preventDefault();
+        //let liked = likeButton.dataset.liked;
+        
+        
+        console.log('inside step ' + liked)
 
+        if (liked && likeButton.classList.contains('added')) {
+            likes = likeButton.value--;
+            likeButton.textContent--;
+
+            json = JSON.stringify({
+                reviewId: likeButton.dataset.id,
+                attitude: true,
+                amount: likes - 1,
+                liked: liked
+            })
+
+        } else {
+            likes = likeButton.value++;
+            likeButton.textContent++;
+
+            json = JSON.stringify({
+                reviewId: likeButton.dataset.id,
+                attitude: true,
+                amount: likes + 1,
+                liked: liked
+            })
+        }
+        likeButton.classList.toggle('added')
+
+        //let likes = likeButton.value++;
+        //likeButton.textContent++;
+        
+        
+
+
+        const request = new XMLHttpRequest();
+        request.open("POST", "/reviews/:reviewId/add", true);
+        request.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+        request.send(json);
+        request.addEventListener("load", function () {
+            if (request.status !== 200) {
+                console.error('Something went wrong')
+            } 
+        });
+
+        /*
         let liked = likeButton.dataset.liked;
         let likes;
         if (liked) {
@@ -34,9 +88,10 @@ for (let likeButton of likeButtons) {
                 console.error('Something went wrong')
             } 
         });
+
         let newAttr = !likeButton.dataset.liked;
         likeButton.setAttribute('data-liked', newAttr)
-        
+        */
     })
 }
 
