@@ -47,7 +47,6 @@ for (let likeButton of likeButtons) {
         let newAttr = !JSON.parse(likeButton.dataset.liked);
         likeButton.setAttribute('data-liked', newAttr);
 
-
         const request = new XMLHttpRequest();
         request.open("POST", "/reviews/:reviewId/add", true);
         request.setRequestHeader("Content-Type", "application/json; charset=utf-8");
