@@ -18,12 +18,13 @@
                     <li class="text-secondary h5">
                         <%= review.reviews %> <span class="pl-2 text-secondary h6 font-italic"> / <%= review.name %></span>
                         <% if (review.liked) { %> 
-                            <button class="like-container likes-amount text-secondary font-italic" type="button" data-id="<%= review.review_id %>" value="<%= review.likes %>" data-liked="true"><%= review.likes %></button>
+                            <button class="like-container likes-amount text-secondary font-italic added" type="button" data-id="<%= review.review_id %>" value="<%= review.likes %>" data-liked="true"><%= review.likes %></button>
                             <!--<button class="dislike-container dislikes-amount text-secondary font-italic" type="button" data-id="<%= review.review_id %>" value="<%= review.dislikes %>" data-liked="true"><%= review.dislikes %></button>--> 
                             <span class="text-secondary h6 font-italic">liked</span>
                         <% } else { %> 
                             <button class="like-container likes-amount text-secondary font-italic" type="button" data-id="<%= review.review_id %>" value="<%= review.likes %>" data-liked="false"><%= review.likes %></button>
                             <!--<button class="dislike-container dislikes-amount text-secondary font-italic" type="button" data-id="<%= review.review_id %>" value="<%= review.dislikes %>" data-liked="false"><%= review.dislikes %></button>-->
+                            <span class="text-secondary h6 font-italic">disliked</span>
                         <% }%>
                     </li>
                     <% } else { %>

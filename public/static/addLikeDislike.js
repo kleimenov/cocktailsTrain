@@ -2,23 +2,23 @@ const likeButtons = document.querySelectorAll('.like-container');
 const dislikeButtons = document.querySelectorAll('.dislike-container');
 
 
-let liked;
-let cnt=0;
-let likes;
-let json;
+//let liked;
+//let likes;
+//let json;
 
 for (let likeButton of likeButtons) {
-    liked = likeButton.dataset.liked;
-    console.log(`${cnt} first step ` + liked)
-    cnt++
+
+    
+    //console.log(liked)
+    let likes;
+    let json;
 
     likeButton.addEventListener('click', (evt) => {
-
+        let liked = JSON.parse(likeButton.dataset.liked);
+        console.log(liked)
         evt.preventDefault();
         //let liked = likeButton.dataset.liked;
         
-        
-        console.log('inside step ' + liked)
 
         if (liked && likeButton.classList.contains('added')) {
             likes = likeButton.value--;
@@ -47,7 +47,10 @@ for (let likeButton of likeButtons) {
         //let likes = likeButton.value++;
         //likeButton.textContent++;
         
-        
+        //console.log(likeButton.dataset.liked);
+        let newAttr = !JSON.parse(likeButton.dataset.liked);
+        //console.log(newAttr);
+        likeButton.setAttribute('data-liked', newAttr);
 
 
         const request = new XMLHttpRequest();
