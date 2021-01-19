@@ -24,9 +24,10 @@ app.set('view engine', 'ejs');
 //for POST requests we will use urlencoded like: applicaton/x-ww-form-urlencoded
 app.use(bodyParser.urlencoded({extended: true}));
 
+//add cookie parser
 app.use(cookieParser());
 
-//add json parcer
+//add json parser
 const jsonParser = express.json();
 
 //absolute path of the directory
@@ -91,7 +92,8 @@ app.get('/register', (req, res) => {
     });
   }
     const templateVars = {
-      user: userName,};
+      user: userName};
+
   res.render('registerForm', templateVars);
 })
 
@@ -401,24 +403,20 @@ app.post('/reviews/:reviewId/add', jsonParser, (req, res) => {
   let attitude = req.body.attitude;
   let liked = req.body.liked;
   const userId = req.cookies['user_id']
-  
-   
 
-   if (req.cookies['user_id']) {
-    db.checkExistReview(userId, reviewId).then(result=>{
-      let liked1 = result[0].case
-
-      if(liked1) {
-        db.ifLikesTablNotEmpty(userId, reviewId, liked).then(result=>{})
-       
-      } else {
-        db.ifLikesTableEmpty(userId, reviewId).then(result=>{})
-      }
-
-    })
-    db.addAttitude(reviewId, amount).then(result => {
-      //res.json(req.body);
-    });
+  if (req.cookies['user_id']) {
+   db.checkExistReview(userId, reviewId).then(result=>{
+     let liked1 = result[0].case
+     if(liked1) {
+       db.ifLikesTablNotEmpty(userId, reviewId, liked).then(result=>{})
+      
+     } else {
+       db.ifLikesTableEmpty(userId, reviewId).then(result=>{})
+     }
+   })
+   db.addAttitude(reviewId, amount).then(result => {
+     //res.json(req.body);
+   });
   }
 });
 

@@ -122,6 +122,5 @@ async function postResource(url, data) {
         throw new Error(`Something went wrong with fetch ${url}, status: ${res.status}`)
     }
     return await res.json()
-
 }
 */
