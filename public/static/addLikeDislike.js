@@ -12,7 +12,6 @@ for (let likeButton of likeButtons) {
         evt.preventDefault();
         //let liked = likeButton.dataset.liked;
         
-
         if (liked && likeButton.classList.contains('added')) {
             likes = likeButton.value--;
             likeButton.textContent--;
