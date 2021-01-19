@@ -1,7 +1,6 @@
 const likeButtons = document.querySelectorAll('.like-container');
 const dislikeButtons = document.querySelectorAll('.dislike-container');
 
-
 for (let likeButton of likeButtons) {
     let likes;
     let json;
