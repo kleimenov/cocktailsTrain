@@ -52,14 +52,17 @@ This project is build with the following technologies:
 - Node.js;
 - Express.js
 - Embedded JavaScript templating;
-- PostgreSQL;
+- PostgreSQL.
 
 ```
 ---
-### Descriptions of Frontend side 
+### Feature descriptions
 
 ---
-### Descriptions of Backend side 
+### Descriptions of Frontend part 
+
+---
+### Descriptions of Backend part 
 
 ---
 ### Descriptions of data base architecture
