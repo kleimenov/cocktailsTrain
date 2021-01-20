@@ -29,57 +29,44 @@ User can click on the cocktail name and get access to the particular cocktail pa
 2) _The my cocktails page_ is a page that user use so as to hold his favorite cocktails or cocktails that the user wants to share with other users, 
 also if the user clicks on each cocktail name on his page, he will be redirected to the specific cocktail page.
 
+3) _Particular cocktail page_ is a page of the specific cocktail. On this page, users can get cocktail information like ingredients. Also on this page implemented three main features, edit cocktail ingredients, delete cocktail, and cocktail's reviews list. 
+
+4) _Edit particular cocktail_ is a page where user can get access to a list of ingredients and add new or update existing ingredients.
+
+5) _Particular cocktail reviews list_ is a page where users can read comments that leavs other users and add new comments. Also on this page implemented the likes feature (I will explain what is that feature further).
 
 ---
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ### Tech descripton and specification
 
-This website includes three web pages. All pages are responsive, work with a broad variety of screens in range from mobile devices (screen width 320px) to desktops (screen width 1200px and higher). This cross-devices website affords users to feel comfortable interacting with content whether the size of the screen their device has.
+This is Full Stack application includes client and server side. Frontend part implemented with HTML(ejs)/CSS(SCSS)/JavaScript, backend architecture implemented on JavaScript and interaction with data base on SQL(PostgreSQL). All pages are responsive, work with a broad variety of screens in range from mobile devices (screen width 320px) to desktops (screen width 1200px and higher). This cross-devices website affords users to feel comfortable interacting with content whether the size of the screen their device has.
 
 This project is build with the following technologies:
 ```
 - HTML;
 - CSS;
-- JavaScript;
 - SASS;
-- weather API (fetch data from weather API);
+- Postgres SQL;
+- JavaScript;
+- Ajax;
+- Node.js;
+- Express.js
+- Embedded JavaScript templating;
+- PostgreSQL;
+
 ```
-Semantic HTML is used for all webpages markup with the elements of block - element - modifier system in class naming. All elements are styled with CSS using the inheritance and cascading rules, and selectors specificity. CSS rules are contained in a separate .scss files for easier maitenance and then compiled with the Sass preprocessor into a CSS style master file to reduce the number of interactions with a server. Responsiveness is provided by the usage of media queries and sass variables.
-All algorithms  were implemented with JavaScript. This includes DOM manipulation (DOM elements creation and modification) and API fetching.
+---
+### Descriptions of Frontend side 
+
+---
+### Descriptions of Backend side 
+
+---
+### Descriptions of data base architecture
 
 ---
 ### Descriptions of JavaScript features 
-1) _Weather API_ implemented on vanilla JavaScript. Weather API architecture includes following functions: 
-Function `displayWeather()` creates DOM elements that contains weather data. Function `getWeather()` fetches weather API from outer resource. Functions `celsiusToFahrenheit()` and `fahrenheitToCelsius()` calculate and transition data to the measurement sistem convenient for user.
-2) _Modal hotel booking form_. Implemented algorithm allows to show and hide modal booking form. Algorithm includes follow steps: find modal element inside HTML markup, listen for the event `a user click on the button`, show the modal booking form, get user's data, hide modal form when user click on a particular button. 
-3) _Likes toggle_ with the toggle algorithm.
+
+
 
 
