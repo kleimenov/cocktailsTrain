@@ -56,8 +56,51 @@ This project is build with the following technologies:
 - PostgreSQL.
 
 ```
+
+### Directory tree representation
+```
+cocktailsTrain
+├── public
+│   ├── assets
+|   ├── fonts
+|   |   ├── Begora.ttf
+|   |   ├── fenwick.ttf
+|   |   ├── Hustlersrough.otf
+|   |   ├── NeonTubes2.otf
+|   |   └── Yesteryear.ttf
+|   ├── static
+|   |   ├── addLikeDislike.js
+|   |   ├── addNewCocktail.js
+|   |   ├── addNewReview.js
+|   |   ├── createIngredientField.js
+|   |   └── index.js
+|   ├── style
+|   |   ├── style.css
+|   |   ├── style.css.map
+|   |   └── style.scss
+├── views
+|   └── partials
+|   |   ├── _footer.ejs
+|   |   ├── _header.ejs
+|   ├── addNewCocktail.ejs
+│   ├── cocktailReviews.ejs
+|   ├── cocktails.ejs
+|   ├── editSpecificCocktailData.ejs
+|   ├── loginForm.ejs
+|   ├── myCocktails.ejs
+|   ├── registerForm.ejs
+|   ├── specificCocktail.ejs
+|   ├── startPage.ejs
+├── clientSide.js
+├── database.js
+├── handlers.js
+├── server.js
+└── README.md
+```
+
+
 ---
-### Feature descriptions
+### Descriptions of Frontend part 
 `cocktailsTrain` app provides users a handful of cool features:
 - `login authentification`, get user email and password, search his in the database, compare current user data and check it with data in the database;
 - `registration algorithm`, provide the users registration form, the algorithm checks user data and if everything correct, 
@@ -70,9 +113,6 @@ creates a new user account and user get access to all features that are not acce
 - `read, create and like reviews`, this three features provide users entertainment and communication with other users opportunity.
 
 *Above I described application functionality in Layman's terms, further, I will show how it works under the hood.*
-
----
-### Descriptions of Frontend part 
 
 ---
 ### Descriptions of Backend part
@@ -107,8 +147,13 @@ On server side I used fallow libraries and modules:
 ---
 ### Descriptions of data base architecture
 
+Database architecture imply fast cross-table access to data, it is necessary when the server becomes high loaded, a lot of users interact with the application. 
+The database includes a bunch of tables with holds users, cocktails, ingredients, reviews data, and so on. Implemented cross table connection through foreign and primary keys. SQL queries manage the transition of data between tables and users.
+
 ---
 ### Descriptions of JavaScript features 
+
+
 
 
 
