@@ -11,7 +11,7 @@ The interface of this application allows users to `GET, PUT, POST, and DELETE ` 
 This is cocktails library web application. The main idea is to provide a communication platform for the cocktail lovers community, 
 sort of a social network where the main discussion object is a cocktail. Users can share their favorite cocktails, left comments, and put likes.
 
-`cocktailsTrain` website has three webpages:
+`cocktailsTrain` website has couple of webpages:
 - main (home) page;
 - all cocktails page;
 - my cocktails page;
@@ -58,6 +58,18 @@ This project is build with the following technologies:
 ```
 ---
 ### Feature descriptions
+`cocktailsTrain` app provides users a handful of cool features:
+- `login authentification`, get user email and password, search his in the database, compare current user data and check it with data in the database;
+- `registration algorithm`, provide the users registration form, the algorithm checks user data and if everything correct, 
+creates a new user account and user get access to all features that are not accessible for unregistered users;
+- `access to all cocktails current list`, user can explore and interact all cocktails in database;
+- `my cocktails list` is a crucial feature that allows sort cocktails and specific user to get access to their own list of cocktails. It allows users to manage their cocktails list, whether add new or edit exists cocktails, leave comments on other users cocktails;
+- `add new cocktails`, this feature allows user create new cocktail, it is a core feature of application;
+- `edit cocktail data`, allows user to edit all cocktail data like ingredients and amount of it;
+- `delete cocktail` allows users to delete cocktails from a database for goods;
+- `read, create and like reviews`, this three features provide users entertainment and communication with other users opportunity.
+
+*Above I described application functionality in Layman's terms, further, I will show how it works under the hood.*
 
 ---
 ### Descriptions of Frontend part 
