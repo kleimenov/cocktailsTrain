@@ -98,7 +98,6 @@ cocktailsTrain
 └── README.md
 ```
 
-
 ---
 ### Descriptions of Frontend part 
 `cocktailsTrain` app provides users a handful of cool features:
@@ -152,6 +151,11 @@ The database includes a bunch of tables with holds users, cocktails, ingredients
 
 ---
 ### Descriptions of JavaScript features 
+1) `Likes feature` (currently deployed just for reviews) for this feature was implemented a sophisticated algorithm that provides reliable control and prevents multiple likes. The solution implies keeping personalized likes data in a particular table `likes_list` and check the specific user has a record in this table or not.  If the user has a record it means that he cannot add another one like, but he can put him like back if he clicks at like button a second time, in this case, it would work as a toggle. Such a solution works much reliable than prevent multiple likes problems on the client-side, like check the user's cookies, or add a specific condition that will disable the button, and so on.
+2) 
+
+
+
 
 
 
