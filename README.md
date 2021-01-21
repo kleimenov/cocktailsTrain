@@ -151,8 +151,11 @@ The database includes a bunch of tables with holds users, cocktails, ingredients
 
 ---
 ### Descriptions of JavaScript features 
-1) `Likes feature` (currently deployed just for reviews) for this feature was implemented a sophisticated algorithm that provides reliable control and prevents multiple likes. The solution implies keeping personalized likes data in a particular table `likes_list` and check the specific user has a record in this table or not.  If the user has a record it means that he cannot add another one like, but he can put him like back if he clicks at like button a second time, in this case, it would work as a toggle. Such a solution works much reliable than prevent multiple likes problems on the client-side, like check the user's cookies, or add a specific condition that will disable the button, and so on.
-2) 
+1) `Likes feature` (currently deployed just for reviews) for this feature was implemented a sophisticated algorithm that provides reliable control and prevents multiple likes. The solution implies keeping personalized likes data in a particular table `likes_list` and check the specific user has a record in this table or not. If the user has a record it means that he cannot add another one like, but he can put him like back if he clicks at like button a second time, in this case, it would work as a toggle. Such a solution works much reliable than prevent multiple likes problems on the client-side, like check the user's cookies, or add a specific condition that will disable the button, and so on.
+2) `Add new cocktail` feature use `createIngredientField()` function to create specific HTML markup, build flex-container, add specific CSS selectors, and post data to the database.
+3) `Edit cocktail` feature use `createIngredientField()` function to create specific HTML markup, build flex-container, add specific CSS selectors, and post data to the database.
+4) The `Delete cocktail` feature uses a simple approach, get the cocktail id from the user, find it inside the database and execute a simple SQL query that deletes a particular record.
+5) `Add a review` is an important feature that creates communication space between users. This feature implements a bunch of different SQL queries from database and sophisticated settings of async works of functions on the server-side.
 
 
 
