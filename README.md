@@ -75,7 +75,31 @@ creates a new user account and user get access to all features that are not acce
 ### Descriptions of Frontend part 
 
 ---
-### Descriptions of Backend part 
+### Descriptions of Backend part
+On server side I used fallow libraries and modules: 
+- `Express.js`;
+- `body-parcer`;
+- `cookie-parcer`;
+- `bycript`;
+- `path`;
+- `pg`;
+- `vanila JS`;
+- `Ajax`;
+- `postgeSQL`.
+
+`cocktailsTrain` application server implemented on express.js and includes follow routes:
+- `'/'`;
+- `'/cocktails'`;
+- `'/login'`;
+- `'/logout`;
+- `'/register'`;
+- `'/myCocktails'`;
+- `'/cocktail/:id'`;
+- `'/cocktail/new'`;
+- `'/cocktail/:id/edit'`;
+- `'/cocktail/:id/delete'`;
+- `'/cocktail/:id/reviews'`;
+- `'/reviews/:reviewId/add'`.
 
 ---
 ### Descriptions of data base architecture
