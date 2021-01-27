@@ -36,7 +36,6 @@ also if the user clicks on each cocktail name on his page, he will be redirected
 5) _Particular cocktail reviews list_ is a page where users can read comments that leavs other users and add new comments. Also on this page implemented the likes feature (I will explain what is that feature further).
 
 ---
-
 ### Tech descripton and specification
 
 This is Full Stack Web application with client and server side. Frontend part implemented with HTML(ejs)/CSS(SCSS)/JavaScript, backend architecture implemented on JavaScript and interaction with data base on SQL(PostgreSQL). All pages are responsive, work with a broad variety of screens in range from mobile devices (screen width 320px) to desktops (screen width 1200px and higher). This cross-devices web application affords users to feel comfortable interacting with content whether the size of the screen their device has.
