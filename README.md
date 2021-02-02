@@ -2,7 +2,6 @@
 (non-commercial project)
 
 * Author: [Ivan Kleimenov](https://github.com/kleimenov).
-
 ---
 ### Description
 There is the `Full Stack web application` for cocktails fans.`RESTful API` is an architectural style for this application.
