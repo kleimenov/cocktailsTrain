@@ -10,7 +10,7 @@ const saltRounds = 10;
 //const PORT = process.env.PORT || 3002; //set new port (cli) export PORT= <new port value>
 const PORT = 3002;
 const db = require('./database.js');
-const handlers = require('./handlers.js');
+const handlers = require('./handlers.js'); 
 
 //set up application
 const app = express();
